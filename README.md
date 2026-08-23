@@ -50,17 +50,17 @@ The complete pipeline runs locally on the Arduino Uno Q.
 ---
 
 ## Producer–Consumer Architecture
-```
-CPU-side processing and GPU inference are separated using a producer-consumer architecture:
 
+CPU-side processing and GPU inference are separated using a producer-consumer architecture:
+```
 Producer
 Image Input → QRB2210 CPU → ROI Extraction → Buffer Queue (Max 30)
-```
+
                                       ↓
 
 Consumer
 Buffer Queue → Adreno 702 GPU → MNN Inference → Defect Result
-
+```
 ## Platform
 
 | Component | Specification |
@@ -228,7 +228,7 @@ After cloning the repository:
 ```bash
 chmod +x run.sh
 ./run.sh
-```bash
+```
 
 ## Controls
 
