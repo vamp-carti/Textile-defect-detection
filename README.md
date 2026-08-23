@@ -255,3 +255,16 @@ chmod +x run.sh
 |-----------|----------|
 | `output/` | Defect masks |
 | `defect_report_*.csv` | CSV report |
+
+## Command Line Options
+
+| Flag | Description | Default |
+|------|-------------|---------|
+| `--input <path>` | Input directory or image file | Required |
+| `--output <path>` | Output directory for results | Required |
+| `--calibration <path>` | Path to calibration JSON file | `calibration_metrics.json` |
+| `--async` | Enable producer-consumer mode | Disabled |
+| `--queue-size <n>` | Pipeline queue size (1-10) | 3 |
+| `--debug` | Enable debug output | Disabled |
+| `--help` | Show help message | - |
+
