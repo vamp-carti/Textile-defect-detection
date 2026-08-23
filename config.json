@@ -1,0 +1,45 @@
+{
+    "image": {
+        "ds_factor": 2,
+        "target_h": 1080,
+        "target_w": 1920
+    },
+    "morphology": {
+        "close_ksize_ds": 11,
+        "line_len_ds": 7
+    },
+    "cluster": {
+        "min_cluster_size_ds": 67,
+        "void_energy_ratio": 0.18
+    },
+    "background": {
+        "bg_ds_factor": 4,
+        "ksize_ds_stage1": 31
+    },
+    "debug": {
+        "enabled": false,
+        "log_detections": false,
+        "log_timing": false,
+        "draw_debug_boxes": false,
+        "save_intermediate": false
+    },
+    "timing": {
+        "enabled": false,
+        "measure_inference": false,
+        "measure_preprocessing": false,
+        "measure_postprocessing": false
+    },
+    "production": {
+        "num_workers": 4,
+        "queue_size": 30,
+        "enable_warmup": true,
+        "warmup_iterations": 10,
+        "log_file": "minimind.log",
+        "save_defects": true,
+        "defect_output_dir": "output",
+	"model_path": "models/mobilenetv4_conv_small_batch.mnn",
+        "opencl_backend_path": "cpp_gpu_runtime/lib/libMNN_CL.so",
+        "defect_threshold": 0.0092,
+        "calibration_path": "calibration_metrics.json"
+    }
+}
