@@ -17,6 +17,7 @@ The system takes textile images as input, detects potential defect regions, extr
 The complete pipeline runs locally on the Arduino Uno Q.
 
 ## System Architecture
+```
        Image Input
           │
           ▼
@@ -45,22 +46,22 @@ The complete pipeline runs locally on the Arduino Uno Q.
 │ Hole / Cut / Oil    │
 │ Lint / Normal       │
 └─────────────────────┘
-
+```
 ---
 
 ## Producer–Consumer Architecture
-
+```
 CPU-side processing and GPU inference are separated using a producer-consumer architecture:
 
 Producer
 Image Input → QRB2210 CPU → ROI Extraction → Buffer Queue (Max 30)
-
+```
                                       ↓
 
 Consumer
 Buffer Queue → Adreno 702 GPU → MNN Inference → Defect Result
 
-## Hardware
+## Platform
 
 | Component | Specification |
 |-----------|---------------|
@@ -72,6 +73,7 @@ Buffer Queue → Adreno 702 GPU → MNN Inference → Defect Result
 | GPU API | OpenCL |
 | Inference Runtime | MNN |
 | Implementation | C++ |
+| Architecture | MobileNetV4 Conv Small |
 
 The Uno Q was selected as a compact and cost-effective edge platform suitable for MSME retrofit applications. Its Linux environment, GPU acceleration, AI capabilities and connectivity provide room for future expansion into connected inspection systems.
 
@@ -106,7 +108,23 @@ The pipeline uses techniques including:
 
 Candidate regions are converted into 224 × 224 ROIs.
 
-### Stage 2 — Defect Classification
+---
+
+### Stage 2 — ROI Priority Ordering
+
+Once defect components are extracted, they are prioritized before classification:
+
+| Priority | Criteria | Sorting Logic |
+|----------|----------|---------------|
+| **P1** | Area > 700 | Largest defects first |
+| **P2** | Area 270 – 700 | Clustered using BFS, sorted by density score |
+| **P3** | Remaining components | Original detection order |
+
+This ensures that larger and more significant defects are processed before smaller ones.
+
+---
+
+### Stage 3 — Defect Classification
 
 Each ROI is passed to a MobileNetV4 Conv Small classifier.
 
@@ -118,6 +136,8 @@ The model is:
 - Input: 224 × 224 RGB
 - Precision: FP32
 - Executed on the Adreno 702 GPU
+
+Early stopping is enabled: once a defect is detected in a frame, remaining ROIs are skipped to optimize performance.
 
 ## Model Performance
 
@@ -138,6 +158,18 @@ Binary evaluation groups the classes as:
 - **Normal:** lint / normal
 
 Training was performed using an NVIDIA RTX 3050 Ti laptop GPU.
+
+### Model Details
+
+| Parameter | Value |
+|-----------|-------|
+| Input Shape | 1 × 3 × 224 × 224 |
+| Precision | FP32 |
+| Classes | 5 (cuts, hole, lint, normal, oil) |
+| Threshold | 0.0096 |
+| Batch Size | 16 |
+| Backend | MNN_FORWARD_OPENCL |
+| Framework | PyTorch → ONNX → MNN |
 
 ## Performance
 
@@ -167,8 +199,12 @@ The complete pipeline was continuously tested on 500 frames containing both defe
 - No detected memory leaks
 - Producer queue capped at 30 frames
 - Continuous operation without restarting the pipeline
+- Memory usage: ~1500 MB
+- Peak GPU temperature: ~45°C
 
 The test covered normal fabric, defective regions, varying ROI counts, result generation and continuous buffer usage.
+
+Memory consumption remained consistent throughout the test, indicating stable resource management. The thermal profile remained within acceptable limits for the QRB2210 platform, with no throttling or performance degradation observed during extended operation.
 
 ---
 
@@ -176,10 +212,9 @@ The test covered normal fabric, defective regions, varying ROI counts, result ge
 
 The system provides:
 
-- Detected defect classification
 - Defect frame saving
 - Frame and defect counters
-- FPS / throughput monitoring
+- FPS
 - CPU usage
 - Temperature monitoring
 - CSV result export
@@ -193,6 +228,7 @@ After cloning the repository:
 ```bash
 chmod +x run.sh
 ./run.sh
+```bash
 
 ## Controls
 
