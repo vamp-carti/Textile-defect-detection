@@ -4,6 +4,11 @@ An edge-based textile inspection system designed for MSMEs, running directly on 
 
 ---
 
+> [!NOTE]
+> **Deployment Note**
+>
+> This repository includes the prebuilt runtime, required libraries, and build artifacts from the validated Arduino Uno Q deployment. These files are intentionally included to preserve the known-working MNN/OpenCL GPU environment and ensure the system can be reproduced without rebuilding the runtime.
+
 ## What Does It Do?
 
 The system takes textile images as input, detects potential defect regions, extracts the relevant ROIs, and classifies them into:
@@ -90,6 +95,12 @@ The imaging setup used during development consisted of:
 - 60 FPS capture
 - 3× zoom
 - Approximately 20 × 12 cm fabric area covered at 4K
+
+A small set of representative images is included in the repository for testing the pipeline.
+
+The complete high-resolution input dataset is hosted separately due to file size:
+
+**[Download Test Dataset]https://drive.google.com/drive/folders/1BDQwk0uoKJ36_1LTt-jVTz7fnDCodhvw?usp=drive_link**
 
 Layer 1 processes the image at 1080p, while high-resolution information is used for ROI extraction before classification.
 
