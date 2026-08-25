@@ -8,6 +8,7 @@ An edge-based textile inspection system designed for MSMEs, running directly on 
 > **Deployment Note**
 >
 > This repository includes the prebuilt runtime, required libraries, and build artifacts from the validated Arduino Uno Q deployment. These files are intentionally included to preserve the known-working MNN/OpenCL GPU environment and ensure the system can be reproduced without rebuilding the runtime.
+> A live-run video is not included because the available video streaming interface supports a maximum resolution of **1080p**, while Layer 2 relies on **4K frames to crop high-resolution ROIs** for classification. The system was therefore validated using captured 4K image frames/videos instead.
 
 ## What Does It Do?
 
@@ -23,34 +24,71 @@ The complete pipeline runs locally on the Arduino Uno Q.
 
 ## System Architecture
 ```
-       Image Input
-          │
-          ▼
-┌─────────────────────┐
-│      QRB2210 CPU    │
-│ Layer 1             │
-│ Gabor + FFT + CV    │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│   ROI Extraction    │
-│      224 × 224      │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│    Adreno 702 GPU   │
-│   MNN + OpenCL      │
-│   MobileNetV4       │
-└──────────┬──────────┘
-           │
-           ▼
-┌─────────────────────┐
-│    Defect Result    │
-│ Hole / Cut / Oil    │
-│ Lint / Normal       │
-└─────────────────────┘
+                    ┌─────────────────────────────────────────────────────────────────┐
+                    │                       4K INPUT IMAGE                           │
+                    │                   (iPhone 14 Pro, 3× Zoom)                     │
+                    └───────────────────────────┬─────────────────────────────────────┘
+                                                │
+                                                ▼
+                    ┌─────────────────────────────────────────────────────────────────┐
+                    │                    LAYER 1 — DEFECT LOCALIZATION                │
+                    │                         (QRB2210 CPU)                           │
+                    │                                                                 │
+                    │   • Input: 4K image → Downscaled to 1080p                       │
+                    │   • Gabor filtering + FFT/frequency-domain analysis             │
+                    │   • Morphological operations + connected component analysis     │
+                    │                                                                 │
+                    │   Output: Array of Defect Components                            │
+                    │   (x, y, width, height, area, centroid_x, centroid_y)           │
+                    └───────────────────────────┬─────────────────────────────────────┘
+                                                │
+                                                ▼
+                    ┌─────────────────────────────────────────────────────────────────┐
+                    │                     ROI EXTRACTION & PRIORITY                   │
+                    │                         (QRB2210 CPU)                           │
+                    │                                                                 │
+                    │   • Uses original 4K RGB image (not downscaled)                 │
+                    │   • Components projected from 1080p → 4K coordinates            │
+                    │   • ROIs extracted in priority order:                           │
+                    │                                                                 │
+                    │     ┌─────────────────────────────────────────────────────┐     │
+                    │     │  PRIORITY 1 (P1)  │  Area > 700   │ Largest first │     │
+                    │     │  PRIORITY 2 (P2)  │  270–700     │ Clustered BFS  │     │
+                    │     │  PRIORITY 3 (P3)  │  Remaining   │ Original order │     │
+                    │     └─────────────────────────────────────────────────────┘     │
+                    │                                                                 │
+                    │   Output: 224 × 224 RGB ROIs (in priority order)               │
+                    └───────────────────────────┬─────────────────────────────────────┘
+                                                │
+                                                ▼
+                    ┌─────────────────────────────────────────────────────────────────┐
+                    │                    LAYER 2 — DEFECT CLASSIFICATION              │
+                    │                      (Adreno 702 GPU + OpenCL)                  │
+                    │                                                                 │
+                    │   • MobileNetV4 Conv Small classifier                           │
+                    │   • Batch inference (max 16 ROIs per batch)                     │
+                    │   • 5 classes: cuts, hole, lint, normal, oil                   │
+                    │                                                                 │
+                    │   EARLY STOPPING:                                               │
+                    │   ┌─────────────────────────────────────────────────────────┐   │
+                    │   │  Once a defect is detected in a frame:                   │   │
+                    │   │  • All remaining ROIs for that frame are discarded       │   │
+                    │   │  • Defected original frame (4K) + ROI crop are saved    │   │
+                    │   │  • Pipeline moves to next frame                          │   │
+                    │   └─────────────────────────────────────────────────────────┘   │
+                    └───────────────────────────┬─────────────────────────────────────┘
+                                                │
+                                                ▼
+                    ┌─────────────────────────────────────────────────────────────────┐
+                    │                         DEFECT RESULT                          │
+                    │                                                                 │
+                    │   ┌─────────────┐  ┌─────────────┐  ┌─────────────┐           │
+                    │   │  Defect     │  │  Defect     │  │  Defect     │           │
+                    │   │  Class      │  │  Images     │  │  Report     │           │
+                    │   │  (5-class)  │  │  (Full 4K   │  │  (CSV)      │           │
+                    │   │             │  │   + ROI)    │  │             │           │
+                    │   └─────────────┘  └─────────────┘  └─────────────┘           │
+                    └─────────────────────────────────────────────────────────────────┘
 ```
 ---
 
