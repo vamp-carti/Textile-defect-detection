@@ -86,12 +86,6 @@ private:
     // Stage 05
     cv::Mat oil_closed_;
     cv::Mat oil_opened_;
-
-    // Preallocated buffer for CC Filtering (Stage 07)
-    cv::Mat labels_;
-    cv::Mat stats_;
-    cv::Mat centroids_;
-    std::vector<uchar> lut_;
 };
 
 } // namespace minimind

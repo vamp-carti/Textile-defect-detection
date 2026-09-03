@@ -104,12 +104,6 @@ bool Level1Detector::initialize() {
     combined_pixel_mask_.create(Config::getInstance().image.target_h, 
                                 Config::getInstance().image.target_w, CV_8U);
 
-    labels_.create(Config::getInstance().image.target_h, 
-                   Config::getInstance().image.target_w, CV_32S);
-    stats_.create(0, 5, CV_32S);
-    centroids_.create(0, 2, CV_64F);
-    lut_.resize(4096);
-
     img_ds2_.create(Config::getInstance().image.target_h, 
                     Config::getInstance().image.target_w, CV_8U);
     bg_ds8_.create(bg_h, bg_w, CV_8U);
@@ -325,53 +319,8 @@ cv::Mat Level1Detector::process(const cv::Mat& input, int frame_id) {
 
     cv::bitwise_or(morph_struct_, solid_oil_mask_, unified_mask_);
     timer_.stop("06_variance_stream");
-
-    timer_.start("07_cc_filtering");
     
-    int n_labels = cv::connectedComponentsWithStats(unified_mask_, labels_, stats_, centroids_, 8, CV_32S);
-    
-    if (lut_.size() < static_cast<size_t>(n_labels)) {
-        lut_.resize(n_labels);
-    }
-    
-    lut_[0] = 0;
-    last_components_.clear();
-    last_components_.reserve(n_labels - 1);
-    
-    for (int i = 1; i < n_labels; ++i) {
-        int area = stats_.at<int>(i, cv::CC_STAT_AREA);
-        
-        if (area >= Config::getInstance().cluster.min_cluster_size_ds) {
-            lut_[i] = 255;
-            
-            DefectComponent comp;
-            comp.frame_id = frame_id;
-            comp.id = i;
-            comp.x = stats_.at<int>(i, cv::CC_STAT_LEFT);
-            comp.y = stats_.at<int>(i, cv::CC_STAT_TOP);
-            comp.width = stats_.at<int>(i, cv::CC_STAT_WIDTH);
-            comp.height = stats_.at<int>(i, cv::CC_STAT_HEIGHT);
-            comp.area = area;
-            comp.centroid_x = centroids_.at<double>(i, 0);
-            comp.centroid_y = centroids_.at<double>(i, 1);
-            
-            last_components_.push_back(comp);
-        } else {
-            lut_[i] = 0;
-        }
-    }
-    
-    macro_mask_.setTo(0);
-    
-    for (int r = 0; r < Config::getInstance().image.target_h; ++r) {
-        const int* label_row = labels_.ptr<int>(r);
-        uchar* mask_row = macro_mask_.ptr<uchar>(r);
-        
-        for (int c = 0; c < Config::getInstance().image.target_w; ++c) {
-            int label = label_row[c];
-            mask_row[c] = static_cast<uchar>(lut_[label]);
-        }
-    }
+    unified_mask_.copyTo(macro_mask_);
     
     int border_crop = calib_.border_crop;
     macro_mask_.rowRange(0, border_crop).setTo(0);
@@ -380,6 +329,32 @@ cv::Mat Level1Detector::process(const cv::Mat& input, int frame_id) {
     macro_mask_.colRange(0, border_crop).setTo(0);
     macro_mask_.colRange(Config::getInstance().image.target_w - border_crop, 
                          Config::getInstance().image.target_w).setTo(0);
+    
+    timer_.start("07_cc_filtering");
+
+    // Run CC ONCE on the final cropped mask
+    cv::Mat final_labels, final_stats, final_centroids;
+    int n_final = cv::connectedComponentsWithStats(macro_mask_, final_labels, final_stats, final_centroids, 8, CV_32S);
+
+    last_components_.clear();
+    last_components_.reserve(n_final - 1);
+
+    for (int i = 1; i < n_final; ++i) {
+        int area = final_stats.at<int>(i, cv::CC_STAT_AREA);
+        if (area >= Config::getInstance().cluster.min_cluster_size_ds) {
+            DefectComponent comp;
+            comp.frame_id = frame_id;
+            comp.id = i;
+            comp.x = final_stats.at<int>(i, cv::CC_STAT_LEFT);
+            comp.y = final_stats.at<int>(i, cv::CC_STAT_TOP);
+            comp.width = final_stats.at<int>(i, cv::CC_STAT_WIDTH);
+            comp.height = final_stats.at<int>(i, cv::CC_STAT_HEIGHT);
+            comp.area = area;
+            comp.centroid_x = final_centroids.at<double>(i, 0);
+            comp.centroid_y = final_centroids.at<double>(i, 1);
+            last_components_.push_back(comp);
+        }
+    }                     
     
     timer_.stop("07_cc_filtering");
 
