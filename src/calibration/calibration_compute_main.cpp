@@ -3,6 +3,8 @@
 #include <iostream>
 
 int main(int argc, char** argv) {
+    // This small utility intentionally shares CalibrationComputer with the main
+    // pipeline so offline calibration and runtime calibration use the same math.
     if (argc < 2) {
         std::cerr << "Usage: ./calibration_compute <input_image> [output_json]" << std::endl;
         return 1;

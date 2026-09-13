@@ -8,102 +8,24 @@ An edge-based textile inspection system designed for MSMEs, running directly on 
 > **Deployment Note**
 >
 > This repository includes the prebuilt runtime, required libraries, and build artifacts from the validated Arduino Uno Q deployment. These files are intentionally included to preserve the known-working MNN/OpenCL GPU environment and ensure the system can be reproduced without rebuilding the runtime.
-> A live-run video is not included because the available video streaming interface supports a maximum resolution of **1080p**, while Layer 2 relies on **4K frames to crop high-resolution ROIs** for classification. The system was therefore validated using captured 4K image frames/videos instead.
+
+
+---
 
 ## What Does It Do?
 
-The system takes textile images as input, detects potential defect regions, extracts the relevant ROIs, and classifies them into:
+The system ingests textile images, localizes potential defect regions, extracts them as 224×224 ROIs, and classifies each ROI into one of five classes:
 
+- **Cuts**
 - **Hole**
-- **Cut**
-- **Oil**
 - **Lint**
 - **Normal**
+- **Oil**
 
-The complete pipeline runs locally on the Arduino Uno Q.
+Runs entirely on-device. No cloud calls, no external inference service.
 
-## System Architecture
-```
-                    ┌─────────────────────────────────────────────────────────────────┐
-                    │                       4K INPUT IMAGE                           │
-                    │                   (iPhone 14 Pro, 3× Zoom)                     │
-                    └───────────────────────────┬─────────────────────────────────────┘
-                                                │
-                                                ▼
-                    ┌─────────────────────────────────────────────────────────────────┐
-                    │                    LAYER 1 — DEFECT LOCALIZATION                │
-                    │                         (QRB2210 CPU)                           │
-                    │                                                                 │
-                    │   • Input: 4K image → Downscaled to 1080p                       │
-                    │   • Gabor filtering + FFT/frequency-domain analysis             │
-                    │   • Morphological operations + connected component analysis     │
-                    │                                                                 │
-                    │   Output: Array of Defect Components                            │
-                    │   (x, y, width, height, area, centroid_x, centroid_y)           │
-                    └───────────────────────────┬─────────────────────────────────────┘
-                                                │
-                                                ▼
-                    ┌─────────────────────────────────────────────────────────────────┐
-                    │                     ROI EXTRACTION & PRIORITY                   │
-                    │                         (QRB2210 CPU)                           │
-                    │                                                                 │
-                    │   • Uses original 4K RGB image (not downscaled)                 │
-                    │   • Components projected from 1080p → 4K coordinates            │
-                    │   • ROIs extracted in priority order:                           │
-                    │                                                                 │
-                    │     ┌─────────────────────────────────────────────────────┐     │
-                    │     │  PRIORITY 1 (P1)  │  Area > 700   │ Largest first │     │
-                    │     │  PRIORITY 2 (P2)  │  270–700     │ Clustered BFS  │     │
-                    │     │  PRIORITY 3 (P3)  │  Remaining   │ Original order │     │
-                    │     └─────────────────────────────────────────────────────┘     │
-                    │                                                                 │
-                    │   Output: 224 × 224 RGB ROIs (in priority order)               │
-                    └───────────────────────────┬─────────────────────────────────────┘
-                                                │
-                                                ▼
-                    ┌─────────────────────────────────────────────────────────────────┐
-                    │                    LAYER 2 — DEFECT CLASSIFICATION              │
-                    │                      (Adreno 702 GPU + OpenCL)                  │
-                    │                                                                 │
-                    │   • MobileNetV4 Conv Small classifier                           │
-                    │   • Batch inference (max 16 ROIs per batch)                     │
-                    │   • 5 classes: cuts, hole, lint, normal, oil                   │
-                    │                                                                 │
-                    │   EARLY STOPPING:                                               │
-                    │   ┌─────────────────────────────────────────────────────────┐   │
-                    │   │  Once a defect is detected in a frame:                   │   │
-                    │   │  • All remaining ROIs for that frame are discarded       │   │
-                    │   │  • Defected original frame (4K) + ROI crop are saved    │   │
-                    │   │  • Pipeline moves to next frame                          │   │
-                    │   └─────────────────────────────────────────────────────────┘   │
-                    └───────────────────────────┬─────────────────────────────────────┘
-                                                │
-                                                ▼
-                    ┌─────────────────────────────────────────────────────────────────┐
-                    │                         DEFECT RESULT                          │
-                    │                                                                 │
-                    │   ┌─────────────┐  ┌─────────────┐  ┌─────────────┐           │
-                    │   │  Defect     │  │  Defect     │  │  Defect     │           │
-                    │   │  Class      │  │  Images     │  │  Report     │           │
-                    │   │  (5-class)  │  │  (Full 4K   │  │  (CSV)      │           │
-                    │   │             │  │   + ROI)    │  │             │           │
-                    │   └─────────────┘  └─────────────┘  └─────────────┘           │
-                    └─────────────────────────────────────────────────────────────────┘
-```
 ---
 
-## Producer–Consumer Architecture
-
-CPU-side processing and GPU inference are separated using a producer-consumer architecture:
-```
-Producer
-Image Input → QRB2210 CPU → ROI Extraction → Buffer Queue (Max 30)
-
-                                      ↓
-
-Consumer
-Buffer Queue → Adreno 702 GPU → MNN Inference → Defect Result
-```
 ## Platform
 
 | Component | Specification |
@@ -113,54 +35,97 @@ Buffer Queue → Adreno 702 GPU → MNN Inference → Defect Result
 | CPU | Quad-core Cortex-A53 |
 | GPU | Adreno 702 |
 | RAM | 4 GB LPDDR4 |
-| GPU API | OpenCL |
-| Inference Runtime | MNN |
-| Implementation | C++ |
-| Architecture | MobileNetV4 Conv Small |
+| GPU API | OpenCL (Rusticl) |
+| GPU inference runtime | MNN |
+| CPU inference runtime | Edge Impulse SDK (TensorFlow Lite Micro + XNNPACK) |
+| Implementation | C++17, Python (UI) |
+| Classifier | MobileNetV4 Conv Small |
 
-The Uno Q was selected as a compact and cost-effective edge platform suitable for MSME retrofit applications. Its Linux environment, GPU acceleration, AI capabilities and connectivity provide room for future expansion into connected inspection systems.
+## Tech Stack
 
+| Layer | Technology |
+|-------|------------|
+| Image processing | OpenCV 4 |
+| GPU inference | MNN + OpenCL (Rusticl driver) |
+| CPU inference | TensorFlow Lite Micro + XNNPACK (Edge Impulse SDK) |
+| Classifier | MobileNetV4 Conv Small (PyTorch → ONNX → MNN) |
+| Concurrency | C++17 std::thread, mutexes, condition variables |
+| UI | Python 3 stdlib http.server, vanilla JS/HTML/CSS |
+| MCU bridge | Arduino App Lab + Arduino Bridge (RPC) |
 ---
 
-## Input
+## System Architecture
+```
+┌───────────────────────────────────────────────────────────────────────────────┐
+│                          INPUT                                                │
+│  Arduino IoT Remote (phone) ──► App Lab bridge ──► frames/frame_NNN.jpg       │
+└───────────────────────────────────┬───────────────────────────────────────────┘
+                                    │
+                                    ▼
+┌───────────────────────────────────────────────────────────────────────────────┐
+│   THREAD 2 — IoWorker                                                         │
+│   Decode JPG (prefetch next frame) ──► cv::Mat                                │
+│   Enqueue defect image writes (low priority)                                  │
+└───────────────────────────────────┬───────────────────────────────────────────┘
+                                    │
+                                    ▼
+┌───────────────────────────────────────────────────────────────────────────────┐
+│   THREAD 3 — Producer (CPU, QRB2210)                                          │
+│   Layer 1: Gabor + FFT + variance + morphology ──► DefectComponent[]          │
+│   ROI extraction (224×224) ──► priority P1 / P2 / P3                          │
+│   Split: top-4 → CPU inline │ remaining → GPU queue                           │
+│   Per-frame cap: 20 ROIs → auto-recalibration on overshoot                    │
+└──────────────┬───────────────────────────────────────────┬────────────────────┘
+               │                                           │
+               ▼                                           ▼
+┌─────────────────────────────┐             ┌───────────────────────────────────┐
+│  CPU INFERENCE (thread 3)   │             │  THREAD 4 — Consumer (GPU)        │
+│  Edge Impulse (TFLite+XNNPACK)            │  MNN + OpenCL (Adreno 702)        │
+│  ~55–60 ms per ROI          │             │  Batch ≤ 16 ROIs                  │
+│  Early-reject on defect     │             │  No early-reject: all ROIs scored │
+└──────────────┬──────────────┘             └───────────────────┬───────────────┘
+               │                                                │
+               └───────────────────────┬────────────────────────┘
+                                       ▼
+┌───────────────────────────────────────────────────────────────────────────────┐
+│   VERDICT                                                                     │
+│   P_defect = P(cuts) + P(hole) + P(oil)                                       │
+│   Flag if P_defect ≥ threshold AND argmax ∈ {cuts, hole, oil}                 │
+│   Lint and normal argmax never fire                                           │
+└───────────────┬───────────────────────────┬───────────────────────────────────┘
+                │                           │
+                ▼                           ▼
+┌─────────────────────────────┐  ┌────────────────────────────────────────────┐
+│  OUTPUT                     │  │  FEEDBACK                                  │
+│  output/frames/             │  │  LED matrix: IDLE / NORMAL / DEFECT        │
+│  output/rois/               │  │  UI: status, FPS, defects, calibration     │
+│  defect_report_*.csv        │  │  CSV export + download                     │
+└─────────────────────────────┘  └────────────────────────────────────────────┘
+```
 
-The runtime accepts images as input.
 
-The imaging setup used during development consisted of:
+## Asynchronous Pipeline Overview
 
-- iPhone 14 Pro
-- 4K resolution
-- 60 FPS capture
-- 3× zoom
-- Approximately 20 × 12 cm fabric area covered at 4K
+Four threads run concurrently. Each owns a distinct stage of the pipeline; they communicate through bounded queues.
 
-A small set of representative images is included in the repository for testing the pipeline.
+### Thread 1 — Ingestion (App Lab → disk)
 
-The complete high-resolution input dataset is hosted separately due to file size:
+Frames arrive from the phone via the App Lab project (`firmware/videoledbridge/`). The App Lab container writes each frame to `~/ArduinoApps/videoledbridge/frames/` as `frame_NNN.jpg`. The producer watches this folder and picks up new files as they land. No polling of the phone; the phone streams, App Lab persists, the pipeline reads from disk.
 
-**[Download Test Dataset]https://drive.google.com/drive/folders/1BDQwk0uoKJ36_1LTt-jVTz7fnDCodhvw?usp=drive_link**
+### Thread 2 — IoWorker (disk I/O)
 
-Layer 1 processes the image at 1080p, while high-resolution information is used for ROI extraction before classification.
+Decouples disk work from the pipeline. Two responsibilities, decode-first priority:
 
-## Detection Pipeline
+- **Frame decode** — reads the JPG for the next frame and hands the decoded `cv::Mat` to the producer before Layer 1 runs on the previous frame. Hides ~250 ms of JPEG decode per frame behind Layer 1.
+- **Defect image writes** — when a defect fires, the frame overlay and ROI crop are queued for writing. These run only when the decode queue is empty, so a burst of defect saves never starves the producer.
 
-### Stage 1 — Defect Localization
+### Thread 3 — Producer (CPU: Layer 1 + ROI + split)
 
-The first stage uses OpenCV-based image processing to identify potential defect regions with high recall.
+The heaviest thread. Runs entirely on the QRB2210 CPU, single-threaded.
 
-The pipeline uses techniques including:
+- **Layer 1 — Defect Localization (~700–800 ms per frame).** Gabor filtering, FFT/frequency-domain analysis, variance-based processing, morphological operations, and connected-component analysis. Produces an array of defect candidate components in the 1080p working space.
 
-- Gabor filtering
-- FFT/frequency-domain analysis
-- Variance-based processing
-- ROI generation and filtering
-
-Candidate regions are converted into 224 × 224 ROIs.
-
----
-
-### Stage 2 — ROI Priority Ordering
-
+- **ROI extraction and priority ordering.** Components are projected to the original frame's coordinate space and converted to 224×224 ROIs. Ordering: P1 (area > 700), P2 (270–700, clustered by density), P3 (remaining).
 Once defect components are extracted, they are prioritized before classification:
 
 | Priority | Criteria | Sorting Logic |
@@ -171,26 +136,45 @@ Once defect components are extracted, they are prioritized before classification
 
 This ensures that larger and more significant defects are processed before smaller ones.
 
----
+- **Split.** The top 4 ROIs are sent to CPU classification inline. The remaining ROIs are pushed to the GPU queue.
 
-### Stage 3 — Defect Classification
+| Path | Used for | Backend | Latency per inference |
+|------|----------|---------|-----------------------|
+| CPU | Top 4 ROIs (priority order) | TensorFlow Lite + XNNPACK | ~55–60 ms |
+| GPU | Remaining ROIs (batched) | MNN OpenCL, batch ≤ 16 | ~1.5–2 s per batch |
 
-Each ROI is passed to a MobileNetV4 Conv Small classifier.
+### Thread 4 — Consumer (GPU: batched classification)
 
-The model is:
+Pops batches of up to 16 ROIs from the GPU queue and runs MNN OpenCL inference on the Adreno 702. A batch of 16 takes ~1.5–2 s wall-clock, dominated by GPU↔CPU synchronization rather than kernel execution. Results update the frame's defect state and, if a defect fires, feed the UI and LED bridge.
 
-- Exported in MNN format
-- Configured for batch inference
-- Current batch size: 16
-- Input: 224 × 224 RGB
-- Precision: FP32
-- Executed on the Adreno 702 GPU
 
-Early stopping is enabled: once a defect is detected in a frame, remaining ROIs are skipped to optimize performance.
+**Early-reject:** once the CPU path flags a defect, the frame is marked and remaining ROIs are skipped, resulting in saving compute and keeping throughput intact.
+**Lint-dominant ROIs that reach the GPU are suppressed by the argmax guard, hence reducing false positives in real production environment.**
 
-## Model Performance
+An **End-to-End latency of under 800 ms per frame** is achieved in true defect cases by overlapping decode (IoWorker) with Layer 1 (Producer) and inference (Consumer). In steady state, ingestion and inference overlap, keeping throughput near **~2 FPS** on the QRB2210.
 
-The classifier was trained on a curated dataset of approximately 10,000 ROI images.
+## Model
+
+MobileNetV4 Conv Small classifier, exported in two formats for the two inference paths.
+
+| Format | Path | Used for | Framework | Deployment platform |
+|--------|------|----------|-----------|---------------------|
+| MNN (FP32) | `models/mobilenetv4_conv_small_batch.mnn` | GPU batch inference | PyTorch → ONNX → MNN | Adreno 702 GPU (OpenCL) |
+| TFLite Micro | `tflite-model/tflite_learn_1101485_3.tflite` | CPU early-reject inference | PyTorch → TFLite → Edge Impulse SDK | QRB2210 CPU (XNNPACK) |
+
+| Parameter | Value |
+|-----------|-------|
+| Input Shape | 1 × 3 × 224 × 224 |
+| Precision | FP32 |
+| Classes | 5 (cuts, hole, lint, normal, oil) |
+| Batch Size (GPU) | 1–16 |
+| Training Hardware | NVIDIA RTX 3050 Ti laptop GPU |
+| Threshold | 0.005 |
+
+### Training and Metrics
+
+Trained on a curated dataset of approximately 10,000 ROI images.
+Validation results:
 
 | Metric | Result |
 |--------|--------|
@@ -199,46 +183,32 @@ The classifier was trained on a curated dataset of approximately 10,000 ROI imag
 | Recall | 99.50% |
 | Specificity | 99.25% |
 | F1 Score | 98.76% |
-| Classification threshold | 0.0096 |
+| Threshold at evaluation | 0.005 |
 
-Binary evaluation groups the classes as:
+Binary evaluation groups the classes as **Defect:** cut / hole / oil, and **Normal:** lint / normal.
+> [!NOTE]
+> The validation metrics above were computed at a threshold of 0.0096. The pipeline ships with `production.defect_threshold = 0.005`, which was chosen to favor recall on live data. Adjust in `config.json` if a stricter operating point is preferred.
 
-- **Defect:** cut / hole / oil
-- **Normal:** lint / normal
-
-Training was performed using an NVIDIA RTX 3050 Ti laptop GPU.
-
-### Model Details
-
-| Parameter | Value |
-|-----------|-------|
-| Input Shape | 1 × 3 × 224 × 224 |
-| Precision | FP32 |
-| Classes | 5 (cuts, hole, lint, normal, oil) |
-| Threshold | 0.0096 |
-| Batch Size | 16 |
-| Backend | MNN_FORWARD_OPENCL |
-| Framework | PyTorch → ONNX → MNN |
 
 ## Performance
 
-Layer 1 was benchmarked at approximately:
+### Per-stage latency
 
-- **~700 ms/frame**
+| Stage | Latency |
+|-------|---------|
+| Layer 1 (per frame, CPU) | ~700–800 ms |
+| CPU inference (per ROI) | ~55–60 ms |
+| GPU batch (up to 16 ROIs) | ~1.6s |
+| End-to-end (single-defect frame) | **< 800 ms** |
 
-The raw MobileNetV4 GPU computation was benchmarked at approximately:
+End-to-end throughput in steady state is **~2 FPS** on the QRB2210. Layer 1, IO, and inference overlap across threads, so frame time is bounded by the slowest stage rather than the sum of all stages.
 
-- **2.9 ms for an 11-ROI batch**
+> [!NOTE]
+> **GPU Inference Observation**
+>
+> The QNN runtime currently does not provide an OpenCL backend. In the current MNN/OpenCL setup, GPU inference itself is fast, while approximately **95% of the measured inference time is spent in synchronization overhead**, primarily around GPU↔CPU synchronization.
 
-However, end-to-end GPU inference currently experiences significant additional latency from GPU-to-CPU synchronization and data transfer.
-
-### GPU Bottleneck
-
-The observed latency is not primarily caused by neural-network computation. Profiling showed that the dominant overhead occurs during the GPU-to-CPU synchronization/output stage.
-
-The underlying OpenCL/Qualcomm backend behavior is still under investigation. Therefore, the current implementation does not claim that this bottleneck has been fully resolved.
-
-## Stability Testing
+### Stability testing
 
 The complete pipeline was continuously tested on 500 frames containing both defect and normal samples.
 
@@ -251,58 +221,116 @@ The complete pipeline was continuously tested on 500 frames containing both defe
 - Memory usage: ~1500 MB
 - Peak GPU temperature: ~45°C
 
-The test covered normal fabric, defective regions, varying ROI counts, result generation and continuous buffer usage.
+The test covered normal fabric, defective regions, varying ROI counts, result generation, and continuous buffer usage.
 
 Memory consumption remained consistent throughout the test, indicating stable resource management. The thermal profile remained within acceptable limits for the QRB2210 platform, with no throttling or performance degradation observed during extended operation.
 
 ---
 
+## User Interface
+
+### Controls
+
+| Button | Action |
+|--------|--------|
+| START | Begin pipeline processing |
+| STOP | Pause processing |
+| QUIT | Terminate the pipeline cleanly |
+| EXPORT CSV | Write a defect report and download it |
+| RECALIBRATE | Run recalibration using the newest input frame |
+| Show Defects | Expand the recent-defects list |
+| Show Calibration Source | Toggle the calibration image preview |
+
+The dashboard tracks:
+
+- Pipeline status (PAUSED, RUNNING, RECALIBRATING, COMPLETE)
+- FPS, frames processed, total defects, last defect
+- CPU / GPU temperature, memory usage
+- Recent defects list (last 10) with click-to-view frame crops
+- Calibration panel: current source image, recalibrate button, progress
+
+
 ## Output
 
-The system provides:
+| Path | Contents |
+|------|----------|
+| output/ | Frame masks and per-frame artifacts |
+| output/frames/ | Full frames on which a defect fired, with ROI boxes drawn |
+| output/rois/ | Individual defect ROI crops |
+| output/calibration/ | The frame used for the current calibration, with the 256×256 patch box |
+| output/defect_report_*.csv | Timestamped defect report (also downloadable from the UI) |
+| output/debug/ | Debug maps and ROI overlays (only when debug.save_level1_maps or debug.verbose_roi is on) |
 
-- Defect frame saving
-- Frame and defect counters
-- FPS
-- CPU usage
-- Temperature monitoring
-- CSV result export
+## Setup and Launch
 
-## Running the System
+### Prerequisites
 
-The project is designed to run directly on the Arduino Uno Q.
-
-After cloning the repository:
+System packages (Debian/Ubuntu aarch64):
 
 ```bash
-chmod +x run.sh
-./run.sh
+sudo apt-get install -y \
+    clang cmake \
+    libopencv-dev \
+    ocl-icd-opencl-dev opencl-headers \
+    nlohmann-json3-dev
 ```
 
-## Controls
+Vendored dependencies: MNN, TensorFlow Lite, and the Edge Impulse SDK and Abseil (LTS 20230802) are committed under third_party/. The model is committed at models/mobilenetv4_conv_small_batch.mnn.
 
-| Key | Action |
-|-----|--------|
-| `S` | Start pipeline |
-| `E` | Export CSV |
-| `Q` | Quit |
+> [!NOTE]
+> TFLite is compiled against Abseil LTS 20230802. Debian trixie ships Abseil 20240722, and the two versions use different inline namespaces (`absl::lts_20230802` vs `absl::lts_20240722`). The vendored copy under `third_party/absl/` pins the exact version TFLite expects. Do not replace it with `libabsl-dev`.
 
-## Output Directories
+Symlinks: the repo uses symlinks (edge-impulse-sdk, tensorflow-lite, tflite-model, model-parameters) that point into third_party/. On Linux and macOS they are recreated automatically by git clone. On Windows, enable symlink support (git config --global core.symlinks true) and Developer Mode before cloning.
 
-| Directory | Contents |
-|-----------|----------|
-| `output/` | Defect masks |
-| `defect_report_*.csv` | CSV report |
+### Build
+
+Configure once, then build:
+
+```bash
+cmake -S . -B build
+cd build && make -j3
+```
+
+### Quick Launch
+```bash
+INPUT=/path/to/images ./run.sh
+```
+**[Download Test Dataset](https://drive.google.com/drive/folders/1BDQwk0uoKJ36_1LTt-jVTz7fnDCodhvw?usp=drive_link)**
+
+If you're on a different machine, forward the port for UI:
+
+```bash
+ssh -L 8081:localhost:8081 arduino@<board-ip>
+```
+
+Then open http://localhost:8081 and press START.
+
+### App Lab (MCU / LED side)
+
+The App Lab project at `firmware/videoledbridge/` provides two things:
+
+1. **Phone camera ingestion.** Scanning a QR code pairs an Arduino IoT Remote phone and streams frames to `~/ArduinoApps/videoledbridge/frames/`. The pipeline reads this folder.
+2. **LED matrix bridge.** The pipeline writes `IDLE` / `NORMAL` / `DEFECT` to `~/ArduinoApps/videoledbridge/led_state`; App Lab polls it and drives the onboard LED 8×13 LED matrix over the Arduino RPC Bridge.
+
+See `firmware/videoledbridge/README.md` for setup. The App Lab project is optional — the pipeline runs without it, but you'll have no camera input and no LED feedback.
+
 
 ## Command Line Options
 
 | Flag | Description | Default |
 |------|-------------|---------|
-| `--input <path>` | Input directory or image file | Required |
-| `--output <path>` | Output directory for results | Required |
-| `--calibration <path>` | Path to calibration JSON file | `calibration_metrics.json` |
-| `--async` | Enable producer-consumer mode | Disabled |
-| `--queue-size <n>` | Pipeline queue size (1-10) | 3 |
-| `--debug` | Enable debug output | Disabled |
-| `--help` | Show help message | - |
+| --input <path> | Input folder or single image | Required |
+| --output <path> | Output directory | Required |
+| --calibration <path> | Calibration JSON path | calibration_metrics.json |
+| --async | Producer-consumer mode | Off (sync mode is a fallback) |
+| --queue-size <n> | Pipeline queue size (1–10) | 3 |
+| --debug | Verbose console output | Off |
+| --help | Print help | — |
 
+Additional behavior controlled by config.json:
+
+- debug.save_level1_maps — write per-stage debug images for Layer 1
+- debug.verbose_roi — print per-ROI details during ROI extraction
+- image.ds_factor, image.target_w/h — Layer 1 working resolution
+- cluster.min_cluster_size_ds — minimum component area to be considered a defect candidate
+- production.defect_threshold — classification threshold

@@ -4,35 +4,10 @@
 CMakeFiles/calibration_compute.dir/src/calibration/calibration.cpp.o: /home/arduino/Q/src/calibration/calibration.cpp \
   /home/arduino/Q/src/calibration/calibration.hpp \
   /home/arduino/Q/src/core/config.hpp \
-  /home/arduino/opencv5_build/opencv/build/opencv2/opencv_modules.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/base.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/bufferpool.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/check.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/cv_cpu_dispatch.h \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/cvdef.h \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/cvstd.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/cvstd.inl.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/cvstd_wrapper.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/exception.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/fast_math.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/fwddecl.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/hal/interface.h \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/mat.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/mat.inl.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/matx.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/matx.inl.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/neon_utils.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/operations.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/optim.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/persistence.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/saturate.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/traits.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/types.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/utility.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/utils/filesystem.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/version.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/vsx_utils.hpp \
+  /usr/include/aarch64-linux-gnu/asm/bitsperlong.h \
+  /usr/include/aarch64-linux-gnu/asm/errno.h \
+  /usr/include/aarch64-linux-gnu/asm/posix_types.h \
+  /usr/include/aarch64-linux-gnu/asm/types.h \
   /usr/include/aarch64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/aarch64-linux-gnu/bits/byteswap.h \
   /usr/include/aarch64-linux-gnu/bits/cpu-set.h \
@@ -109,19 +84,6 @@ CMakeFiles/calibration_compute.dir/src/calibration/calibration.cpp.o: /home/ardu
   /usr/include/aarch64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/aarch64-linux-gnu/bits/wordsize.h \
   /usr/include/aarch64-linux-gnu/bits/xopen_lim.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/atomic_word.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/basic_file.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/c++allocator.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/c++config.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/c++io.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/c++locale.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/cpu_defines.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/ctype_base.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/ctype_inline.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/error_constants.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/gthr-default.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/gthr.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/os_defines.h \
   /usr/include/aarch64-linux-gnu/gnu/stubs-lp64.h \
   /usr/include/aarch64-linux-gnu/gnu/stubs.h \
   /usr/include/aarch64-linux-gnu/sys/cdefs.h \
@@ -136,6 +98,73 @@ CMakeFiles/calibration_compute.dir/src/calibration/calibration.cpp.o: /home/ardu
   /usr/include/asm-generic/posix_types.h \
   /usr/include/asm-generic/types.h \
   /usr/include/assert.h \
+  /usr/include/ctype.h \
+  /usr/include/endian.h \
+  /usr/include/errno.h \
+  /usr/include/features-time64.h \
+  /usr/include/features.h \
+  /usr/include/limits.h \
+  /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
+  /usr/include/linux/posix_types.h \
+  /usr/include/linux/sched/types.h \
+  /usr/include/linux/stddef.h \
+  /usr/include/linux/types.h \
+  /usr/include/locale.h \
+  /usr/include/math.h \
+  /usr/include/opencv4/opencv2/core.hpp \
+  /usr/include/opencv4/opencv2/core/base.hpp \
+  /usr/include/opencv4/opencv2/core/bufferpool.hpp \
+  /usr/include/opencv4/opencv2/core/check.hpp \
+  /usr/include/opencv4/opencv2/core/cv_cpu_dispatch.h \
+  /usr/include/opencv4/opencv2/core/cvdef.h \
+  /usr/include/opencv4/opencv2/core/cvstd.hpp \
+  /usr/include/opencv4/opencv2/core/cvstd.inl.hpp \
+  /usr/include/opencv4/opencv2/core/cvstd_wrapper.hpp \
+  /usr/include/opencv4/opencv2/core/fast_math.hpp \
+  /usr/include/opencv4/opencv2/core/hal/interface.h \
+  /usr/include/opencv4/opencv2/core/mat.hpp \
+  /usr/include/opencv4/opencv2/core/mat.inl.hpp \
+  /usr/include/opencv4/opencv2/core/matx.hpp \
+  /usr/include/opencv4/opencv2/core/matx.inl.hpp \
+  /usr/include/opencv4/opencv2/core/neon_utils.hpp \
+  /usr/include/opencv4/opencv2/core/operations.hpp \
+  /usr/include/opencv4/opencv2/core/optim.hpp \
+  /usr/include/opencv4/opencv2/core/ovx.hpp \
+  /usr/include/opencv4/opencv2/core/persistence.hpp \
+  /usr/include/opencv4/opencv2/core/saturate.hpp \
+  /usr/include/opencv4/opencv2/core/traits.hpp \
+  /usr/include/opencv4/opencv2/core/types.hpp \
+  /usr/include/opencv4/opencv2/core/utility.hpp \
+  /usr/include/opencv4/opencv2/core/utils/filesystem.hpp \
+  /usr/include/opencv4/opencv2/core/version.hpp \
+  /usr/include/opencv4/opencv2/core/vsx_utils.hpp \
+  /usr/include/opencv4/opencv2/opencv_modules.hpp \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/stdc-predef.h \
+  /usr/include/stdint.h \
+  /usr/include/stdio.h \
+  /usr/include/stdlib.h \
+  /usr/include/string.h \
+  /usr/include/strings.h \
+  /usr/include/tbb/tbb.h \
+  /usr/include/time.h \
+  /usr/include/wchar.h \
+  /usr/include/wctype.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/atomic_word.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/basic_file.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/c++allocator.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/c++config.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/c++io.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/c++locale.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/cpu_defines.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/ctype_base.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/ctype_inline.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/error_constants.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/gthr-default.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/gthr.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/os_defines.h \
   /usr/include/c++/14/algorithm \
   /usr/include/c++/14/array \
   /usr/include/c++/14/atomic \
@@ -299,79 +328,33 @@ CMakeFiles/calibration_compute.dir/src/calibration/calibration.cpp.o: /home/ardu
   /usr/include/c++/14/unordered_map \
   /usr/include/c++/14/utility \
   /usr/include/c++/14/vector \
-  /usr/include/ctype.h \
-  /usr/include/endian.h \
-  /usr/include/errno.h \
-  /usr/include/features-time64.h \
-  /usr/include/features.h \
-  /usr/include/limits.h \
-  /usr/include/linux/errno.h \
-  /usr/include/linux/limits.h \
-  /usr/include/linux/posix_types.h \
-  /usr/include/linux/sched/types.h \
-  /usr/include/linux/stddef.h \
-  /usr/include/linux/types.h \
-  /usr/include/locale.h \
-  /usr/include/math.h \
-  /usr/include/pthread.h \
-  /usr/include/sched.h \
-  /usr/include/stdc-predef.h \
-  /usr/include/stdint.h \
-  /usr/include/stdio.h \
-  /usr/include/stdlib.h \
-  /usr/include/string.h \
-  /usr/include/strings.h \
-  /usr/include/time.h \
-  /usr/include/wchar.h \
-  /usr/include/wctype.h \
-  /usr/lib/gcc/aarch64-linux-gnu/14/include/arm_bf16.h \
-  /usr/lib/gcc/aarch64-linux-gnu/14/include/arm_fp16.h \
-  /usr/lib/gcc/aarch64-linux-gnu/14/include/arm_neon.h \
-  /usr/lib/gcc/aarch64-linux-gnu/14/include/float.h \
-  /usr/lib/gcc/aarch64-linux-gnu/14/include/limits.h \
-  /usr/lib/gcc/aarch64-linux-gnu/14/include/stdarg.h \
-  /usr/lib/gcc/aarch64-linux-gnu/14/include/stddef.h \
-  /usr/lib/gcc/aarch64-linux-gnu/14/include/stdint.h \
-  /usr/lib/gcc/aarch64-linux-gnu/14/include/syslimits.h \
-  /usr/lib/linux/uapi/arm64/asm/bitsperlong.h \
-  /usr/lib/linux/uapi/arm64/asm/errno.h \
-  /usr/lib/linux/uapi/arm64/asm/posix_types.h \
-  /usr/lib/linux/uapi/arm64/asm/types.h
+  /usr/lib/llvm-19/lib/clang/19/include/__stdarg___gnuc_va_list.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stddef_header_macro.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stddef_max_align_t.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stddef_null.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stddef_nullptr_t.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stddef_offsetof.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stddef_ptrdiff_t.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stddef_size_t.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stddef_wchar_t.h \
+  /usr/lib/llvm-19/lib/clang/19/include/arm_bf16.h \
+  /usr/lib/llvm-19/lib/clang/19/include/arm_neon.h \
+  /usr/lib/llvm-19/lib/clang/19/include/arm_vector_types.h \
+  /usr/lib/llvm-19/lib/clang/19/include/float.h \
+  /usr/lib/llvm-19/lib/clang/19/include/limits.h \
+  /usr/lib/llvm-19/lib/clang/19/include/sanitizer/tsan_interface.h \
+  /usr/lib/llvm-19/lib/clang/19/include/stdarg.h \
+  /usr/lib/llvm-19/lib/clang/19/include/stddef.h \
+  /usr/lib/llvm-19/lib/clang/19/include/stdint.h
 
 CMakeFiles/calibration_compute.dir/src/calibration/calibration_compute.cpp.o: /home/arduino/Q/src/calibration/calibration_compute.cpp \
   /home/arduino/Q/src/calibration/calibration.hpp \
   /home/arduino/Q/src/calibration/calibration_compute.hpp \
   /home/arduino/Q/src/core/config.hpp \
-  /home/arduino/opencv5_build/opencv/build/opencv2/opencv_modules.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/base.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/bufferpool.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/check.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/cv_cpu_dispatch.h \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/cvdef.h \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/cvstd.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/cvstd.inl.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/cvstd_wrapper.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/exception.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/fast_math.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/fwddecl.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/hal/interface.h \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/mat.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/mat.inl.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/matx.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/matx.inl.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/neon_utils.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/operations.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/optim.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/persistence.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/saturate.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/traits.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/types.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/utility.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/version.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/vsx_utils.hpp \
-  /home/arduino/opencv5_build/opencv/modules/imgcodecs/include/opencv2/imgcodecs.hpp \
-  /home/arduino/opencv5_build/opencv/modules/imgproc/include/opencv2/imgproc.hpp \
+  /usr/include/aarch64-linux-gnu/asm/bitsperlong.h \
+  /usr/include/aarch64-linux-gnu/asm/errno.h \
+  /usr/include/aarch64-linux-gnu/asm/posix_types.h \
+  /usr/include/aarch64-linux-gnu/asm/types.h \
   /usr/include/aarch64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/aarch64-linux-gnu/bits/byteswap.h \
   /usr/include/aarch64-linux-gnu/bits/cpu-set.h \
@@ -448,6 +431,122 @@ CMakeFiles/calibration_compute.dir/src/calibration/calibration_compute.cpp.o: /h
   /usr/include/aarch64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/aarch64-linux-gnu/bits/wordsize.h \
   /usr/include/aarch64-linux-gnu/bits/xopen_lim.h \
+  /usr/include/aarch64-linux-gnu/gnu/stubs-lp64.h \
+  /usr/include/aarch64-linux-gnu/gnu/stubs.h \
+  /usr/include/aarch64-linux-gnu/sys/cdefs.h \
+  /usr/include/aarch64-linux-gnu/sys/select.h \
+  /usr/include/aarch64-linux-gnu/sys/single_threaded.h \
+  /usr/include/aarch64-linux-gnu/sys/types.h \
+  /usr/include/alloca.h \
+  /usr/include/asm-generic/bitsperlong.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/int-ll64.h \
+  /usr/include/asm-generic/posix_types.h \
+  /usr/include/asm-generic/types.h \
+  /usr/include/assert.h \
+  /usr/include/ctype.h \
+  /usr/include/endian.h \
+  /usr/include/errno.h \
+  /usr/include/features-time64.h \
+  /usr/include/features.h \
+  /usr/include/libintl.h \
+  /usr/include/limits.h \
+  /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
+  /usr/include/linux/posix_types.h \
+  /usr/include/linux/sched/types.h \
+  /usr/include/linux/stddef.h \
+  /usr/include/linux/types.h \
+  /usr/include/locale.h \
+  /usr/include/math.h \
+  /usr/include/nlohmann/adl_serializer.hpp \
+  /usr/include/nlohmann/byte_container_with_subtype.hpp \
+  /usr/include/nlohmann/detail/abi_macros.hpp \
+  /usr/include/nlohmann/detail/conversions/from_json.hpp \
+  /usr/include/nlohmann/detail/conversions/to_chars.hpp \
+  /usr/include/nlohmann/detail/conversions/to_json.hpp \
+  /usr/include/nlohmann/detail/exceptions.hpp \
+  /usr/include/nlohmann/detail/hash.hpp \
+  /usr/include/nlohmann/detail/input/binary_reader.hpp \
+  /usr/include/nlohmann/detail/input/input_adapters.hpp \
+  /usr/include/nlohmann/detail/input/json_sax.hpp \
+  /usr/include/nlohmann/detail/input/lexer.hpp \
+  /usr/include/nlohmann/detail/input/parser.hpp \
+  /usr/include/nlohmann/detail/input/position_t.hpp \
+  /usr/include/nlohmann/detail/iterators/internal_iterator.hpp \
+  /usr/include/nlohmann/detail/iterators/iter_impl.hpp \
+  /usr/include/nlohmann/detail/iterators/iteration_proxy.hpp \
+  /usr/include/nlohmann/detail/iterators/iterator_traits.hpp \
+  /usr/include/nlohmann/detail/iterators/json_reverse_iterator.hpp \
+  /usr/include/nlohmann/detail/iterators/primitive_iterator.hpp \
+  /usr/include/nlohmann/detail/json_custom_base_class.hpp \
+  /usr/include/nlohmann/detail/json_pointer.hpp \
+  /usr/include/nlohmann/detail/json_ref.hpp \
+  /usr/include/nlohmann/detail/macro_scope.hpp \
+  /usr/include/nlohmann/detail/macro_unscope.hpp \
+  /usr/include/nlohmann/detail/meta/call_std/begin.hpp \
+  /usr/include/nlohmann/detail/meta/call_std/end.hpp \
+  /usr/include/nlohmann/detail/meta/cpp_future.hpp \
+  /usr/include/nlohmann/detail/meta/detected.hpp \
+  /usr/include/nlohmann/detail/meta/identity_tag.hpp \
+  /usr/include/nlohmann/detail/meta/is_sax.hpp \
+  /usr/include/nlohmann/detail/meta/std_fs.hpp \
+  /usr/include/nlohmann/detail/meta/type_traits.hpp \
+  /usr/include/nlohmann/detail/meta/void_t.hpp \
+  /usr/include/nlohmann/detail/output/binary_writer.hpp \
+  /usr/include/nlohmann/detail/output/output_adapters.hpp \
+  /usr/include/nlohmann/detail/output/serializer.hpp \
+  /usr/include/nlohmann/detail/string_concat.hpp \
+  /usr/include/nlohmann/detail/string_escape.hpp \
+  /usr/include/nlohmann/detail/value_t.hpp \
+  /usr/include/nlohmann/json.hpp \
+  /usr/include/nlohmann/json_fwd.hpp \
+  /usr/include/nlohmann/ordered_map.hpp \
+  /usr/include/nlohmann/thirdparty/hedley/hedley.hpp \
+  /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
+  /usr/include/opencv4/opencv2/imgproc/segmentation.hpp \
+  /usr/include/opencv4/opencv2/core.hpp \
+  /usr/include/opencv4/opencv2/core/base.hpp \
+  /usr/include/opencv4/opencv2/core/bufferpool.hpp \
+  /usr/include/opencv4/opencv2/core/check.hpp \
+  /usr/include/opencv4/opencv2/core/cv_cpu_dispatch.h \
+  /usr/include/opencv4/opencv2/core/cvdef.h \
+  /usr/include/opencv4/opencv2/core/cvstd.hpp \
+  /usr/include/opencv4/opencv2/core/cvstd.inl.hpp \
+  /usr/include/opencv4/opencv2/core/cvstd_wrapper.hpp \
+  /usr/include/opencv4/opencv2/core/fast_math.hpp \
+  /usr/include/opencv4/opencv2/core/hal/interface.h \
+  /usr/include/opencv4/opencv2/core/mat.hpp \
+  /usr/include/opencv4/opencv2/core/mat.inl.hpp \
+  /usr/include/opencv4/opencv2/core/matx.hpp \
+  /usr/include/opencv4/opencv2/core/matx.inl.hpp \
+  /usr/include/opencv4/opencv2/core/neon_utils.hpp \
+  /usr/include/opencv4/opencv2/core/operations.hpp \
+  /usr/include/opencv4/opencv2/core/optim.hpp \
+  /usr/include/opencv4/opencv2/core/ovx.hpp \
+  /usr/include/opencv4/opencv2/core/persistence.hpp \
+  /usr/include/opencv4/opencv2/core/saturate.hpp \
+  /usr/include/opencv4/opencv2/core/traits.hpp \
+  /usr/include/opencv4/opencv2/core/types.hpp \
+  /usr/include/opencv4/opencv2/core/utility.hpp \
+  /usr/include/opencv4/opencv2/core/version.hpp \
+  /usr/include/opencv4/opencv2/core/vsx_utils.hpp \
+  /usr/include/opencv4/opencv2/imgcodecs.hpp \
+  /usr/include/opencv4/opencv2/imgproc.hpp \
+  /usr/include/opencv4/opencv2/opencv_modules.hpp \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/stdc-predef.h \
+  /usr/include/stdint.h \
+  /usr/include/stdio.h \
+  /usr/include/stdlib.h \
+  /usr/include/string.h \
+  /usr/include/strings.h \
+  /usr/include/tbb/tbb.h \
+  /usr/include/time.h \
+  /usr/include/wchar.h \
+  /usr/include/wctype.h \
   /usr/include/aarch64-linux-gnu/c++/14/bits/atomic_word.h \
   /usr/include/aarch64-linux-gnu/c++/14/bits/basic_file.h \
   /usr/include/aarch64-linux-gnu/c++/14/bits/c++allocator.h \
@@ -463,20 +562,6 @@ CMakeFiles/calibration_compute.dir/src/calibration/calibration_compute.cpp.o: /h
   /usr/include/aarch64-linux-gnu/c++/14/bits/messages_members.h \
   /usr/include/aarch64-linux-gnu/c++/14/bits/os_defines.h \
   /usr/include/aarch64-linux-gnu/c++/14/bits/time_members.h \
-  /usr/include/aarch64-linux-gnu/gnu/stubs-lp64.h \
-  /usr/include/aarch64-linux-gnu/gnu/stubs.h \
-  /usr/include/aarch64-linux-gnu/sys/cdefs.h \
-  /usr/include/aarch64-linux-gnu/sys/select.h \
-  /usr/include/aarch64-linux-gnu/sys/single_threaded.h \
-  /usr/include/aarch64-linux-gnu/sys/types.h \
-  /usr/include/alloca.h \
-  /usr/include/asm-generic/bitsperlong.h \
-  /usr/include/asm-generic/errno-base.h \
-  /usr/include/asm-generic/errno.h \
-  /usr/include/asm-generic/int-ll64.h \
-  /usr/include/asm-generic/posix_types.h \
-  /usr/include/asm-generic/types.h \
-  /usr/include/assert.h \
   /usr/include/c++/14/algorithm \
   /usr/include/c++/14/any \
   /usr/include/c++/14/array \
@@ -676,201 +761,32 @@ CMakeFiles/calibration_compute.dir/src/calibration/calibration_compute.cpp.o: /h
   /usr/include/c++/14/valarray \
   /usr/include/c++/14/vector \
   /usr/include/c++/14/version \
-  /usr/include/ctype.h \
-  /usr/include/endian.h \
-  /usr/include/errno.h \
-  /usr/include/features-time64.h \
-  /usr/include/features.h \
-  /usr/include/libintl.h \
-  /usr/include/limits.h \
-  /usr/include/linux/errno.h \
-  /usr/include/linux/limits.h \
-  /usr/include/linux/posix_types.h \
-  /usr/include/linux/sched/types.h \
-  /usr/include/linux/stddef.h \
-  /usr/include/linux/types.h \
-  /usr/include/locale.h \
-  /usr/include/math.h \
-  /usr/include/nlohmann/adl_serializer.hpp \
-  /usr/include/nlohmann/byte_container_with_subtype.hpp \
-  /usr/include/nlohmann/detail/abi_macros.hpp \
-  /usr/include/nlohmann/detail/conversions/from_json.hpp \
-  /usr/include/nlohmann/detail/conversions/to_chars.hpp \
-  /usr/include/nlohmann/detail/conversions/to_json.hpp \
-  /usr/include/nlohmann/detail/exceptions.hpp \
-  /usr/include/nlohmann/detail/hash.hpp \
-  /usr/include/nlohmann/detail/input/binary_reader.hpp \
-  /usr/include/nlohmann/detail/input/input_adapters.hpp \
-  /usr/include/nlohmann/detail/input/json_sax.hpp \
-  /usr/include/nlohmann/detail/input/lexer.hpp \
-  /usr/include/nlohmann/detail/input/parser.hpp \
-  /usr/include/nlohmann/detail/input/position_t.hpp \
-  /usr/include/nlohmann/detail/iterators/internal_iterator.hpp \
-  /usr/include/nlohmann/detail/iterators/iter_impl.hpp \
-  /usr/include/nlohmann/detail/iterators/iteration_proxy.hpp \
-  /usr/include/nlohmann/detail/iterators/iterator_traits.hpp \
-  /usr/include/nlohmann/detail/iterators/json_reverse_iterator.hpp \
-  /usr/include/nlohmann/detail/iterators/primitive_iterator.hpp \
-  /usr/include/nlohmann/detail/json_custom_base_class.hpp \
-  /usr/include/nlohmann/detail/json_pointer.hpp \
-  /usr/include/nlohmann/detail/json_ref.hpp \
-  /usr/include/nlohmann/detail/macro_scope.hpp \
-  /usr/include/nlohmann/detail/macro_unscope.hpp \
-  /usr/include/nlohmann/detail/meta/call_std/begin.hpp \
-  /usr/include/nlohmann/detail/meta/call_std/end.hpp \
-  /usr/include/nlohmann/detail/meta/cpp_future.hpp \
-  /usr/include/nlohmann/detail/meta/detected.hpp \
-  /usr/include/nlohmann/detail/meta/identity_tag.hpp \
-  /usr/include/nlohmann/detail/meta/is_sax.hpp \
-  /usr/include/nlohmann/detail/meta/std_fs.hpp \
-  /usr/include/nlohmann/detail/meta/type_traits.hpp \
-  /usr/include/nlohmann/detail/meta/void_t.hpp \
-  /usr/include/nlohmann/detail/output/binary_writer.hpp \
-  /usr/include/nlohmann/detail/output/output_adapters.hpp \
-  /usr/include/nlohmann/detail/output/serializer.hpp \
-  /usr/include/nlohmann/detail/string_concat.hpp \
-  /usr/include/nlohmann/detail/string_escape.hpp \
-  /usr/include/nlohmann/detail/value_t.hpp \
-  /usr/include/nlohmann/json.hpp \
-  /usr/include/nlohmann/json_fwd.hpp \
-  /usr/include/nlohmann/ordered_map.hpp \
-  /usr/include/nlohmann/thirdparty/hedley/hedley.hpp \
-  /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp \
-  /usr/include/pthread.h \
-  /usr/include/sched.h \
-  /usr/include/stdc-predef.h \
-  /usr/include/stdint.h \
-  /usr/include/stdio.h \
-  /usr/include/stdlib.h \
-  /usr/include/string.h \
-  /usr/include/strings.h \
-  /usr/include/time.h \
-  /usr/include/wchar.h \
-  /usr/include/wctype.h \
-  /usr/lib/gcc/aarch64-linux-gnu/14/include/arm_bf16.h \
-  /usr/lib/gcc/aarch64-linux-gnu/14/include/arm_fp16.h \
-  /usr/lib/gcc/aarch64-linux-gnu/14/include/arm_neon.h \
-  /usr/lib/gcc/aarch64-linux-gnu/14/include/float.h \
-  /usr/lib/gcc/aarch64-linux-gnu/14/include/limits.h \
-  /usr/lib/gcc/aarch64-linux-gnu/14/include/stdarg.h \
-  /usr/lib/gcc/aarch64-linux-gnu/14/include/stddef.h \
-  /usr/lib/gcc/aarch64-linux-gnu/14/include/stdint.h \
-  /usr/lib/gcc/aarch64-linux-gnu/14/include/syslimits.h \
-  /usr/lib/linux/uapi/arm64/asm/bitsperlong.h \
-  /usr/lib/linux/uapi/arm64/asm/errno.h \
-  /usr/lib/linux/uapi/arm64/asm/posix_types.h \
-  /usr/lib/linux/uapi/arm64/asm/types.h
+  /usr/lib/llvm-19/lib/clang/19/include/__stdarg___gnuc_va_list.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stddef_header_macro.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stddef_max_align_t.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stddef_null.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stddef_nullptr_t.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stddef_offsetof.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stddef_ptrdiff_t.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stddef_size_t.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stddef_wchar_t.h \
+  /usr/lib/llvm-19/lib/clang/19/include/arm_bf16.h \
+  /usr/lib/llvm-19/lib/clang/19/include/arm_neon.h \
+  /usr/lib/llvm-19/lib/clang/19/include/arm_vector_types.h \
+  /usr/lib/llvm-19/lib/clang/19/include/float.h \
+  /usr/lib/llvm-19/lib/clang/19/include/limits.h \
+  /usr/lib/llvm-19/lib/clang/19/include/sanitizer/tsan_interface.h \
+  /usr/lib/llvm-19/lib/clang/19/include/stdarg.h \
+  /usr/lib/llvm-19/lib/clang/19/include/stddef.h \
+  /usr/lib/llvm-19/lib/clang/19/include/stdint.h
 
 CMakeFiles/calibration_compute.dir/src/calibration/calibration_compute_main.cpp.o: /home/arduino/Q/src/calibration/calibration_compute_main.cpp \
   /home/arduino/Q/src/calibration/calibration.hpp \
   /home/arduino/Q/src/calibration/calibration_compute.hpp \
-  /home/arduino/opencv5_build/opencv/build/opencv2/opencv_modules.hpp \
-  /home/arduino/opencv5_build/opencv/include/opencv2/opencv.hpp \
-  /home/arduino/opencv5_build/opencv/modules/calib/include/opencv2/calib.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/affine.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/async.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/base.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/bufferpool.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/check.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/cuda.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/cuda.inl.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/cuda_types.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/cv_cpu_dispatch.h \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/cvdef.h \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/cvstd.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/cvstd.inl.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/cvstd_wrapper.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/exception.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/fast_math.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/fwddecl.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/hal/interface.h \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/mat.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/mat.inl.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/matx.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/matx.inl.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/neon_utils.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/operations.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/optim.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/persistence.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/saturate.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/traits.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/types.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/utility.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/version.hpp \
-  /home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/vsx_utils.hpp \
-  /home/arduino/opencv5_build/opencv/modules/dnn/include/opencv2/dnn.hpp \
-  /home/arduino/opencv5_build/opencv/modules/dnn/include/opencv2/dnn/dict.hpp \
-  /home/arduino/opencv5_build/opencv/modules/dnn/include/opencv2/dnn/dnn.hpp \
-  /home/arduino/opencv5_build/opencv/modules/dnn/include/opencv2/dnn/dnn.inl.hpp \
-  /home/arduino/opencv5_build/opencv/modules/dnn/include/opencv2/dnn/layer.hpp \
-  /home/arduino/opencv5_build/opencv/modules/dnn/include/opencv2/dnn/utils/inference_engine.hpp \
-  /home/arduino/opencv5_build/opencv/modules/dnn/include/opencv2/dnn/version.hpp \
-  /home/arduino/opencv5_build/opencv/modules/features/include/opencv2/features.hpp \
-  /home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann.hpp \
-  /home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/all_indices.h \
-  /home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/allocator.h \
-  /home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/any.h \
-  /home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/autotuned_index.h \
-  /home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/composite_index.h \
-  /home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/config.h \
-  /home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/defines.h \
-  /home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/dist.h \
-  /home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/dynamic_bitset.h \
-  /home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/flann_base.hpp \
-  /home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/general.h \
-  /home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/ground_truth.h \
-  /home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/heap.h \
-  /home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/hierarchical_clustering_index.h \
-  /home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/index_testing.h \
-  /home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/kdtree_index.h \
-  /home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/kdtree_single_index.h \
-  /home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/kmeans_index.h \
-  /home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/linear_index.h \
-  /home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/logger.h \
-  /home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/lsh_index.h \
-  /home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/lsh_table.h \
-  /home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/matrix.h \
-  /home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/miniflann.hpp \
-  /home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/nn_index.h \
-  /home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/params.h \
-  /home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/random.h \
-  /home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/result_set.h \
-  /home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/sampling.h \
-  /home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/saving.h \
-  /home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/timer.h \
-  /home/arduino/opencv5_build/opencv/modules/highgui/include/opencv2/highgui.hpp \
-  /home/arduino/opencv5_build/opencv/modules/imgcodecs/include/opencv2/imgcodecs.hpp \
-  /home/arduino/opencv5_build/opencv/modules/imgproc/include/opencv2/imgproc.hpp \
-  /home/arduino/opencv5_build/opencv/modules/objdetect/include/opencv2/objdetect.hpp \
-  /home/arduino/opencv5_build/opencv/modules/objdetect/include/opencv2/objdetect/aruco_board.hpp \
-  /home/arduino/opencv5_build/opencv/modules/objdetect/include/opencv2/objdetect/aruco_detector.hpp \
-  /home/arduino/opencv5_build/opencv/modules/objdetect/include/opencv2/objdetect/aruco_dictionary.hpp \
-  /home/arduino/opencv5_build/opencv/modules/objdetect/include/opencv2/objdetect/barcode.hpp \
-  /home/arduino/opencv5_build/opencv/modules/objdetect/include/opencv2/objdetect/charuco_detector.hpp \
-  /home/arduino/opencv5_build/opencv/modules/objdetect/include/opencv2/objdetect/face.hpp \
-  /home/arduino/opencv5_build/opencv/modules/objdetect/include/opencv2/objdetect/graphical_code_detector.hpp \
-  /home/arduino/opencv5_build/opencv/modules/objdetect/include/opencv2/objdetect/mcc_checker_detector.hpp \
-  /home/arduino/opencv5_build/opencv/modules/photo/include/opencv2/photo.hpp \
-  /home/arduino/opencv5_build/opencv/modules/photo/include/opencv2/photo/ccm.hpp \
-  /home/arduino/opencv5_build/opencv/modules/photo/include/opencv2/photo/segmentation.hpp \
-  /home/arduino/opencv5_build/opencv/modules/stereo/include/opencv2/stereo.hpp \
-  /home/arduino/opencv5_build/opencv/modules/stitching/include/opencv2/stitching.hpp \
-  /home/arduino/opencv5_build/opencv/modules/stitching/include/opencv2/stitching/detail/blenders.hpp \
-  /home/arduino/opencv5_build/opencv/modules/stitching/include/opencv2/stitching/detail/camera.hpp \
-  /home/arduino/opencv5_build/opencv/modules/stitching/include/opencv2/stitching/detail/exposure_compensate.hpp \
-  /home/arduino/opencv5_build/opencv/modules/stitching/include/opencv2/stitching/detail/matchers.hpp \
-  /home/arduino/opencv5_build/opencv/modules/stitching/include/opencv2/stitching/detail/motion_estimators.hpp \
-  /home/arduino/opencv5_build/opencv/modules/stitching/include/opencv2/stitching/detail/seam_finders.hpp \
-  /home/arduino/opencv5_build/opencv/modules/stitching/include/opencv2/stitching/detail/util.hpp \
-  /home/arduino/opencv5_build/opencv/modules/stitching/include/opencv2/stitching/detail/util_inl.hpp \
-  /home/arduino/opencv5_build/opencv/modules/stitching/include/opencv2/stitching/detail/warpers.hpp \
-  /home/arduino/opencv5_build/opencv/modules/stitching/include/opencv2/stitching/detail/warpers_inl.hpp \
-  /home/arduino/opencv5_build/opencv/modules/stitching/include/opencv2/stitching/warpers.hpp \
-  /home/arduino/opencv5_build/opencv/modules/video/include/opencv2/video.hpp \
-  /home/arduino/opencv5_build/opencv/modules/video/include/opencv2/video/background_segm.hpp \
-  /home/arduino/opencv5_build/opencv/modules/video/include/opencv2/video/tracking.hpp \
-  /home/arduino/opencv5_build/opencv/modules/videoio/include/opencv2/videoio.hpp \
+  /usr/include/aarch64-linux-gnu/asm/bitsperlong.h \
+  /usr/include/aarch64-linux-gnu/asm/errno.h \
+  /usr/include/aarch64-linux-gnu/asm/posix_types.h \
+  /usr/include/aarch64-linux-gnu/asm/types.h \
   /usr/include/aarch64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/aarch64-linux-gnu/bits/byteswap.h \
   /usr/include/aarch64-linux-gnu/bits/cpu-set.h \
@@ -947,19 +863,6 @@ CMakeFiles/calibration_compute.dir/src/calibration/calibration_compute_main.cpp.
   /usr/include/aarch64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/aarch64-linux-gnu/bits/wordsize.h \
   /usr/include/aarch64-linux-gnu/bits/xopen_lim.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/atomic_word.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/c++allocator.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/c++config.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/c++locale.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/cpu_defines.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/ctype_base.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/ctype_inline.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/error_constants.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/gthr-default.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/gthr.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/messages_members.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/os_defines.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/time_members.h \
   /usr/include/aarch64-linux-gnu/gnu/stubs-lp64.h \
   /usr/include/aarch64-linux-gnu/gnu/stubs.h \
   /usr/include/aarch64-linux-gnu/sys/cdefs.h \
@@ -974,6 +877,156 @@ CMakeFiles/calibration_compute.dir/src/calibration/calibration_compute_main.cpp.
   /usr/include/asm-generic/posix_types.h \
   /usr/include/asm-generic/types.h \
   /usr/include/assert.h \
+  /usr/include/ctype.h \
+  /usr/include/endian.h \
+  /usr/include/errno.h \
+  /usr/include/features-time64.h \
+  /usr/include/features.h \
+  /usr/include/libintl.h \
+  /usr/include/limits.h \
+  /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
+  /usr/include/linux/posix_types.h \
+  /usr/include/linux/sched/types.h \
+  /usr/include/linux/stddef.h \
+  /usr/include/linux/types.h \
+  /usr/include/locale.h \
+  /usr/include/math.h \
+  /usr/include/opencv4/opencv2/imgproc/segmentation.hpp \
+  /usr/include/opencv4/opencv2/calib3d.hpp \
+  /usr/include/opencv4/opencv2/core.hpp \
+  /usr/include/opencv4/opencv2/core/affine.hpp \
+  /usr/include/opencv4/opencv2/core/async.hpp \
+  /usr/include/opencv4/opencv2/core/base.hpp \
+  /usr/include/opencv4/opencv2/core/bufferpool.hpp \
+  /usr/include/opencv4/opencv2/core/check.hpp \
+  /usr/include/opencv4/opencv2/core/cuda.hpp \
+  /usr/include/opencv4/opencv2/core/cuda.inl.hpp \
+  /usr/include/opencv4/opencv2/core/cuda_types.hpp \
+  /usr/include/opencv4/opencv2/core/cv_cpu_dispatch.h \
+  /usr/include/opencv4/opencv2/core/cvdef.h \
+  /usr/include/opencv4/opencv2/core/cvstd.hpp \
+  /usr/include/opencv4/opencv2/core/cvstd.inl.hpp \
+  /usr/include/opencv4/opencv2/core/cvstd_wrapper.hpp \
+  /usr/include/opencv4/opencv2/core/fast_math.hpp \
+  /usr/include/opencv4/opencv2/core/hal/interface.h \
+  /usr/include/opencv4/opencv2/core/mat.hpp \
+  /usr/include/opencv4/opencv2/core/mat.inl.hpp \
+  /usr/include/opencv4/opencv2/core/matx.hpp \
+  /usr/include/opencv4/opencv2/core/matx.inl.hpp \
+  /usr/include/opencv4/opencv2/core/neon_utils.hpp \
+  /usr/include/opencv4/opencv2/core/operations.hpp \
+  /usr/include/opencv4/opencv2/core/optim.hpp \
+  /usr/include/opencv4/opencv2/core/ovx.hpp \
+  /usr/include/opencv4/opencv2/core/persistence.hpp \
+  /usr/include/opencv4/opencv2/core/saturate.hpp \
+  /usr/include/opencv4/opencv2/core/traits.hpp \
+  /usr/include/opencv4/opencv2/core/types.hpp \
+  /usr/include/opencv4/opencv2/core/utility.hpp \
+  /usr/include/opencv4/opencv2/core/utils/logger.defines.hpp \
+  /usr/include/opencv4/opencv2/core/utils/logger.hpp \
+  /usr/include/opencv4/opencv2/core/utils/logtag.hpp \
+  /usr/include/opencv4/opencv2/core/version.hpp \
+  /usr/include/opencv4/opencv2/core/vsx_utils.hpp \
+  /usr/include/opencv4/opencv2/dnn.hpp \
+  /usr/include/opencv4/opencv2/dnn/version.hpp \
+  /usr/include/opencv4/opencv2/dnn/dict.hpp \
+  /usr/include/opencv4/opencv2/dnn/dnn.hpp \
+  /usr/include/opencv4/opencv2/dnn/dnn.inl.hpp \
+  /usr/include/opencv4/opencv2/dnn/layer.hpp \
+  /usr/include/opencv4/opencv2/dnn/dnn.hpp \
+  /usr/include/opencv4/opencv2/dnn/utils/inference_engine.hpp \
+  /usr/include/opencv4/opencv2/features2d.hpp \
+  /usr/include/opencv4/opencv2/flann.hpp \
+  /usr/include/opencv4/opencv2/flann/all_indices.h \
+  /usr/include/opencv4/opencv2/flann/allocator.h \
+  /usr/include/opencv4/opencv2/flann/any.h \
+  /usr/include/opencv4/opencv2/flann/autotuned_index.h \
+  /usr/include/opencv4/opencv2/flann/composite_index.h \
+  /usr/include/opencv4/opencv2/flann/config.h \
+  /usr/include/opencv4/opencv2/flann/defines.h \
+  /usr/include/opencv4/opencv2/flann/dist.h \
+  /usr/include/opencv4/opencv2/flann/dynamic_bitset.h \
+  /usr/include/opencv4/opencv2/flann/flann_base.hpp \
+  /usr/include/opencv4/opencv2/flann/general.h \
+  /usr/include/opencv4/opencv2/flann/ground_truth.h \
+  /usr/include/opencv4/opencv2/flann/heap.h \
+  /usr/include/opencv4/opencv2/flann/hierarchical_clustering_index.h \
+  /usr/include/opencv4/opencv2/flann/index_testing.h \
+  /usr/include/opencv4/opencv2/flann/kdtree_index.h \
+  /usr/include/opencv4/opencv2/flann/kdtree_single_index.h \
+  /usr/include/opencv4/opencv2/flann/kmeans_index.h \
+  /usr/include/opencv4/opencv2/flann/linear_index.h \
+  /usr/include/opencv4/opencv2/flann/logger.h \
+  /usr/include/opencv4/opencv2/flann/lsh_index.h \
+  /usr/include/opencv4/opencv2/flann/lsh_table.h \
+  /usr/include/opencv4/opencv2/flann/matrix.h \
+  /usr/include/opencv4/opencv2/flann/miniflann.hpp \
+  /usr/include/opencv4/opencv2/flann/nn_index.h \
+  /usr/include/opencv4/opencv2/flann/params.h \
+  /usr/include/opencv4/opencv2/flann/random.h \
+  /usr/include/opencv4/opencv2/flann/result_set.h \
+  /usr/include/opencv4/opencv2/flann/sampling.h \
+  /usr/include/opencv4/opencv2/flann/saving.h \
+  /usr/include/opencv4/opencv2/flann/timer.h \
+  /usr/include/opencv4/opencv2/highgui.hpp \
+  /usr/include/opencv4/opencv2/imgcodecs.hpp \
+  /usr/include/opencv4/opencv2/imgproc.hpp \
+  /usr/include/opencv4/opencv2/ml.hpp \
+  /usr/include/opencv4/opencv2/ml/ml.inl.hpp \
+  /usr/include/opencv4/opencv2/objdetect.hpp \
+  /usr/include/opencv4/opencv2/objdetect/aruco_board.hpp \
+  /usr/include/opencv4/opencv2/objdetect/aruco_detector.hpp \
+  /usr/include/opencv4/opencv2/objdetect/aruco_dictionary.hpp \
+  /usr/include/opencv4/opencv2/objdetect/barcode.hpp \
+  /usr/include/opencv4/opencv2/objdetect/charuco_detector.hpp \
+  /usr/include/opencv4/opencv2/objdetect/detection_based_tracker.hpp \
+  /usr/include/opencv4/opencv2/objdetect/face.hpp \
+  /usr/include/opencv4/opencv2/objdetect/graphical_code_detector.hpp \
+  /usr/include/opencv4/opencv2/opencv.hpp \
+  /usr/include/opencv4/opencv2/opencv_modules.hpp \
+  /usr/include/opencv4/opencv2/photo.hpp \
+  /usr/include/opencv4/opencv2/stitching.hpp \
+  /usr/include/opencv4/opencv2/stitching/detail/blenders.hpp \
+  /usr/include/opencv4/opencv2/stitching/detail/camera.hpp \
+  /usr/include/opencv4/opencv2/stitching/detail/exposure_compensate.hpp \
+  /usr/include/opencv4/opencv2/stitching/detail/matchers.hpp \
+  /usr/include/opencv4/opencv2/stitching/detail/motion_estimators.hpp \
+  /usr/include/opencv4/opencv2/stitching/detail/seam_finders.hpp \
+  /usr/include/opencv4/opencv2/stitching/detail/util.hpp \
+  /usr/include/opencv4/opencv2/stitching/detail/util_inl.hpp \
+  /usr/include/opencv4/opencv2/stitching/detail/warpers.hpp \
+  /usr/include/opencv4/opencv2/stitching/detail/warpers_inl.hpp \
+  /usr/include/opencv4/opencv2/stitching/warpers.hpp \
+  /usr/include/opencv4/opencv2/video.hpp \
+  /usr/include/opencv4/opencv2/video/background_segm.hpp \
+  /usr/include/opencv4/opencv2/video/tracking.hpp \
+  /usr/include/opencv4/opencv2/videoio.hpp \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/stdc-predef.h \
+  /usr/include/stdint.h \
+  /usr/include/stdio.h \
+  /usr/include/stdlib.h \
+  /usr/include/string.h \
+  /usr/include/strings.h \
+  /usr/include/tbb/tbb.h \
+  /usr/include/time.h \
+  /usr/include/wchar.h \
+  /usr/include/wctype.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/atomic_word.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/c++allocator.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/c++config.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/c++locale.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/cpu_defines.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/ctype_base.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/ctype_inline.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/error_constants.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/gthr-default.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/gthr.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/messages_members.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/os_defines.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/time_members.h \
   /usr/include/c++/14/algorithm \
   /usr/include/c++/14/array \
   /usr/include/c++/14/backward/auto_ptr.h \
@@ -1158,48 +1211,36 @@ CMakeFiles/calibration_compute.dir/src/calibration/calibration_compute_main.cpp.
   /usr/include/c++/14/unordered_map \
   /usr/include/c++/14/utility \
   /usr/include/c++/14/vector \
-  /usr/include/ctype.h \
-  /usr/include/endian.h \
-  /usr/include/errno.h \
-  /usr/include/features-time64.h \
-  /usr/include/features.h \
-  /usr/include/libintl.h \
-  /usr/include/limits.h \
-  /usr/include/linux/errno.h \
-  /usr/include/linux/limits.h \
-  /usr/include/linux/posix_types.h \
-  /usr/include/linux/sched/types.h \
-  /usr/include/linux/stddef.h \
-  /usr/include/linux/types.h \
-  /usr/include/locale.h \
-  /usr/include/math.h \
-  /usr/include/pthread.h \
-  /usr/include/sched.h \
-  /usr/include/stdc-predef.h \
-  /usr/include/stdint.h \
-  /usr/include/stdio.h \
-  /usr/include/stdlib.h \
-  /usr/include/string.h \
-  /usr/include/strings.h \
-  /usr/include/time.h \
-  /usr/include/wchar.h \
-  /usr/include/wctype.h \
-  /usr/lib/gcc/aarch64-linux-gnu/14/include/arm_bf16.h \
-  /usr/lib/gcc/aarch64-linux-gnu/14/include/arm_fp16.h \
-  /usr/lib/gcc/aarch64-linux-gnu/14/include/arm_neon.h \
-  /usr/lib/gcc/aarch64-linux-gnu/14/include/float.h \
-  /usr/lib/gcc/aarch64-linux-gnu/14/include/limits.h \
-  /usr/lib/gcc/aarch64-linux-gnu/14/include/stdarg.h \
-  /usr/lib/gcc/aarch64-linux-gnu/14/include/stddef.h \
-  /usr/lib/gcc/aarch64-linux-gnu/14/include/stdint.h \
-  /usr/lib/gcc/aarch64-linux-gnu/14/include/syslimits.h \
-  /usr/lib/linux/uapi/arm64/asm/bitsperlong.h \
-  /usr/lib/linux/uapi/arm64/asm/errno.h \
-  /usr/lib/linux/uapi/arm64/asm/posix_types.h \
-  /usr/lib/linux/uapi/arm64/asm/types.h
+  /usr/lib/llvm-19/lib/clang/19/include/__stdarg___gnuc_va_list.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stdarg___va_copy.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stdarg_header_macro.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stdarg_va_arg.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stdarg_va_copy.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stdarg_va_list.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stddef_header_macro.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stddef_max_align_t.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stddef_null.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stddef_nullptr_t.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stddef_offsetof.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stddef_ptrdiff_t.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stddef_size_t.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stddef_wchar_t.h \
+  /usr/lib/llvm-19/lib/clang/19/include/arm_bf16.h \
+  /usr/lib/llvm-19/lib/clang/19/include/arm_neon.h \
+  /usr/lib/llvm-19/lib/clang/19/include/arm_vector_types.h \
+  /usr/lib/llvm-19/lib/clang/19/include/float.h \
+  /usr/lib/llvm-19/lib/clang/19/include/limits.h \
+  /usr/lib/llvm-19/lib/clang/19/include/sanitizer/tsan_interface.h \
+  /usr/lib/llvm-19/lib/clang/19/include/stdarg.h \
+  /usr/lib/llvm-19/lib/clang/19/include/stddef.h \
+  /usr/lib/llvm-19/lib/clang/19/include/stdint.h
 
 CMakeFiles/calibration_compute.dir/src/core/config.cpp.o: /home/arduino/Q/src/core/config.cpp \
   /home/arduino/Q/src/core/config.hpp \
+  /usr/include/aarch64-linux-gnu/asm/bitsperlong.h \
+  /usr/include/aarch64-linux-gnu/asm/errno.h \
+  /usr/include/aarch64-linux-gnu/asm/posix_types.h \
+  /usr/include/aarch64-linux-gnu/asm/types.h \
   /usr/include/aarch64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/aarch64-linux-gnu/bits/byteswap.h \
   /usr/include/aarch64-linux-gnu/bits/cpu-set.h \
@@ -1261,19 +1302,6 @@ CMakeFiles/calibration_compute.dir/src/core/config.cpp.o: /home/arduino/Q/src/co
   /usr/include/aarch64-linux-gnu/bits/wchar.h \
   /usr/include/aarch64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/aarch64-linux-gnu/bits/wordsize.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/atomic_word.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/basic_file.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/c++allocator.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/c++config.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/c++io.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/c++locale.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/cpu_defines.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/ctype_base.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/ctype_inline.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/error_constants.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/gthr-default.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/gthr.h \
-  /usr/include/aarch64-linux-gnu/c++/14/bits/os_defines.h \
   /usr/include/aarch64-linux-gnu/gnu/stubs-lp64.h \
   /usr/include/aarch64-linux-gnu/gnu/stubs.h \
   /usr/include/aarch64-linux-gnu/sys/cdefs.h \
@@ -1287,6 +1315,42 @@ CMakeFiles/calibration_compute.dir/src/core/config.cpp.o: /home/arduino/Q/src/co
   /usr/include/asm-generic/int-ll64.h \
   /usr/include/asm-generic/posix_types.h \
   /usr/include/asm-generic/types.h \
+  /usr/include/ctype.h \
+  /usr/include/endian.h \
+  /usr/include/errno.h \
+  /usr/include/features-time64.h \
+  /usr/include/features.h \
+  /usr/include/linux/errno.h \
+  /usr/include/linux/posix_types.h \
+  /usr/include/linux/sched/types.h \
+  /usr/include/linux/stddef.h \
+  /usr/include/linux/types.h \
+  /usr/include/locale.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/stdc-predef.h \
+  /usr/include/stdint.h \
+  /usr/include/stdio.h \
+  /usr/include/stdlib.h \
+  /usr/include/string.h \
+  /usr/include/strings.h \
+  /usr/include/tbb/tbb.h \
+  /usr/include/time.h \
+  /usr/include/wchar.h \
+  /usr/include/wctype.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/atomic_word.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/basic_file.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/c++allocator.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/c++config.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/c++io.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/c++locale.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/cpu_defines.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/ctype_base.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/ctype_inline.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/error_constants.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/gthr-default.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/gthr.h \
+  /usr/include/aarch64-linux-gnu/c++/14/bits/os_defines.h \
   /usr/include/c++/14/atomic \
   /usr/include/c++/14/backward/binders.h \
   /usr/include/c++/14/bit \
@@ -1387,119 +1451,412 @@ CMakeFiles/calibration_compute.dir/src/core/config.cpp.o: /home/arduino/Q/src/co
   /usr/include/c++/14/tuple \
   /usr/include/c++/14/type_traits \
   /usr/include/c++/14/typeinfo \
-  /usr/include/ctype.h \
-  /usr/include/endian.h \
-  /usr/include/errno.h \
-  /usr/include/features-time64.h \
-  /usr/include/features.h \
-  /usr/include/linux/errno.h \
-  /usr/include/linux/posix_types.h \
-  /usr/include/linux/sched/types.h \
-  /usr/include/linux/stddef.h \
-  /usr/include/linux/types.h \
-  /usr/include/locale.h \
-  /usr/include/pthread.h \
-  /usr/include/sched.h \
-  /usr/include/stdc-predef.h \
-  /usr/include/stdint.h \
-  /usr/include/stdio.h \
-  /usr/include/stdlib.h \
-  /usr/include/string.h \
-  /usr/include/strings.h \
-  /usr/include/time.h \
-  /usr/include/wchar.h \
-  /usr/include/wctype.h \
-  /usr/lib/gcc/aarch64-linux-gnu/14/include/stdarg.h \
-  /usr/lib/gcc/aarch64-linux-gnu/14/include/stddef.h \
-  /usr/lib/gcc/aarch64-linux-gnu/14/include/stdint.h \
-  /usr/lib/linux/uapi/arm64/asm/bitsperlong.h \
-  /usr/lib/linux/uapi/arm64/asm/errno.h \
-  /usr/lib/linux/uapi/arm64/asm/posix_types.h \
-  /usr/lib/linux/uapi/arm64/asm/types.h
+  /usr/lib/llvm-19/lib/clang/19/include/__stdarg___gnuc_va_list.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stddef_header_macro.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stddef_max_align_t.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stddef_null.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stddef_nullptr_t.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stddef_offsetof.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stddef_ptrdiff_t.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stddef_size_t.h \
+  /usr/lib/llvm-19/lib/clang/19/include/__stddef_wchar_t.h \
+  /usr/lib/llvm-19/lib/clang/19/include/stdarg.h \
+  /usr/lib/llvm-19/lib/clang/19/include/stddef.h \
+  /usr/lib/llvm-19/lib/clang/19/include/stdint.h
 
-calibration_compute: /home/arduino/opencv5_build/opencv/build/lib/libopencv_alphamat.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_bgsegm.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_bioinspired.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_calib.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_ccalib.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_core.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_datasets.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_dnn.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_dnn_objdetect.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_dnn_superres.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_dpm.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_face.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_features.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_flann.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_fuzzy.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_gapi.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_geometry.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_hfs.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_highgui.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_img_hash.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_imgcodecs.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_imgproc.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_intensity_transform.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_line_descriptor.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_ml.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_objdetect.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_optflow.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_phase_unwrapping.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_photo.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_plot.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_ptcloud.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_quality.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_rapid.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_reg.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_rgbd.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_saliency.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_shape.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_signal.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_stereo.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_stitching.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_structured_light.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_superres.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_surface_matching.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_text.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_tracking.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_video.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_videoio.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_videostab.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_wechat_qrcode.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_xfeatures2d.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_ximgproc.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_xobjdetect.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_xphoto.so.5.0.0 \
-  /home/arduino/opencv5_build/opencv/build/lib/libopencv_xstereo.so.5.0.0 \
+calibration_compute: /lib/aarch64-linux-gnu/Scrt1.o \
+  /lib/aarch64-linux-gnu/crti.o \
+  /lib/aarch64-linux-gnu/crtn.o \
+  /lib/aarch64-linux-gnu/libGL.so.1 \
+  /lib/aarch64-linux-gnu/libGLEW.so.2.2 \
+  /lib/aarch64-linux-gnu/libGLX.so.0 \
+  /lib/aarch64-linux-gnu/libGLdispatch.so.0 \
   /lib/aarch64-linux-gnu/libIex-3_1.so.30 \
   /lib/aarch64-linux-gnu/libIlmThread-3_1.so.30 \
   /lib/aarch64-linux-gnu/libImath-3_1.so.29 \
   /lib/aarch64-linux-gnu/libLerc.so.4 \
+  /lib/aarch64-linux-gnu/libOpenCL.so.1 \
   /lib/aarch64-linux-gnu/libOpenEXR-3_1.so.30 \
+  /lib/aarch64-linux-gnu/libOpenGL.so.0 \
+  /lib/aarch64-linux-gnu/libQt5Core.so.5 \
+  /lib/aarch64-linux-gnu/libQt5Gui.so.5 \
+  /lib/aarch64-linux-gnu/libQt5OpenGL.so.5 \
+  /lib/aarch64-linux-gnu/libQt5Test.so.5 \
+  /lib/aarch64-linux-gnu/libQt5Widgets.so.5 \
+  /lib/aarch64-linux-gnu/libSvtAv1Enc.so.2 \
+  /lib/aarch64-linux-gnu/libX11-xcb.so.1 \
+  /lib/aarch64-linux-gnu/libX11.so.6 \
+  /lib/aarch64-linux-gnu/libXau.so.6 \
+  /lib/aarch64-linux-gnu/libXdmcp.so.6 \
+  /lib/aarch64-linux-gnu/libXext.so.6 \
+  /lib/aarch64-linux-gnu/libXfixes.so.3 \
+  /lib/aarch64-linux-gnu/libXrender.so.1 \
+  /lib/aarch64-linux-gnu/libabsl_base.so.20240722 \
+  /lib/aarch64-linux-gnu/libabsl_debugging_internal.so.20240722 \
+  /lib/aarch64-linux-gnu/libabsl_decode_rust_punycode.so.20240722 \
+  /lib/aarch64-linux-gnu/libabsl_demangle_internal.so.20240722 \
+  /lib/aarch64-linux-gnu/libabsl_demangle_rust.so.20240722 \
+  /lib/aarch64-linux-gnu/libabsl_graphcycles_internal.so.20240722 \
+  /lib/aarch64-linux-gnu/libabsl_kernel_timeout_internal.so.20240722 \
+  /lib/aarch64-linux-gnu/libabsl_malloc_internal.so.20240722 \
+  /lib/aarch64-linux-gnu/libabsl_raw_logging_internal.so.20240722 \
+  /lib/aarch64-linux-gnu/libabsl_spinlock_wait.so.20240722 \
+  /lib/aarch64-linux-gnu/libabsl_stacktrace.so.20240722 \
+  /lib/aarch64-linux-gnu/libabsl_string_view.so.20240722 \
+  /lib/aarch64-linux-gnu/libabsl_strings.so.20240722 \
+  /lib/aarch64-linux-gnu/libabsl_strings_internal.so.20240722 \
+  /lib/aarch64-linux-gnu/libabsl_symbolize.so.20240722 \
+  /lib/aarch64-linux-gnu/libabsl_synchronization.so.20240722 \
+  /lib/aarch64-linux-gnu/libabsl_throw_delegate.so.20240722 \
+  /lib/aarch64-linux-gnu/libabsl_time.so.20240722 \
+  /lib/aarch64-linux-gnu/libabsl_time_zone.so.20240722 \
+  /lib/aarch64-linux-gnu/libabsl_utf8_for_code_point.so.20240722 \
+  /lib/aarch64-linux-gnu/libacl.so.1 \
+  /lib/aarch64-linux-gnu/libaec.so.0 \
+  /lib/aarch64-linux-gnu/libaom.so.3 \
+  /lib/aarch64-linux-gnu/libarchive.so.13 \
+  /lib/aarch64-linux-gnu/libarpack.so.2 \
+  /lib/aarch64-linux-gnu/libassuan.so.9 \
+  /lib/aarch64-linux-gnu/libatomic.so.1 \
+  /lib/aarch64-linux-gnu/libavcodec.so.61 \
+  /lib/aarch64-linux-gnu/libavformat.so.61 \
+  /lib/aarch64-linux-gnu/libavif.so.16 \
+  /lib/aarch64-linux-gnu/libavutil.so.59 \
+  /lib/aarch64-linux-gnu/libblas.so.3 \
+  /lib/aarch64-linux-gnu/libblkid.so.1 \
+  /lib/aarch64-linux-gnu/libblosc.so.1 \
+  /lib/aarch64-linux-gnu/libbluray.so.2 \
+  /lib/aarch64-linux-gnu/libbrotlicommon.so.1 \
+  /lib/aarch64-linux-gnu/libbrotlidec.so.1 \
+  /lib/aarch64-linux-gnu/libbrotlienc.so.1 \
+  /lib/aarch64-linux-gnu/libbsd.so.0 \
+  /lib/aarch64-linux-gnu/libbz2.so.1.0 \
+  /lib/aarch64-linux-gnu/libc.so \
   /lib/aarch64-linux-gnu/libc.so.6 \
+  /lib/aarch64-linux-gnu/libcairo-gobject.so.2 \
+  /lib/aarch64-linux-gnu/libcairo.so.2 \
+  /lib/aarch64-linux-gnu/libcap.so.2 \
+  /lib/aarch64-linux-gnu/libcfitsio.so.10 \
+  /lib/aarch64-linux-gnu/libcharls.so.2 \
+  /lib/aarch64-linux-gnu/libchromaprint.so.1 \
+  /lib/aarch64-linux-gnu/libcjson.so.1 \
+  /lib/aarch64-linux-gnu/libcodec2.so.1.2 \
+  /lib/aarch64-linux-gnu/libcom_err.so.2 \
+  /lib/aarch64-linux-gnu/libcrypto.so.3 \
+  /lib/aarch64-linux-gnu/libcurl-gnutls.so.4 \
+  /lib/aarch64-linux-gnu/libcurl.so.4 \
+  /lib/aarch64-linux-gnu/libdatrie.so.1 \
+  /lib/aarch64-linux-gnu/libdav1d.so.7 \
+  /lib/aarch64-linux-gnu/libdc1394.so.25 \
   /lib/aarch64-linux-gnu/libdeflate.so.0 \
+  /lib/aarch64-linux-gnu/libdfalt.so.0 \
+  /lib/aarch64-linux-gnu/libdouble-conversion.so.3 \
+  /lib/aarch64-linux-gnu/libdrm.so.2 \
+  /lib/aarch64-linux-gnu/libdvdnav.so.4 \
+  /lib/aarch64-linux-gnu/libdvdread.so.8 \
+  /lib/aarch64-linux-gnu/libexif.so.12 \
+  /lib/aarch64-linux-gnu/libexpat.so.1 \
+  /lib/aarch64-linux-gnu/libffi.so.8 \
+  /lib/aarch64-linux-gnu/libfontconfig.so.1 \
+  /lib/aarch64-linux-gnu/libfreetype.so.6 \
+  /lib/aarch64-linux-gnu/libfreexl.so.1 \
+  /lib/aarch64-linux-gnu/libfribidi.so.0 \
+  /lib/aarch64-linux-gnu/libfyba.so.0 \
+  /lib/aarch64-linux-gnu/libfygm.so.0 \
+  /lib/aarch64-linux-gnu/libfyut.so.0 \
+  /lib/aarch64-linux-gnu/libgav1.so.1 \
+  /lib/aarch64-linux-gnu/libgcc_s.so.1 \
+  /lib/aarch64-linux-gnu/libgdal.so.36 \
+  /lib/aarch64-linux-gnu/libgdcmCommon.so.3.0 \
+  /lib/aarch64-linux-gnu/libgdcmDICT.so.3.0 \
+  /lib/aarch64-linux-gnu/libgdcmDSED.so.3.0 \
+  /lib/aarch64-linux-gnu/libgdcmIOD.so.3.0 \
+  /lib/aarch64-linux-gnu/libgdcmMSFF.so.3.0 \
+  /lib/aarch64-linux-gnu/libgdcmjpeg12.so.3.0 \
+  /lib/aarch64-linux-gnu/libgdcmjpeg16.so.3.0 \
+  /lib/aarch64-linux-gnu/libgdcmjpeg8.so.3.0 \
+  /lib/aarch64-linux-gnu/libgdk_pixbuf-2.0.so.0 \
+  /lib/aarch64-linux-gnu/libgeos.so.3.13.1 \
+  /lib/aarch64-linux-gnu/libgeos_c.so.1 \
+  /lib/aarch64-linux-gnu/libgeotiff.so.5 \
+  /lib/aarch64-linux-gnu/libgfortran.so.5 \
+  /lib/aarch64-linux-gnu/libgif.so.7 \
+  /lib/aarch64-linux-gnu/libgio-2.0.so.0 \
+  /lib/aarch64-linux-gnu/libglib-2.0.so.0 \
+  /lib/aarch64-linux-gnu/libgme.so.0 \
+  /lib/aarch64-linux-gnu/libgmodule-2.0.so.0 \
+  /lib/aarch64-linux-gnu/libgmp.so.10 \
+  /lib/aarch64-linux-gnu/libgnutls.so.30 \
+  /lib/aarch64-linux-gnu/libgobject-2.0.so.0 \
   /lib/aarch64-linux-gnu/libgomp.so.1 \
+  /lib/aarch64-linux-gnu/libgpg-error.so.0 \
+  /lib/aarch64-linux-gnu/libgpgme.so.11 \
+  /lib/aarch64-linux-gnu/libgpgmepp.so.6 \
+  /lib/aarch64-linux-gnu/libgphoto2.so.6 \
+  /lib/aarch64-linux-gnu/libgphoto2_port.so.12 \
+  /lib/aarch64-linux-gnu/libgraphite2.so.3 \
+  /lib/aarch64-linux-gnu/libgsm.so.1 \
+  /lib/aarch64-linux-gnu/libgssapi_krb5.so.2 \
+  /lib/aarch64-linux-gnu/libgstapp-1.0.so.0 \
+  /lib/aarch64-linux-gnu/libgstaudio-1.0.so.0 \
+  /lib/aarch64-linux-gnu/libgstbase-1.0.so.0 \
+  /lib/aarch64-linux-gnu/libgstpbutils-1.0.so.0 \
+  /lib/aarch64-linux-gnu/libgstreamer-1.0.so.0 \
+  /lib/aarch64-linux-gnu/libgstriff-1.0.so.0 \
+  /lib/aarch64-linux-gnu/libgsttag-1.0.so.0 \
+  /lib/aarch64-linux-gnu/libgstvideo-1.0.so.0 \
+  /lib/aarch64-linux-gnu/libharfbuzz.so.0 \
+  /lib/aarch64-linux-gnu/libhdf5_serial.so.310 \
+  /lib/aarch64-linux-gnu/libhdf5_serial_hl.so.310 \
+  /lib/aarch64-linux-gnu/libheif.so.1 \
+  /lib/aarch64-linux-gnu/libhogweed.so.6 \
+  /lib/aarch64-linux-gnu/libhwy.so.1 \
+  /lib/aarch64-linux-gnu/libicudata.so.76 \
+  /lib/aarch64-linux-gnu/libicui18n.so.76 \
+  /lib/aarch64-linux-gnu/libicuuc.so.76 \
+  /lib/aarch64-linux-gnu/libidn2.so.0 \
   /lib/aarch64-linux-gnu/libjbig.so.0 \
   /lib/aarch64-linux-gnu/libjpeg.so.62 \
+  /lib/aarch64-linux-gnu/libjson-c.so.5 \
+  /lib/aarch64-linux-gnu/libjsoncpp.so.26 \
+  /lib/aarch64-linux-gnu/libjxl.so.0.11 \
+  /lib/aarch64-linux-gnu/libjxl_cms.so.0.11 \
+  /lib/aarch64-linux-gnu/libjxl_threads.so.0.11 \
+  /lib/aarch64-linux-gnu/libk5crypto.so.3 \
+  /lib/aarch64-linux-gnu/libkeyutils.so.1 \
+  /lib/aarch64-linux-gnu/libkmlbase.so.1 \
+  /lib/aarch64-linux-gnu/libkmldom.so.1 \
+  /lib/aarch64-linux-gnu/libkmlengine.so.1 \
+  /lib/aarch64-linux-gnu/libkrb5.so.3 \
+  /lib/aarch64-linux-gnu/libkrb5support.so.0 \
+  /lib/aarch64-linux-gnu/liblapack.so.3 \
+  /lib/aarch64-linux-gnu/liblber.so.2 \
+  /lib/aarch64-linux-gnu/liblcms2.so.2 \
+  /lib/aarch64-linux-gnu/libldap.so.2 \
+  /lib/aarch64-linux-gnu/libleptonica.so.6 \
+  /lib/aarch64-linux-gnu/libltdl.so.7 \
+  /lib/aarch64-linux-gnu/liblz4.so.1 \
   /lib/aarch64-linux-gnu/liblzma.so.5 \
+  /lib/aarch64-linux-gnu/libm.so \
   /lib/aarch64-linux-gnu/libm.so.6 \
+  /lib/aarch64-linux-gnu/libmariadb.so.3 \
+  /lib/aarch64-linux-gnu/libmbedcrypto.so.16 \
+  /lib/aarch64-linux-gnu/libmd.so.0 \
+  /lib/aarch64-linux-gnu/libmd4c.so.0 \
+  /lib/aarch64-linux-gnu/libmfhdfalt.so.0 \
+  /lib/aarch64-linux-gnu/libminizip.so.1 \
+  /lib/aarch64-linux-gnu/libmount.so.1 \
+  /lib/aarch64-linux-gnu/libmp3lame.so.0 \
+  /lib/aarch64-linux-gnu/libmpg123.so.0 \
   /lib/aarch64-linux-gnu/libmvec.so.1 \
+  /lib/aarch64-linux-gnu/libnetcdf.so.22 \
+  /lib/aarch64-linux-gnu/libnettle.so.8 \
+  /lib/aarch64-linux-gnu/libnghttp2.so.14 \
+  /lib/aarch64-linux-gnu/libnghttp3.so.9 \
+  /lib/aarch64-linux-gnu/libngtcp2.so.16 \
+  /lib/aarch64-linux-gnu/libngtcp2_crypto_gnutls.so.8 \
+  /lib/aarch64-linux-gnu/libnorm.so.1 \
+  /lib/aarch64-linux-gnu/libnspr4.so \
+  /lib/aarch64-linux-gnu/libnss3.so \
+  /lib/aarch64-linux-gnu/libnssutil3.so \
+  /lib/aarch64-linux-gnu/libnuma.so.1 \
+  /lib/aarch64-linux-gnu/libodbc.so.2 \
+  /lib/aarch64-linux-gnu/libodbcinst.so.2 \
+  /lib/aarch64-linux-gnu/libogdi.so.4.1 \
+  /lib/aarch64-linux-gnu/libogg.so.0 \
+  /lib/aarch64-linux-gnu/libopenjp2.so.7 \
+  /lib/aarch64-linux-gnu/libopenmpt.so.0 \
+  /lib/aarch64-linux-gnu/libopus.so.0 \
+  /lib/aarch64-linux-gnu/liborc-0.4.so.0 \
+  /lib/aarch64-linux-gnu/libp11-kit.so.0 \
+  /lib/aarch64-linux-gnu/libpango-1.0.so.0 \
+  /lib/aarch64-linux-gnu/libpangocairo-1.0.so.0 \
+  /lib/aarch64-linux-gnu/libpangoft2-1.0.so.0 \
+  /lib/aarch64-linux-gnu/libpcre2-16.so.0 \
+  /lib/aarch64-linux-gnu/libpcre2-8.so.0 \
+  /lib/aarch64-linux-gnu/libpgm-5.3.so.0 \
+  /lib/aarch64-linux-gnu/libpixman-1.so.0 \
+  /lib/aarch64-linux-gnu/libplc4.so \
+  /lib/aarch64-linux-gnu/libplds4.so \
   /lib/aarch64-linux-gnu/libpng16.so.16 \
+  /lib/aarch64-linux-gnu/libpoppler.so.147 \
+  /lib/aarch64-linux-gnu/libpq.so.5 \
+  /lib/aarch64-linux-gnu/libproj.so.25 \
+  /lib/aarch64-linux-gnu/libprotobuf.so.32 \
+  /lib/aarch64-linux-gnu/libpsl.so.5 \
+  /lib/aarch64-linux-gnu/libqhull_r.so.8.0 \
+  /lib/aarch64-linux-gnu/librabbitmq.so.4 \
+  /lib/aarch64-linux-gnu/librav1e.so.0.7 \
+  /lib/aarch64-linux-gnu/libraw1394.so.11 \
+  /lib/aarch64-linux-gnu/libresolv.so.2 \
+  /lib/aarch64-linux-gnu/librist.so.4 \
+  /lib/aarch64-linux-gnu/librsvg-2.so.2 \
+  /lib/aarch64-linux-gnu/librtmp.so.1 \
+  /lib/aarch64-linux-gnu/librttopo.so.1 \
+  /lib/aarch64-linux-gnu/libsasl2.so.2 \
+  /lib/aarch64-linux-gnu/libselinux.so.1 \
   /lib/aarch64-linux-gnu/libsharpyuv.so.0 \
+  /lib/aarch64-linux-gnu/libshine.so.3 \
+  /lib/aarch64-linux-gnu/libsmime3.so \
+  /lib/aarch64-linux-gnu/libsnappy.so.1 \
+  /lib/aarch64-linux-gnu/libsodium.so.23 \
+  /lib/aarch64-linux-gnu/libsoxr.so.0 \
+  /lib/aarch64-linux-gnu/libspatialite.so.8 \
+  /lib/aarch64-linux-gnu/libspeex.so.1 \
+  /lib/aarch64-linux-gnu/libsqlite3.so.0 \
+  /lib/aarch64-linux-gnu/libsrt-gnutls.so.1.5 \
+  /lib/aarch64-linux-gnu/libssh.so.4 \
+  /lib/aarch64-linux-gnu/libssh2.so.1 \
+  /lib/aarch64-linux-gnu/libssl.so.3 \
+  /lib/aarch64-linux-gnu/libswresample.so.5 \
+  /lib/aarch64-linux-gnu/libswscale.so.8 \
+  /lib/aarch64-linux-gnu/libsz.so.2 \
+  /lib/aarch64-linux-gnu/libtasn1.so.6 \
+  /lib/aarch64-linux-gnu/libtbb.so.12 \
+  /lib/aarch64-linux-gnu/libtesseract.so.5 \
+  /lib/aarch64-linux-gnu/libthai.so.0 \
+  /lib/aarch64-linux-gnu/libtheoradec.so.1 \
+  /lib/aarch64-linux-gnu/libtheoraenc.so.1 \
   /lib/aarch64-linux-gnu/libtiff.so.6 \
+  /lib/aarch64-linux-gnu/libtirpc.so.3 \
+  /lib/aarch64-linux-gnu/libtwolame.so.0 \
+  /lib/aarch64-linux-gnu/libudev.so.1 \
+  /lib/aarch64-linux-gnu/libudfread.so.0 \
+  /lib/aarch64-linux-gnu/libunistring.so.5 \
+  /lib/aarch64-linux-gnu/liburiparser.so.1 \
+  /lib/aarch64-linux-gnu/libusb-1.0.so.0 \
+  /lib/aarch64-linux-gnu/libuuid.so.1 \
+  /lib/aarch64-linux-gnu/libva-drm.so.2 \
+  /lib/aarch64-linux-gnu/libva-x11.so.2 \
+  /lib/aarch64-linux-gnu/libva.so.2 \
+  /lib/aarch64-linux-gnu/libvdpau.so.1 \
+  /lib/aarch64-linux-gnu/libvorbis.so.0 \
+  /lib/aarch64-linux-gnu/libvorbisenc.so.2 \
+  /lib/aarch64-linux-gnu/libvorbisfile.so.3 \
+  /lib/aarch64-linux-gnu/libvpx.so.9 \
+  /lib/aarch64-linux-gnu/libvtkCommonColor-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkCommonComputationalGeometry-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkCommonCore-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkCommonDataModel-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkCommonExecutionModel-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkCommonMath-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkCommonMisc-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkCommonSystem-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkCommonTransforms-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkDICOMParser-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkDomainsChemistry-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkFiltersCore-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkFiltersGeneral-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkFiltersGeometry-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkFiltersHybrid-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkFiltersHyperTree-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkFiltersModeling-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkFiltersSources-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkFiltersTexture-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkFiltersVerdict-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkIOCore-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkIOExport-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkIOGeometry-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkIOImage-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkIOPLY-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkIOXML-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkIOXMLParser-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkImagingCore-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkImagingSources-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkInteractionStyle-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkRenderingContext2D-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkRenderingCore-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkRenderingFreeType-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkRenderingHyperTreeGrid-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkRenderingLOD-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkRenderingOpenGL2-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkRenderingSceneGraph-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkRenderingUI-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkRenderingVtkJS-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkfmt-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkkissfft-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkloguru-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkmetaio-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkpugixml-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtksys-9.3.so.1 \
+  /lib/aarch64-linux-gnu/libvtkverdict-9.3.so.1 \
   /lib/aarch64-linux-gnu/libwebp.so.7 \
-  /lib/aarch64-linux-gnu/libwebpdemux.so.2 \
   /lib/aarch64-linux-gnu/libwebpmux.so.3 \
+  /lib/aarch64-linux-gnu/libx264.so.164 \
+  /lib/aarch64-linux-gnu/libx265.so.215 \
+  /lib/aarch64-linux-gnu/libxcb-dri3.so.0 \
+  /lib/aarch64-linux-gnu/libxcb-render.so.0 \
+  /lib/aarch64-linux-gnu/libxcb-shm.so.0 \
+  /lib/aarch64-linux-gnu/libxcb.so.1 \
+  /lib/aarch64-linux-gnu/libxerces-c-3.2.so \
+  /lib/aarch64-linux-gnu/libxml2.so.2 \
+  /lib/aarch64-linux-gnu/libxvidcore.so.4 \
+  /lib/aarch64-linux-gnu/libxxhash.so.0 \
+  /lib/aarch64-linux-gnu/libyuv.so.0 \
   /lib/aarch64-linux-gnu/libz.so.1 \
+  /lib/aarch64-linux-gnu/libzmq.so.5 \
   /lib/aarch64-linux-gnu/libzstd.so.1 \
+  /lib/aarch64-linux-gnu/libzvbi.so.0 \
   /lib/ld-linux-aarch64.so.1 \
+  /lib/libarmadillo.so.14 \
+  /usr/lib/aarch64-linux-gnu/libabsl_throw_delegate.so.20240722 \
   /usr/lib/aarch64-linux-gnu/libc_nonshared.a \
-  /usr/lib/aarch64-linux-gnu/Scrt1.o \
-  /usr/lib/aarch64-linux-gnu/crti.o \
-  /usr/lib/aarch64-linux-gnu/crtn.o \
-  /usr/lib/aarch64-linux-gnu/libc.so \
-  /usr/lib/aarch64-linux-gnu/libgcc_s.so.1 \
-  /usr/lib/aarch64-linux-gnu/libm.so \
+  /usr/lib/aarch64-linux-gnu/libcairo-gobject.so.2 \
+  /usr/lib/aarch64-linux-gnu/libopencv_alphamat.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_aruco.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_bgsegm.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_bioinspired.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_calib3d.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_ccalib.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_core.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_cvv.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_datasets.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_dnn.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_dnn_objdetect.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_dnn_superres.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_dpm.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_face.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_features2d.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_flann.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_freetype.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_fuzzy.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_hdf.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_hfs.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_highgui.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_img_hash.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_imgcodecs.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_imgproc.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_intensity_transform.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_line_descriptor.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_mcc.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_ml.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_objdetect.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_optflow.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_phase_unwrapping.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_photo.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_plot.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_quality.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_rapid.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_reg.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_rgbd.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_saliency.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_shape.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_signal.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_stereo.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_stitching.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_structured_light.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_superres.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_surface_matching.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_text.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_tracking.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_video.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_videoio.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_videostab.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_viz.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_wechat_qrcode.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_ximgproc.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_xobjdetect.so.4.10.0 \
+  /usr/lib/aarch64-linux-gnu/libopencv_xphoto.so.4.10.0 \
   /usr/lib/gcc/aarch64-linux-gnu/14/crtbeginS.o \
   /usr/lib/gcc/aarch64-linux-gnu/14/crtendS.o \
   /usr/lib/gcc/aarch64-linux-gnu/14/libgcc.a \
@@ -1513,159 +1870,487 @@ calibration_compute: /home/arduino/opencv5_build/opencv/build/lib/libopencv_alph
 
 CMakeFiles/calibration_compute.dir/src/calibration/calibration_compute_main.cpp.o:
 
-CMakeFiles/calibration_compute.dir/src/calibration/calibration.cpp.o:
-
-/usr/lib/gcc/aarch64-linux-gnu/14/libstdc++.so:
-
 /usr/lib/gcc/aarch64-linux-gnu/14/libgcc.a:
 
 /usr/lib/gcc/aarch64-linux-gnu/14/crtbeginS.o:
 
-/usr/lib/aarch64-linux-gnu/libm.so:
+/usr/lib/aarch64-linux-gnu/libopencv_ximgproc.so.4.10.0:
 
-/usr/lib/aarch64-linux-gnu/libc.so:
+/usr/lib/aarch64-linux-gnu/libopencv_wechat_qrcode.so.4.10.0:
 
-/usr/lib/aarch64-linux-gnu/crtn.o:
+/usr/lib/aarch64-linux-gnu/libopencv_videostab.so.4.10.0:
 
-/usr/lib/aarch64-linux-gnu/Scrt1.o:
+/usr/lib/aarch64-linux-gnu/libopencv_superres.so.4.10.0:
+
+/usr/lib/aarch64-linux-gnu/libopencv_stitching.so.4.10.0:
+
+/usr/lib/aarch64-linux-gnu/libopencv_stereo.so.4.10.0:
+
+/usr/lib/aarch64-linux-gnu/libopencv_signal.so.4.10.0:
+
+/usr/lib/aarch64-linux-gnu/libopencv_videoio.so.4.10.0:
+
+/usr/lib/aarch64-linux-gnu/libopencv_shape.so.4.10.0:
+
+/usr/lib/aarch64-linux-gnu/libopencv_rapid.so.4.10.0:
+
+/usr/lib/aarch64-linux-gnu/libopencv_quality.so.4.10.0:
+
+/usr/lib/aarch64-linux-gnu/libopencv_optflow.so.4.10.0:
+
+/usr/lib/aarch64-linux-gnu/libopencv_objdetect.so.4.10.0:
+
+/usr/lib/aarch64-linux-gnu/libopencv_mcc.so.4.10.0:
+
+/usr/lib/aarch64-linux-gnu/libopencv_line_descriptor.so.4.10.0:
+
+/usr/lib/aarch64-linux-gnu/libopencv_intensity_transform.so.4.10.0:
+
+/usr/lib/aarch64-linux-gnu/libopencv_imgcodecs.so.4.10.0:
+
+/usr/lib/aarch64-linux-gnu/libopencv_fuzzy.so.4.10.0:
+
+/usr/lib/aarch64-linux-gnu/libopencv_freetype.so.4.10.0:
+
+/usr/lib/aarch64-linux-gnu/libopencv_flann.so.4.10.0:
+
+/usr/lib/aarch64-linux-gnu/libopencv_dnn_objdetect.so.4.10.0:
+
+/usr/lib/aarch64-linux-gnu/libopencv_datasets.so.4.10.0:
+
+/usr/lib/aarch64-linux-gnu/libopencv_bgsegm.so.4.10.0:
+
+/usr/lib/aarch64-linux-gnu/libopencv_aruco.so.4.10.0:
+
+/usr/lib/aarch64-linux-gnu/libcairo-gobject.so.2:
 
 /usr/lib/aarch64-linux-gnu/libc_nonshared.a:
 
+/lib/libarmadillo.so.14:
+
+/lib/ld-linux-aarch64.so.1:
+
+/lib/aarch64-linux-gnu/libzstd.so.1:
+
+/lib/aarch64-linux-gnu/libz.so.1:
+
+/lib/aarch64-linux-gnu/libxxhash.so.0:
+
+/usr/lib/aarch64-linux-gnu/libabsl_throw_delegate.so.20240722:
+
+/lib/aarch64-linux-gnu/libxerces-c-3.2.so:
+
+/lib/aarch64-linux-gnu/libx265.so.215:
+
 /lib/aarch64-linux-gnu/libwebpmux.so.3:
 
-/lib/aarch64-linux-gnu/libwebpdemux.so.2:
+/lib/aarch64-linux-gnu/libvtkmetaio-9.3.so.1:
+
+/lib/aarch64-linux-gnu/libvtkloguru-9.3.so.1:
+
+/lib/aarch64-linux-gnu/libvtkRenderingVtkJS-9.3.so.1:
+
+/lib/aarch64-linux-gnu/libvtkRenderingUI-9.3.so.1:
+
+/lib/aarch64-linux-gnu/libvtkRenderingSceneGraph-9.3.so.1:
+
+/lib/aarch64-linux-gnu/libvtkRenderingLOD-9.3.so.1:
+
+/lib/aarch64-linux-gnu/libvtkRenderingHyperTreeGrid-9.3.so.1:
+
+/lib/aarch64-linux-gnu/libvtkRenderingFreeType-9.3.so.1:
+
+/lib/aarch64-linux-gnu/libvtkInteractionStyle-9.3.so.1:
+
+/lib/aarch64-linux-gnu/libvtkImagingSources-9.3.so.1:
+
+/lib/aarch64-linux-gnu/libvtkIOImage-9.3.so.1:
+
+/lib/aarch64-linux-gnu/libvtkIOExport-9.3.so.1:
+
+/lib/aarch64-linux-gnu/libxvidcore.so.4:
+
+/lib/aarch64-linux-gnu/libvtkFiltersVerdict-9.3.so.1:
+
+/lib/aarch64-linux-gnu/libvtkFiltersTexture-9.3.so.1:
+
+/lib/aarch64-linux-gnu/libvtkFiltersSources-9.3.so.1:
+
+/lib/aarch64-linux-gnu/libvtkIOXMLParser-9.3.so.1:
+
+/lib/aarch64-linux-gnu/libvtkFiltersHybrid-9.3.so.1:
+
+/lib/aarch64-linux-gnu/libvtkFiltersGeometry-9.3.so.1:
+
+/lib/aarch64-linux-gnu/libvtkFiltersCore-9.3.so.1:
+
+/usr/lib/aarch64-linux-gnu/libopencv_ccalib.so.4.10.0:
+
+/lib/aarch64-linux-gnu/libvtkDomainsChemistry-9.3.so.1:
+
+/lib/aarch64-linux-gnu/libvtkDICOMParser-9.3.so.1:
+
+/lib/aarch64-linux-gnu/libvtkCommonMisc-9.3.so.1:
+
+/lib/aarch64-linux-gnu/libvtkRenderingContext2D-9.3.so.1:
+
+/lib/aarch64-linux-gnu/libvtkCommonDataModel-9.3.so.1:
+
+/lib/aarch64-linux-gnu/libvtkFiltersHyperTree-9.3.so.1:
+
+/lib/aarch64-linux-gnu/libvtkCommonCore-9.3.so.1:
+
+/lib/aarch64-linux-gnu/libvtkCommonColor-9.3.so.1:
+
+/lib/aarch64-linux-gnu/libvpx.so.9:
+
+/lib/aarch64-linux-gnu/libvorbis.so.0:
+
+/lib/aarch64-linux-gnu/libvdpau.so.1:
+
+/lib/aarch64-linux-gnu/libva.so.2:
+
+/lib/aarch64-linux-gnu/libva-x11.so.2:
+
+/lib/aarch64-linux-gnu/libuuid.so.1:
+
+/lib/aarch64-linux-gnu/liburiparser.so.1:
+
+/lib/aarch64-linux-gnu/libunistring.so.5:
+
+/lib/aarch64-linux-gnu/libtheoraenc.so.1:
+
+/usr/lib/aarch64-linux-gnu/libopencv_text.so.4.10.0:
+
+/lib/aarch64-linux-gnu/libthai.so.0:
+
+/lib/aarch64-linux-gnu/libtbb.so.12:
+
+/lib/aarch64-linux-gnu/libsz.so.2:
+
+/usr/lib/aarch64-linux-gnu/libopencv_reg.so.4.10.0:
+
+/lib/aarch64-linux-gnu/libssl.so.3:
+
+/lib/aarch64-linux-gnu/libssh2.so.1:
+
+/lib/aarch64-linux-gnu/libsrt-gnutls.so.1.5:
+
+/lib/aarch64-linux-gnu/libsodium.so.23:
+
+/lib/aarch64-linux-gnu/libshine.so.3:
 
 /lib/aarch64-linux-gnu/libsharpyuv.so.0:
 
+/lib/aarch64-linux-gnu/libselinux.so.1:
+
+/usr/lib/aarch64-linux-gnu/libopencv_photo.so.4.10.0:
+
+/lib/aarch64-linux-gnu/librtmp.so.1:
+
+/lib/aarch64-linux-gnu/librav1e.so.0.7:
+
+/lib/aarch64-linux-gnu/librabbitmq.so.4:
+
+/lib/aarch64-linux-gnu/libprotobuf.so.32:
+
 /lib/aarch64-linux-gnu/libpng16.so.16:
+
+/lib/aarch64-linux-gnu/libplds4.so:
+
+/lib/aarch64-linux-gnu/libplc4.so:
+
+/lib/aarch64-linux-gnu/libvtkFiltersModeling-9.3.so.1:
+
+/lib/aarch64-linux-gnu/libpixman-1.so.0:
+
+/lib/aarch64-linux-gnu/libraw1394.so.11:
+
+/lib/aarch64-linux-gnu/libpcre2-8.so.0:
+
+/usr/lib/aarch64-linux-gnu/libopencv_features2d.so.4.10.0:
+
+/lib/aarch64-linux-gnu/libpcre2-16.so.0:
+
+/lib/aarch64-linux-gnu/libpango-1.0.so.0:
+
+/lib/aarch64-linux-gnu/libp11-kit.so.0:
+
+/lib/aarch64-linux-gnu/libogg.so.0:
+
+/lib/aarch64-linux-gnu/libogdi.so.4.1:
+
+/lib/aarch64-linux-gnu/libodbcinst.so.2:
+
+/lib/aarch64-linux-gnu/libodbc.so.2:
+
+/lib/aarch64-linux-gnu/libngtcp2.so.16:
+
+/lib/aarch64-linux-gnu/libnghttp3.so.9:
+
+/lib/aarch64-linux-gnu/libnetcdf.so.22:
+
+/lib/aarch64-linux-gnu/libvorbisenc.so.2:
+
+/lib/aarch64-linux-gnu/libmpg123.so.0:
+
+/lib/aarch64-linux-gnu/libmount.so.1:
+
+/lib/aarch64-linux-gnu/libminizip.so.1:
+
+/lib/aarch64-linux-gnu/libmd.so.0:
+
+/lib/aarch64-linux-gnu/libmbedcrypto.so.16:
+
+/lib/aarch64-linux-gnu/libvtkRenderingOpenGL2-9.3.so.1:
+
+/lib/aarch64-linux-gnu/libresolv.so.2:
 
 /lib/aarch64-linux-gnu/libm.so.6:
 
+/lib/aarch64-linux-gnu/liblzma.so.5:
+
+/lib/aarch64-linux-gnu/liblz4.so.1:
+
+/usr/lib/aarch64-linux-gnu/libopencv_dnn.so.4.10.0:
+
+/lib/aarch64-linux-gnu/libltdl.so.7:
+
+/lib/aarch64-linux-gnu/liblcms2.so.2:
+
+/lib/aarch64-linux-gnu/libkrb5support.so.0:
+
+/lib/aarch64-linux-gnu/libkmldom.so.1:
+
+/lib/aarch64-linux-gnu/libk5crypto.so.3:
+
+/lib/aarch64-linux-gnu/libjxl_threads.so.0.11:
+
+/lib/aarch64-linux-gnu/libjsoncpp.so.26:
+
+/lib/aarch64-linux-gnu/libjson-c.so.5:
+
+/lib/aarch64-linux-gnu/libzvbi.so.0:
+
 /lib/aarch64-linux-gnu/libjpeg.so.62:
 
+/lib/aarch64-linux-gnu/libicui18n.so.76:
+
+/lib/aarch64-linux-gnu/libmp3lame.so.0:
+
+/lib/aarch64-linux-gnu/libhwy.so.1:
+
+/lib/aarch64-linux-gnu/libhogweed.so.6:
+
+/lib/aarch64-linux-gnu/libhdf5_serial_hl.so.310:
+
+/lib/aarch64-linux-gnu/libhdf5_serial.so.310:
+
+/lib/aarch64-linux-gnu/libharfbuzz.so.0:
+
+/lib/aarch64-linux-gnu/libgstvideo-1.0.so.0:
+
+/lib/aarch64-linux-gnu/libgsttag-1.0.so.0:
+
+/lib/aarch64-linux-gnu/libgstriff-1.0.so.0:
+
+/usr/lib/aarch64-linux-gnu/libopencv_tracking.so.4.10.0:
+
+/lib/aarch64-linux-gnu/libva-drm.so.2:
+
+/lib/aarch64-linux-gnu/libgstaudio-1.0.so.0:
+
+/lib/aarch64-linux-gnu/libnghttp2.so.14:
+
+/lib/aarch64-linux-gnu/libgssapi_krb5.so.2:
+
+/lib/aarch64-linux-gnu/libgraphite2.so.3:
+
+/lib/aarch64-linux-gnu/libgphoto2_port.so.12:
+
+/lib/aarch64-linux-gnu/libgpgme.so.11:
+
+/lib/aarch64-linux-gnu/libgmp.so.10:
+
+/lib/aarch64-linux-gnu/libgmodule-2.0.so.0:
+
+/lib/aarch64-linux-gnu/libgme.so.0:
+
+/lib/aarch64-linux-gnu/libglib-2.0.so.0:
+
+/lib/aarch64-linux-gnu/libgif.so.7:
+
+/lib/aarch64-linux-gnu/libgfortran.so.5:
+
+/lib/aarch64-linux-gnu/libgeos.so.3.13.1:
+
+/usr/lib/aarch64-linux-gnu/libopencv_alphamat.so.4.10.0:
+
+/lib/aarch64-linux-gnu/libgdk_pixbuf-2.0.so.0:
+
+/lib/aarch64-linux-gnu/libsasl2.so.2:
+
+/lib/aarch64-linux-gnu/libgdcmjpeg16.so.3.0:
+
+/lib/aarch64-linux-gnu/libgdcmDSED.so.3.0:
+
+/lib/aarch64-linux-gnu/libgdcmCommon.so.3.0:
+
+/lib/aarch64-linux-gnu/libgcc_s.so.1:
+
+/lib/aarch64-linux-gnu/libgav1.so.1:
+
+/lib/aarch64-linux-gnu/libfygm.so.0:
+
+/lib/aarch64-linux-gnu/libfyba.so.0:
+
+/lib/aarch64-linux-gnu/libfreexl.so.1:
+
+/lib/aarch64-linux-gnu/libidn2.so.0:
+
+/lib/aarch64-linux-gnu/libexif.so.12:
+
+/lib/aarch64-linux-gnu/libdvdnav.so.4:
+
+/usr/lib/aarch64-linux-gnu/libopencv_rgbd.so.4.10.0:
+
+/lib/aarch64-linux-gnu/libdrm.so.2:
+
+/lib/aarch64-linux-gnu/libdouble-conversion.so.3:
+
+/lib/aarch64-linux-gnu/libdfalt.so.0:
+
+/lib/aarch64-linux-gnu/libdav1d.so.7:
+
+/lib/aarch64-linux-gnu/libgnutls.so.30:
+
+/lib/aarch64-linux-gnu/libdatrie.so.1:
+
+/lib/aarch64-linux-gnu/libcurl.so.4:
+
+/lib/aarch64-linux-gnu/libcrypto.so.3:
+
+/lib/aarch64-linux-gnu/libcodec2.so.1.2:
+
+/lib/aarch64-linux-gnu/libcap.so.2:
+
+/lib/aarch64-linux-gnu/libcairo.so.2:
+
+/usr/lib/aarch64-linux-gnu/libopencv_xobjdetect.so.4.10.0:
+
+/lib/aarch64-linux-gnu/libbrotlienc.so.1:
+
+/lib/aarch64-linux-gnu/libbrotlicommon.so.1:
+
+/lib/aarch64-linux-gnu/libbluray.so.2:
+
+/lib/aarch64-linux-gnu/libnuma.so.1:
+
+/lib/aarch64-linux-gnu/libblosc.so.1:
+
+/lib/aarch64-linux-gnu/libblas.so.3:
+
+/lib/aarch64-linux-gnu/libavutil.so.59:
+
+/lib/aarch64-linux-gnu/libavformat.so.61:
+
+/lib/aarch64-linux-gnu/libavcodec.so.61:
+
+/lib/aarch64-linux-gnu/libjxl.so.0.11:
+
+/lib/aarch64-linux-gnu/libassuan.so.9:
+
+/lib/aarch64-linux-gnu/libarpack.so.2:
+
+/lib/aarch64-linux-gnu/libabsl_time_zone.so.20240722:
+
+/lib/aarch64-linux-gnu/libabsl_time.so.20240722:
+
+/lib/aarch64-linux-gnu/libabsl_throw_delegate.so.20240722:
+
+/lib/aarch64-linux-gnu/libabsl_symbolize.so.20240722:
+
+/lib/aarch64-linux-gnu/libabsl_strings.so.20240722:
+
+/lib/aarch64-linux-gnu/libabsl_string_view.so.20240722:
+
+/lib/aarch64-linux-gnu/libabsl_stacktrace.so.20240722:
+
+/lib/aarch64-linux-gnu/libtasn1.so.6:
+
+/lib/aarch64-linux-gnu/libabsl_raw_logging_internal.so.20240722:
+
+/lib/aarch64-linux-gnu/libnorm.so.1:
+
+/lib/aarch64-linux-gnu/libabsl_malloc_internal.so.20240722:
+
+/lib/aarch64-linux-gnu/libabsl_graphcycles_internal.so.20240722:
+
+/lib/aarch64-linux-gnu/libvtkCommonMath-9.3.so.1:
+
+/lib/aarch64-linux-gnu/libspeex.so.1:
+
+/lib/aarch64-linux-gnu/libabsl_demangle_internal.so.20240722:
+
+/lib/aarch64-linux-gnu/libabsl_decode_rust_punycode.so.20240722:
+
+/lib/aarch64-linux-gnu/libabsl_debugging_internal.so.20240722:
+
+/lib/aarch64-linux-gnu/libXrender.so.1:
+
+/lib/aarch64-linux-gnu/libXdmcp.so.6:
+
+/lib/aarch64-linux-gnu/libX11.so.6:
+
+/lib/aarch64-linux-gnu/libsnappy.so.1:
+
+/lib/aarch64-linux-gnu/libaec.so.0:
+
+/lib/aarch64-linux-gnu/libSvtAv1Enc.so.2:
+
+/lib/aarch64-linux-gnu/libQt5Test.so.5:
+
+/lib/aarch64-linux-gnu/libvtkCommonExecutionModel-9.3.so.1:
+
+/lib/aarch64-linux-gnu/libQt5OpenGL.so.5:
+
+/lib/aarch64-linux-gnu/libQt5Gui.so.5:
+
+/lib/aarch64-linux-gnu/libsmime3.so:
+
+/lib/aarch64-linux-gnu/libQt5Core.so.5:
+
+/lib/aarch64-linux-gnu/libOpenGL.so.0:
+
+/lib/aarch64-linux-gnu/libfribidi.so.0:
+
 /lib/aarch64-linux-gnu/libOpenEXR-3_1.so.30:
+
+/lib/aarch64-linux-gnu/libOpenCL.so.1:
 
 /usr/lib/gcc/aarch64-linux-gnu/14/crtendS.o:
 
 /lib/aarch64-linux-gnu/libImath-3_1.so.29:
 
+/usr/lib/aarch64-linux-gnu/libopencv_dpm.so.4.10.0:
+
+/usr/lib/aarch64-linux-gnu/libopencv_dnn_superres.so.4.10.0:
+
 /lib/aarch64-linux-gnu/libIlmThread-3_1.so.30:
 
-/lib/aarch64-linux-gnu/libIex-3_1.so.30:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_xstereo.so.5.0.0:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_xphoto.so.5.0.0:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_xobjdetect.so.5.0.0:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_ximgproc.so.5.0.0:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_xfeatures2d.so.5.0.0:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_videostab.so.5.0.0:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_video.so.5.0.0:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_text.so.5.0.0:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_surface_matching.so.5.0.0:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_superres.so.5.0.0:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_structured_light.so.5.0.0:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_stereo.so.5.0.0:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_signal.so.5.0.0:
-
-/lib/aarch64-linux-gnu/liblzma.so.5:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_shape.so.5.0.0:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_saliency.so.5.0.0:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_rgbd.so.5.0.0:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_rapid.so.5.0.0:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_quality.so.5.0.0:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_plot.so.5.0.0:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_photo.so.5.0.0:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_optflow.so.5.0.0:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_ml.so.5.0.0:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_line_descriptor.so.5.0.0:
-
-/usr/include/c++/14/ext/type_traits.h:
-
-/usr/include/c++/14/ext/string_conversions.h:
-
-/usr/include/c++/14/ext/concurrence.h:
-
-/home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/cvstd.inl.hpp:
-
-/home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/cv_cpu_dispatch.h:
-
-/usr/include/c++/14/ext/alloc_traits.h:
-
-/usr/include/c++/14/ext/aligned_buffer.h:
-
-/usr/include/c++/14/bits/ostream.tcc:
-
-/usr/include/c++/14/bits/align.h:
-
-/usr/include/c++/14/bits/concept_check.h:
-
-/usr/include/c++/14/tr1/hypergeometric.tcc:
-
-/usr/include/c++/14/ext/numeric_traits.h:
-
-/home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/traits.hpp:
-
-/usr/include/c++/14/cstdlib:
-
-/usr/include/c++/14/cstddef:
-
-/usr/include/c++/14/concepts:
-
-/usr/include/c++/14/debug/debug.h:
-
-/usr/include/c++/14/bits/slice_array.h:
-
-/home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/kdtree_single_index.h:
-
-/usr/include/c++/14/climits:
-
-/usr/include/aarch64-linux-gnu/bits/uio_lim.h:
-
-/usr/include/c++/14/cfloat:
-
-/usr/include/c++/14/cerrno:
+/usr/include/c++/14/bits/utility.h:
 
 /usr/include/c++/14/bits/uses_allocator.h:
-
-/usr/include/c++/14/debug/assertions.h:
-
-/usr/include/aarch64-linux-gnu/bits/pthreadtypes-arch.h:
 
 /usr/include/c++/14/bits/unique_lock.h:
 
 /usr/include/c++/14/bits/stringfwd.h:
 
+/usr/include/c++/14/bits/string_view.tcc:
+
 /usr/include/c++/14/bits/stl_tempbuf.h:
 
-/home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/types.hpp:
-
 /usr/include/linux/stddef.h:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_stitching.so.5.0.0:
-
-/usr/include/c++/14/bits/stl_relops.h:
 
 /usr/include/c++/14/bits/stl_iterator_base_types.h:
 
@@ -1673,23 +2358,29 @@ CMakeFiles/calibration_compute.dir/src/calibration/calibration.cpp.o:
 
 /usr/include/assert.h:
 
-/lib/aarch64-linux-gnu/libdeflate.so.0:
-
-/usr/include/c++/14/bits/stl_heap.h:
-
-/home/arduino/opencv5_build/opencv/modules/videoio/include/opencv2/videoio.hpp:
-
-/usr/include/aarch64-linux-gnu/bits/select.h:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_tracking.so.5.0.0:
+/lib/aarch64-linux-gnu/libmariadb.so.3:
 
 /usr/include/c++/14/bits/stl_function.h:
 
+/usr/include/opencv4/opencv2/core/cvstd.inl.hpp:
+
+/usr/include/c++/14/memory:
+
+/lib/aarch64-linux-gnu/libsoxr.so.0:
+
+/usr/include/c++/14/bits/stl_construct.h:
+
 /usr/include/c++/14/bits/stl_vector.h:
 
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_ccalib.so.5.0.0:
+/lib/aarch64-linux-gnu/liblber.so.2:
 
-/home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/saving.h:
+/usr/include/aarch64-linux-gnu/bits/libm-simd-decl-stubs.h:
+
+/lib/aarch64-linux-gnu/libvtkIOCore-9.3.so.1:
+
+/usr/include/c++/14/cmath:
+
+/usr/include/c++/14/sstream:
 
 /lib/aarch64-linux-gnu/libgomp.so.1:
 
@@ -1697,61 +2388,59 @@ CMakeFiles/calibration_compute.dir/src/calibration/calibration.cpp.o:
 
 /usr/include/c++/14/bits/enable_special_members.h:
 
-/usr/lib/gcc/aarch64-linux-gnu/14/libgcc_s.so:
-
-/usr/include/c++/14/bits/std_abs.h:
-
-/usr/include/linux/sched/types.h:
-
-/usr/include/nlohmann/thirdparty/hedley/hedley.hpp:
-
 /usr/include/c++/14/bits/sstream.tcc:
 
-/usr/include/nlohmann/detail/iterators/iterator_traits.hpp:
+/usr/include/aarch64-linux-gnu/c++/14/bits/ctype_inline.h:
 
 /usr/include/c++/14/bits/stl_set.h:
 
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_gapi.so.5.0.0:
+/usr/include/c++/14/bits/uniform_int_dist.h:
+
+/lib/aarch64-linux-gnu/libheif.so.1:
+
+/usr/include/opencv4/opencv2/core/version.hpp:
+
+/usr/include/c++/14/tr1/beta_function.tcc:
+
+/usr/lib/llvm-19/lib/clang/19/include/stdarg.h:
 
 /usr/include/c++/14/bits/shared_ptr_atomic.h:
 
-/usr/include/c++/14/bits/requires_hosted.h:
-
-/home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/base.hpp:
+/lib/aarch64-linux-gnu/libgio-2.0.so.0:
 
 /usr/include/c++/14/bits/range_access.h:
 
 /usr/include/c++/14/bits/locale_facets_nonio.tcc:
 
+/usr/include/opencv4/opencv2/stitching.hpp:
+
+/lib/aarch64-linux-gnu/libxcb-shm.so.0:
+
+/lib/aarch64-linux-gnu/libffi.so.8:
+
 /usr/include/c++/14/bits/postypes.h:
 
-/usr/include/c++/14/bits/ostream_insert.h:
+/lib/aarch64-linux-gnu/libLerc.so.4:
 
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_ptcloud.so.5.0.0:
+/usr/include/c++/14/initializer_list:
+
+/usr/include/c++/14/bits/stl_pair.h:
 
 /usr/include/c++/14/bits/nested_exception.h:
 
+/usr/lib/aarch64-linux-gnu/libopencv_hdf.so.4.10.0:
+
 /usr/include/aarch64-linux-gnu/bits/types/__FILE.h:
 
-/usr/include/c++/14/bits/memoryfwd.h:
-
-/home/arduino/Q/src/calibration/calibration_compute_main.cpp:
-
-/home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/random.h:
+/lib/aarch64-linux-gnu/libvtkCommonSystem-9.3.so.1:
 
 /usr/include/c++/14/bits/streambuf.tcc:
 
 /usr/include/nlohmann/detail/abi_macros.hpp:
 
-/home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/lsh_index.h:
+/usr/include/aarch64-linux-gnu/asm/bitsperlong.h:
 
 /usr/include/c++/14/bits/locale_facets.h:
-
-/usr/include/c++/14/bits/locale_classes.tcc:
-
-/usr/include/libintl.h:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_phase_unwrapping.so.5.0.0:
 
 /usr/include/c++/14/bits/istream.tcc:
 
@@ -1763,601 +2452,105 @@ CMakeFiles/calibration_compute.dir/src/calibration/calibration.cpp.o:
 
 /usr/include/c++/14/bits/hashtable.h:
 
-/usr/include/c++/14/set:
-
 /usr/include/c++/14/bits/erase_if.h:
 
-/usr/include/c++/14/cwchar:
+/usr/include/c++/14/bits/cxxabi_init_exception.h:
 
-/home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/fwddecl.hpp:
-
-/usr/include/c++/14/cstring:
-
-/usr/include/c++/14/bits/charconv.h:
+/lib/aarch64-linux-gnu/libicudata.so.76:
 
 /usr/include/c++/14/bits/stl_raw_storage_iter.h:
 
 /usr/include/aarch64-linux-gnu/bits/types/__sigset_t.h:
 
-/usr/include/c++/14/bits/hash_bytes.h:
+/usr/include/c++/14/bits/basic_ios.tcc:
 
-/usr/include/c++/14/bits/char_traits.h:
+/usr/include/c++/14/bits/allocator.h:
 
-/usr/include/c++/14/list:
+/usr/include/opencv4/opencv2/dnn/dict.hpp:
 
-/home/arduino/opencv5_build/opencv/modules/objdetect/include/opencv2/objdetect/barcode.hpp:
+/usr/include/opencv4/opencv2/objdetect/barcode.hpp:
 
-/usr/include/c++/14/bits/allocated_ptr.h:
+/usr/include/c++/14/bits/ostream.tcc:
 
-/usr/include/c++/14/bit:
+/usr/include/c++/14/bits/concept_check.h:
+
+/usr/lib/aarch64-linux-gnu/libopencv_structured_light.so.4.10.0:
+
+/usr/include/c++/14/bits/align.h:
+
+/usr/include/aarch64-linux-gnu/bits/stdint-least.h:
+
+/lib/aarch64-linux-gnu/libgdcmIOD.so.3.0:
 
 /usr/include/c++/14/atomic:
 
-/usr/include/c++/14/bits/localefwd.h:
-
-/home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/bufferpool.hpp:
-
 /usr/include/c++/14/exception:
-
-/usr/include/asm-generic/posix_types.h:
-
-/usr/include/c++/14/cwctype:
-
-/usr/include/asm-generic/bitsperlong.h:
-
-/usr/include/c++/14/pstl/execution_defs.h:
-
-/usr/lib/gcc/aarch64-linux-gnu/14/include/arm_neon.h:
-
-/usr/include/c++/14/bits/basic_ios.h:
-
-/usr/include/c++/14/utility:
-
-/usr/include/aarch64-linux-gnu/bits/pthreadtypes.h:
-
-/home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/matx.hpp:
-
-/usr/include/c++/14/bits/vector.tcc:
-
-CMakeFiles/calibration_compute.dir/src/calibration/calibration_compute.cpp.o:
-
-/usr/include/c++/14/bits/stl_map.h:
-
-/usr/include/aarch64-linux-gnu/bits/posix2_lim.h:
-
-/usr/include/c++/14/bits/exception_defines.h:
-
-/home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/dist.h:
-
-/usr/include/c++/14/tr1/poly_laguerre.tcc:
-
-/usr/include/nlohmann/detail/iterators/internal_iterator.hpp:
-
-/usr/include/asm-generic/int-ll64.h:
-
-/lib/aarch64-linux-gnu/libjbig.so.0:
-
-/usr/include/c++/14/ios:
-
-/usr/include/aarch64-linux-gnu/bits/types/timer_t.h:
-
-/usr/include/c++/14/backward/binders.h:
-
-/home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/matx.inl.hpp:
-
-/usr/include/aarch64-linux-gnu/bits/mathcalls-narrow.h:
-
-/usr/include/aarch64-linux-gnu/bits/locale.h:
-
-/usr/include/c++/14/valarray:
-
-/usr/include/aarch64-linux-gnu/gnu/stubs.h:
-
-/usr/include/aarch64-linux-gnu/bits/fp-logb.h:
-
-/usr/include/aarch64-linux-gnu/bits/stdint-intn.h:
-
-/usr/include/c++/14/bits/cpp_type_traits.h:
-
-/usr/include/c++/14/ctime:
-
-/usr/include/aarch64-linux-gnu/bits/xopen_lim.h:
-
-/usr/include/features.h:
-
-/home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/utility.hpp:
-
-/usr/include/aarch64-linux-gnu/bits/fp-fast.h:
-
-/usr/include/c++/14/bits/utility.h:
-
-/home/arduino/opencv5_build/opencv/modules/dnn/include/opencv2/dnn/version.hpp:
-
-/home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/hal/interface.h:
-
-/home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/flann_base.hpp:
-
-/usr/include/nlohmann/detail/input/input_adapters.hpp:
-
-/usr/include/aarch64-linux-gnu/bits/libc-header-start.h:
-
-/usr/include/aarch64-linux-gnu/bits/types/__mbstate_t.h:
-
-/usr/include/aarch64-linux-gnu/bits/local_lim.h:
-
-/usr/include/c++/14/bits/fs_ops.h:
-
-/lib/ld-linux-aarch64.so.1:
-
-/home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/vsx_utils.hpp:
-
-/usr/include/c++/14/clocale:
-
-/usr/include/aarch64-linux-gnu/bits/struct_rwlock.h:
-
-/home/arduino/Q/src/core/config.cpp:
-
-/usr/include/aarch64-linux-gnu/bits/types/wint_t.h:
-
-/usr/include/aarch64-linux-gnu/c++/14/bits/cpu_defines.h:
-
-/usr/include/c++/14/bits/move.h:
-
-/usr/include/c++/14/tr1/ell_integral.tcc:
-
-/home/arduino/opencv5_build/opencv/modules/dnn/include/opencv2/dnn/dict.hpp:
-
-/usr/include/nlohmann/detail/output/binary_writer.hpp:
-
-/usr/include/aarch64-linux-gnu/bits/cpu-set.h:
-
-CMakeFiles/calibration_compute.dir/src/core/config.cpp.o:
-
-/usr/include/c++/14/algorithm:
-
-/usr/lib/linux/uapi/arm64/asm/posix_types.h:
-
-/usr/include/aarch64-linux-gnu/bits/atomic_wide_counter.h:
-
-/usr/include/nlohmann/detail/conversions/to_json.hpp:
-
-/usr/include/c++/14/array:
-
-/home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/defines.h:
-
-/usr/include/aarch64-linux-gnu/bits/byteswap.h:
-
-/usr/lib/gcc/aarch64-linux-gnu/14/include/arm_bf16.h:
-
-/usr/lib/linux/uapi/arm64/asm/bitsperlong.h:
-
-/usr/include/aarch64-linux-gnu/bits/types/struct_sched_param.h:
-
-/usr/include/c++/14/bits/cxxabi_forced.h:
-
-/home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/mat.hpp:
-
-/usr/include/nlohmann/detail/meta/type_traits.hpp:
-
-/usr/include/aarch64-linux-gnu/bits/types/cookie_io_functions_t.h:
-
-/usr/include/aarch64-linux-gnu/bits/floatn-common.h:
-
-/usr/include/c++/14/bits/stl_algo.h:
-
-/usr/include/c++/14/cmath:
-
-/home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/cvstd_wrapper.hpp:
-
-/home/arduino/opencv5_build/opencv/modules/photo/include/opencv2/photo/segmentation.hpp:
-
-/home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/utils/filesystem.hpp:
-
-/home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/version.hpp:
-
-/usr/include/c++/14/bits/stl_construct.h:
-
-/usr/include/aarch64-linux-gnu/c++/14/bits/os_defines.h:
-
-/usr/include/aarch64-linux-gnu/bits/types/struct_timeval.h:
-
-/usr/include/c++/14/pstl/pstl_config.h:
-
-/usr/include/c++/14/bits/uniform_int_dist.h:
-
-/usr/lib/aarch64-linux-gnu/libgcc_s.so.1:
 
 /usr/include/c++/14/chrono:
 
-/usr/lib/gcc/aarch64-linux-gnu/14/include/float.h:
+/lib/aarch64-linux-gnu/libXau.so.6:
 
-/usr/lib/linux/uapi/arm64/asm/types.h:
+/usr/include/c++/14/pstl/pstl_config.h:
 
-/usr/include/c++/14/tr1/beta_function.tcc:
+/lib/aarch64-linux-gnu/libkeyutils.so.1:
 
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_reg.so.5.0.0:
+/usr/lib/llvm-19/lib/clang/19/include/stdint.h:
 
-/home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/mat.inl.hpp:
-
-/usr/include/c++/14/typeinfo:
-
-/usr/include/c++/14/bits/chrono.h:
-
-/usr/include/c++/14/bits/locale_facets.tcc:
-
-/usr/include/c++/14/bits/memory_resource.h:
-
-/usr/include/nlohmann/detail/string_concat.hpp:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_dnn_objdetect.so.5.0.0:
-
-/home/arduino/Q/src/calibration/calibration.cpp:
-
-/home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core.hpp:
-
-/usr/include/c++/14/bits/alloc_traits.h:
-
-/usr/include/aarch64-linux-gnu/bits/types/struct_timespec.h:
-
-/usr/include/c++/14/bits/basic_string.tcc:
-
-/home/arduino/opencv5_build/opencv/modules/stereo/include/opencv2/stereo.hpp:
-
-/home/arduino/opencv5_build/opencv/modules/stitching/include/opencv2/stitching/detail/warpers.hpp:
-
-/usr/include/c++/14/cstdint:
-
-/usr/include/aarch64-linux-gnu/c++/14/bits/time_members.h:
-
-/usr/include/c++/14/bits/unordered_map.h:
-
-/usr/include/c++/14/limits:
-
-/usr/include/c++/14/iomanip:
-
-/home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/cvdef.h:
-
-/usr/include/aarch64-linux-gnu/bits/types/sigset_t.h:
-
-/home/arduino/opencv5_build/opencv/modules/stitching/include/opencv2/stitching.hpp:
-
-/usr/include/c++/14/bits/stl_iterator.h:
-
-/usr/include/c++/14/bits/stl_algobase.h:
-
-/home/arduino/Q/src/core/config.hpp:
-
-/usr/include/aarch64-linux-gnu/bits/types/__fpos_t.h:
-
-/home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/timer.h:
-
-/usr/include/aarch64-linux-gnu/c++/14/bits/basic_file.h:
+/usr/include/opencv4/opencv2/imgproc/segmentation.hpp:
 
 /usr/include/c++/14/bits/stream_iterator.h:
 
-/home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/neon_utils.hpp:
-
-/usr/include/nlohmann/detail/iterators/json_reverse_iterator.hpp:
-
-/usr/include/aarch64-linux-gnu/c++/14/bits/c++locale.h:
-
-/usr/include/nlohmann/detail/input/position_t.hpp:
-
-/usr/include/aarch64-linux-gnu/bits/posix1_lim.h:
-
-/usr/include/aarch64-linux-gnu/bits/long-double.h:
-
-/usr/include/aarch64-linux-gnu/bits/mathcalls.h:
-
-/usr/include/aarch64-linux-gnu/bits/floatn.h:
-
-/home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/operations.hpp:
-
-/lib/aarch64-linux-gnu/libLerc.so.4:
-
-/usr/include/c++/14/initializer_list:
-
-/home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/fast_math.hpp:
-
-/usr/include/aarch64-linux-gnu/bits/types/clock_t.h:
-
-/usr/include/aarch64-linux-gnu/bits/types/locale_t.h:
-
-/usr/include/aarch64-linux-gnu/bits/types/__locale_t.h:
-
-/home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/cvstd.hpp:
-
-/usr/include/c++/14/bits/atomic_lockfree_defines.h:
-
-/usr/include/aarch64-linux-gnu/bits/math-vector.h:
-
-/usr/include/c++/14/backward/auto_ptr.h:
-
-/usr/include/aarch64-linux-gnu/c++/14/bits/gthr.h:
-
-/home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/optim.hpp:
-
-/usr/include/c++/14/bits/indirect_array.h:
-
-/home/arduino/opencv5_build/opencv/modules/objdetect/include/opencv2/objdetect/aruco_detector.hpp:
-
-/usr/include/c++/14/bits/cxxabi_init_exception.h:
-
-/usr/include/c++/14/bits/basic_ios.tcc:
-
-/home/arduino/opencv5_build/opencv/modules/stitching/include/opencv2/stitching/detail/util_inl.hpp:
-
-/usr/include/c++/14/bits/std_mutex.h:
-
-/usr/include/c++/14/bits/forward_list.tcc:
-
-/usr/include/c++/14/bits/locale_classes.h:
-
-/usr/include/c++/14/bits/stl_uninitialized.h:
-
-/usr/include/aarch64-linux-gnu/sys/select.h:
-
-/usr/include/aarch64-linux-gnu/bits/wordsize.h:
-
-/usr/include/aarch64-linux-gnu/gnu/stubs-lp64.h:
-
-/usr/include/aarch64-linux-gnu/bits/stdint-uintn.h:
-
-/usr/include/aarch64-linux-gnu/c++/14/bits/gthr-default.h:
-
-/usr/include/c++/14/bits/uses_allocator_args.h:
-
-/usr/include/aarch64-linux-gnu/bits/endianness.h:
-
-/usr/include/aarch64-linux-gnu/bits/thread-shared-types.h:
-
-/home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/exception.hpp:
-
-/usr/include/c++/14/locale:
-
-/usr/include/aarch64-linux-gnu/bits/mathcalls-helper-functions.h:
-
-/usr/include/aarch64-linux-gnu/bits/stdlib-float.h:
-
-/usr/include/c++/14/forward_list:
-
-/usr/include/aarch64-linux-gnu/bits/flt-eval-method.h:
-
-/usr/include/c++/14/tr1/poly_hermite.tcc:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_img_hash.so.5.0.0:
-
-/usr/include/alloca.h:
-
-/usr/include/aarch64-linux-gnu/bits/time64.h:
-
-/usr/include/c++/14/bits/atomic_base.h:
-
-/usr/lib/gcc/aarch64-linux-gnu/14/include/arm_fp16.h:
-
-/usr/include/aarch64-linux-gnu/bits/struct_mutex.h:
-
-/usr/include/c++/14/streambuf:
-
-/home/arduino/opencv5_build/opencv/modules/objdetect/include/opencv2/objdetect/face.hpp:
-
-/home/arduino/opencv5_build/opencv/modules/objdetect/include/opencv2/objdetect.hpp:
-
-/usr/include/aarch64-linux-gnu/bits/types.h:
-
-/usr/include/c++/14/bits/unique_ptr.h:
-
-/usr/include/c++/14/iterator:
-
-/home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/saturate.hpp:
-
-/usr/include/c++/14/bits/stl_deque.h:
-
-/usr/include/aarch64-linux-gnu/c++/14/bits/ctype_base.h:
-
-/usr/include/nlohmann/detail/json_pointer.hpp:
-
-/usr/include/aarch64-linux-gnu/bits/timex.h:
-
-/usr/include/c++/14/bits/exception_ptr.h:
-
-/usr/include/aarch64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
-
-/usr/include/c++/14/bits/functexcept.h:
-
-/usr/include/aarch64-linux-gnu/bits/types/error_t.h:
-
-/usr/include/asm-generic/errno-base.h:
-
-/usr/include/c++/14/bits/hashtable_policy.h:
-
-/usr/include/c++/14/bits/node_handle.h:
-
-/home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/persistence.hpp:
-
-/usr/include/c++/14/bits/gslice_array.h:
-
-/usr/lib/aarch64-linux-gnu/crti.o:
-
-/usr/include/c++/14/bits/codecvt.h:
-
-/usr/include/aarch64-linux-gnu/c++/14/bits/c++io.h:
-
-/usr/include/aarch64-linux-gnu/bits/types/struct_itimerspec.h:
-
-/usr/include/c++/14/compare:
-
-/lib/aarch64-linux-gnu/libwebp.so.7:
-
-/usr/include/c++/14/ostream:
-
-/usr/include/aarch64-linux-gnu/c++/14/bits/ctype_inline.h:
-
-/home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/autotuned_index.h:
-
-/usr/include/c++/14/bits/specfun.h:
-
-/home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/check.hpp:
-
-/usr/include/c++/14/bits/ios_base.h:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_geometry.so.5.0.0:
-
-/usr/include/c++/14/cstdio:
-
-/usr/include/aarch64-linux-gnu/bits/iscanonical.h:
-
-/usr/include/aarch64-linux-gnu/bits/types/struct_tm.h:
-
-/usr/include/c++/14/bits/streambuf_iterator.h:
-
-/usr/include/aarch64-linux-gnu/bits/typesizes.h:
-
-/usr/include/c++/14/complex:
-
-/usr/include/aarch64-linux-gnu/bits/waitflags.h:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_bioinspired.so.5.0.0:
-
-/usr/include/aarch64-linux-gnu/bits/wchar.h:
-
-/usr/include/nlohmann/detail/output/output_adapters.hpp:
-
-/usr/include/c++/14/cctype:
-
-/usr/include/c++/14/bits/exception.h:
-
-/usr/include/string.h:
-
-/usr/include/c++/14/bits/fs_dir.h:
-
-/usr/include/linux/limits.h:
-
-/usr/include/aarch64-linux-gnu/bits/types/struct_FILE.h:
-
-/usr/lib/linux/uapi/arm64/asm/errno.h:
-
-/usr/include/aarch64-linux-gnu/bits/errno.h:
-
-/home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/config.h:
-
-/usr/include/aarch64-linux-gnu/bits/wctype-wchar.h:
-
-/usr/include/time.h:
-
-/usr/include/aarch64-linux-gnu/c++/14/bits/c++config.h:
-
-/usr/include/aarch64-linux-gnu/c++/14/bits/c++allocator.h:
+/lib/aarch64-linux-gnu/libvtkCommonTransforms-9.3.so.1:
 
 /usr/include/aarch64-linux-gnu/c++/14/bits/error_constants.h:
 
 /usr/include/ctype.h:
 
-/usr/include/aarch64-linux-gnu/bits/mathcalls-macros.h:
+/lib/aarch64-linux-gnu/libkrb5.so.3:
 
-/usr/include/aarch64-linux-gnu/sys/single_threaded.h:
+/usr/include/time.h:
 
-/usr/include/aarch64-linux-gnu/sys/types.h:
+/usr/include/aarch64-linux-gnu/bits/wctype-wchar.h:
 
-/usr/include/c++/14/bits/locale_facets_nonio.h:
+/lib/aarch64-linux-gnu/libx264.so.164:
 
-/usr/include/c++/14/functional:
+/usr/include/c++/14/bits/requires_hosted.h:
 
-/usr/include/c++/14/memory:
+/usr/include/opencv4/opencv2/core/cuda.inl.hpp:
 
-/home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/nn_index.h:
+CMakeFiles/calibration_compute.dir/src/core/config.cpp.o:
 
-/usr/include/c++/14/iosfwd:
+/usr/include/c++/14/algorithm:
 
-/home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/affine.hpp:
+/lib/aarch64-linux-gnu/libvtksys-9.3.so.1:
 
-/usr/include/aarch64-linux-gnu/bits/time.h:
+/lib/aarch64-linux-gnu/libgsm.so.1:
 
-/usr/include/aarch64-linux-gnu/bits/uintn-identity.h:
+/usr/include/aarch64-linux-gnu/c++/14/bits/c++allocator.h:
 
-/usr/include/c++/14/iostream:
+/usr/include/aarch64-linux-gnu/c++/14/bits/c++config.h:
 
-/usr/include/c++/14/istream:
+/usr/include/opencv4/opencv2/flann/kmeans_index.h:
 
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_intensity_transform.so.5.0.0:
+/lib/aarch64-linux-gnu/libgphoto2.so.6:
 
-/usr/include/c++/14/mutex:
+/lib/aarch64-linux-gnu/libc.so.6:
 
-/usr/include/c++/14/pstl/glue_algorithm_defs.h:
+/usr/include/stdlib.h:
 
-/usr/include/aarch64-linux-gnu/bits/types/__fpos64_t.h:
+/usr/include/c++/14/bits/chrono.h:
 
-/usr/include/nlohmann/detail/iterators/primitive_iterator.hpp:
+/usr/include/c++/14/bits/locale_facets.tcc:
 
-/usr/include/c++/14/pstl/glue_memory_defs.h:
+/lib/aarch64-linux-gnu/libnettle.so.8:
 
-/usr/include/c++/14/ratio:
+/usr/include/aarch64-linux-gnu/bits/types/clockid_t.h:
 
-/usr/include/c++/14/stdexcept:
+/usr/include/stdio.h:
 
-/usr/include/c++/14/tr1/special_function_util.h:
+/usr/include/aarch64-linux-gnu/c++/14/bits/cpu_defines.h:
 
-/usr/include/c++/14/string:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_imgproc.so.5.0.0:
-
-/usr/include/c++/14/bits/stl_bvector.h:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_core.so.5.0.0:
-
-/usr/include/c++/14/string_view:
-
-/usr/include/c++/14/system_error:
-
-/usr/include/c++/14/tr1/exp_integral.tcc:
-
-/usr/include/c++/14/tr1/gamma.tcc:
-
-/usr/include/aarch64-linux-gnu/sys/cdefs.h:
-
-/usr/include/c++/14/tr1/legendre_function.tcc:
-
-/usr/include/c++/14/tr1/modified_bessel_func.tcc:
-
-/usr/include/c++/14/tr1/riemann_zeta.tcc:
-
-/usr/include/c++/14/bits/deque.tcc:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_flann.so.5.0.0:
-
-/home/arduino/opencv5_build/opencv/modules/stitching/include/opencv2/stitching/detail/matchers.hpp:
-
-/usr/include/c++/14/tuple:
-
-/usr/include/c++/14/type_traits:
-
-/usr/include/aarch64-linux-gnu/bits/pthread_stack_min-dynamic.h:
-
-/usr/include/nlohmann/byte_container_with_subtype.hpp:
-
-/usr/include/c++/14/unordered_map:
-
-/usr/include/endian.h:
-
-/usr/include/stdint.h:
-
-/usr/include/features-time64.h:
-
-/usr/include/limits.h:
-
-/usr/include/linux/errno.h:
-
-/usr/include/linux/posix_types.h:
-
-/usr/include/linux/types.h:
-
-/usr/include/nlohmann/detail/value_t.hpp:
-
-/usr/include/math.h:
-
-/usr/include/pthread.h:
-
-/home/arduino/opencv5_build/opencv/modules/objdetect/include/opencv2/objdetect/aruco_dictionary.hpp:
+/usr/include/aarch64-linux-gnu/bits/types/wint_t.h:
 
 /usr/include/c++/14/bits/new_allocator.h:
 
@@ -2367,117 +2560,837 @@ CMakeFiles/calibration_compute.dir/src/core/config.cpp.o:
 
 /usr/include/c++/14/filesystem:
 
-/usr/include/stdc-predef.h:
+/usr/include/c++/14/set:
 
-/usr/include/aarch64-linux-gnu/bits/types/clockid_t.h:
+/lib/aarch64-linux-gnu/libnssutil3.so:
 
-/usr/include/stdio.h:
+/usr/include/pthread.h:
 
-/lib/aarch64-linux-gnu/libc.so.6:
+/usr/lib/aarch64-linux-gnu/libopencv_cvv.so.4.10.0:
 
-/usr/include/stdlib.h:
+/usr/include/opencv4/opencv2/opencv_modules.hpp:
 
-/usr/include/aarch64-linux-gnu/bits/sched.h:
+/usr/include/c++/14/bits/list.tcc:
 
-/usr/include/strings.h:
+/usr/include/aarch64-linux-gnu/bits/struct_rwlock.h:
+
+/lib/aarch64-linux-gnu/liblapack.so.3:
+
+/usr/include/c++/14/clocale:
+
+/home/arduino/Q/src/core/config.cpp:
+
+/usr/include/opencv4/opencv2/core/vsx_utils.hpp:
+
+/lib/aarch64-linux-gnu/librttopo.so.1:
+
+/lib/aarch64-linux-gnu/libIex-3_1.so.30:
+
+/usr/include/opencv4/opencv2/core/utils/filesystem.hpp:
+
+/usr/include/c++/14/bits/forward_list.h:
+
+/usr/include/opencv4/opencv2/core/types.hpp:
+
+/usr/include/c++/14/bits/basic_string.tcc:
+
+/usr/lib/llvm-19/lib/clang/19/include/__stddef_max_align_t.h:
+
+/usr/lib/gcc/aarch64-linux-gnu/14/libgcc_s.so:
+
+/lib/aarch64-linux-gnu/libgdcmjpeg8.so.3.0:
+
+/usr/include/c++/14/bits/std_abs.h:
+
+/lib/aarch64-linux-gnu/libbrotlidec.so.1:
+
+/usr/include/opencv4/opencv2/stitching/warpers.hpp:
+
+/usr/include/linux/sched/types.h:
+
+/lib/aarch64-linux-gnu/libjxl_cms.so.0.11:
+
+/usr/include/nlohmann/thirdparty/hedley/hedley.hpp:
+
+/usr/include/opencv4/opencv2/core/traits.hpp:
+
+/usr/include/aarch64-linux-gnu/bits/posix2_lim.h:
+
+/usr/include/c++/14/bits/deque.tcc:
+
+/usr/include/opencv4/opencv2/core/cuda.hpp:
+
+/usr/include/nlohmann/detail/string_concat.hpp:
+
+/usr/include/c++/14/bits/memory_resource.h:
+
+/usr/include/opencv4/opencv2/core/cvstd_wrapper.hpp:
+
+/usr/lib/aarch64-linux-gnu/libopencv_highgui.so.4.10.0:
+
+/lib/aarch64-linux-gnu/libXext.so.6:
+
+/usr/include/opencv4/opencv2/core.hpp:
+
+/usr/include/c++/14/bits/fs_path.h:
+
+/usr/include/features.h:
+
+/usr/include/c++/14/bits/exception_ptr.h:
+
+/lib/aarch64-linux-gnu/libblkid.so.1:
+
+/usr/include/aarch64-linux-gnu/bits/fp-fast.h:
+
+/usr/include/aarch64-linux-gnu/bits/types/__fpos_t.h:
+
+/usr/include/aarch64-linux-gnu/bits/flt-eval-method.h:
+
+/usr/include/c++/14/tr1/poly_hermite.tcc:
+
+/lib/aarch64-linux-gnu/libvtkIOGeometry-9.3.so.1:
+
+/usr/include/opencv4/opencv2/flann/saving.h:
+
+/usr/include/c++/14/forward_list:
+
+/usr/include/c++/14/bits/allocated_ptr.h:
+
+/usr/include/opencv4/opencv2/core/saturate.hpp:
+
+/lib/aarch64-linux-gnu/libcfitsio.so.10:
+
+/usr/include/aarch64-linux-gnu/bits/types.h:
+
+/lib/aarch64-linux-gnu/libxcb-render.so.0:
+
+/lib/aarch64-linux-gnu/libnss3.so:
+
+/usr/include/aarch64-linux-gnu/bits/setjmp.h:
+
+/lib/aarch64-linux-gnu/libgstreamer-1.0.so.0:
+
+/usr/include/aarch64-linux-gnu/bits/struct_mutex.h:
+
+/lib/aarch64-linux-gnu/libvorbisfile.so.3:
+
+/usr/include/c++/14/streambuf:
+
+/usr/include/aarch64-linux-gnu/bits/fp-logb.h:
+
+/usr/include/c++/14/bits/cpp_type_traits.h:
+
+/usr/include/aarch64-linux-gnu/bits/types/locale_t.h:
+
+/lib/aarch64-linux-gnu/libdc1394.so.25:
+
+/usr/include/nlohmann/detail/iterators/iterator_traits.hpp:
+
+/usr/include/opencv4/opencv2/core/optim.hpp:
+
+/usr/lib/llvm-19/lib/clang/19/include/arm_neon.h:
+
+/usr/include/aarch64-linux-gnu/bits/stdint-uintn.h:
+
+/usr/include/aarch64-linux-gnu/bits/pthreadtypes.h:
+
+/lib/aarch64-linux-gnu/libabsl_demangle_rust.so.20240722:
+
+/usr/include/c++/14/bits/unordered_map.h:
+
+/lib/aarch64-linux-gnu/libopus.so.0:
+
+/usr/include/aarch64-linux-gnu/bits/pthreadtypes-arch.h:
+
+/usr/include/c++/14/debug/assertions.h:
+
+/usr/include/c++/14/limits:
+
+/usr/include/c++/14/iomanip:
+
+/home/arduino/Q/src/calibration/calibration.hpp:
+
+/usr/include/c++/14/bits/std_mutex.h:
+
+/usr/include/c++/14/bits/forward_list.tcc:
+
+/usr/include/c++/14/stdlib.h:
+
+/usr/include/c++/14/bits/stl_bvector.h:
+
+/usr/include/opencv4/opencv2/core/operations.hpp:
+
+/usr/include/opencv4/opencv2/video/tracking.hpp:
+
+/usr/include/aarch64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
+
+/usr/include/aarch64-linux-gnu/bits/endian.h:
+
+/lib/aarch64-linux-gnu/libvtkCommonComputationalGeometry-9.3.so.1:
+
+/lib/aarch64-linux-gnu/libgobject-2.0.so.0:
+
+/usr/include/opencv4/opencv2/flann/general.h:
+
+/usr/include/aarch64-linux-gnu/asm/posix_types.h:
+
+/usr/include/c++/14/bits/memoryfwd.h:
+
+/usr/include/opencv4/opencv2/core/persistence.hpp:
+
+/usr/include/opencv4/opencv2/flann/dist.h:
+
+/lib/aarch64-linux-gnu/liborc-0.4.so.0:
+
+/usr/include/opencv4/opencv2/core/matx.hpp:
+
+/usr/include/aarch64-linux-gnu/bits/errno.h:
+
+/usr/include/c++/14/tr1/poly_laguerre.tcc:
+
+/lib/aarch64-linux-gnu/libaom.so.3:
+
+/usr/include/nlohmann/detail/iterators/internal_iterator.hpp:
+
+/lib/aarch64-linux-gnu/libQt5Widgets.so.5:
+
+/usr/include/aarch64-linux-gnu/asm/errno.h:
+
+/usr/include/aarch64-linux-gnu/bits/types/__locale_t.h:
+
+/usr/include/aarch64-linux-gnu/bits/locale.h:
+
+/usr/include/c++/14/bits/stl_algo.h:
+
+/usr/include/aarch64-linux-gnu/bits/floatn-common.h:
+
+/usr/include/c++/14/valarray:
+
+/usr/lib/aarch64-linux-gnu/libopencv_xphoto.so.4.10.0:
+
+/usr/include/aarch64-linux-gnu/bits/stdint-intn.h:
+
+/usr/include/opencv4/opencv2/flann/any.h:
+
+/lib/aarch64-linux-gnu/libgdcmjpeg12.so.3.0:
+
+/lib/aarch64-linux-gnu/libabsl_utf8_for_code_point.so.20240722:
+
+/usr/include/c++/14/bits/move.h:
+
+/usr/include/c++/14/tr1/ell_integral.tcc:
+
+/usr/include/nlohmann/detail/output/binary_writer.hpp:
+
+/usr/include/aarch64-linux-gnu/bits/cpu-set.h:
+
+/usr/include/aarch64-linux-gnu/bits/libc-header-start.h:
+
+/usr/include/aarch64-linux-gnu/c++/14/bits/c++io.h:
+
+/usr/include/aarch64-linux-gnu/bits/long-double.h:
+
+/usr/include/aarch64-linux-gnu/bits/posix1_lim.h:
+
+/usr/include/opencv4/opencv2/flann/miniflann.hpp:
+
+/usr/include/c++/14/bits/ios_base.h:
+
+/home/arduino/Q/src/core/config.hpp:
+
+/usr/include/c++/14/functional:
+
+/lib/aarch64-linux-gnu/libtesseract.so.5:
+
+/usr/include/aarch64-linux-gnu/bits/time64.h:
+
+/usr/include/alloca.h:
+
+/usr/lib/aarch64-linux-gnu/libopencv_imgproc.so.4.10.0:
+
+/usr/include/c++/14/array:
+
+/usr/include/aarch64-linux-gnu/bits/byteswap.h:
+
+/usr/include/aarch64-linux-gnu/bits/atomic_wide_counter.h:
+
+/usr/include/nlohmann/detail/conversions/to_json.hpp:
+
+/usr/include/c++/14/bits/atomic_base.h:
+
+/usr/include/opencv4/opencv2/core/check.hpp:
+
+/lib/aarch64-linux-gnu/libdvdread.so.8:
+
+/usr/include/aarch64-linux-gnu/bits/timesize.h:
+
+/usr/include/aarch64-linux-gnu/bits/select.h:
+
+/lib/aarch64-linux-gnu/libdeflate.so.0:
+
+/usr/include/c++/14/bits/stl_heap.h:
+
+/usr/include/opencv4/opencv2/ml.hpp:
+
+/usr/include/c++/14/bits/unique_ptr.h:
+
+/usr/include/c++/14/bits/stl_deque.h:
+
+/usr/include/aarch64-linux-gnu/c++/14/bits/ctype_base.h:
+
+/lib/aarch64-linux-gnu/libvtkRenderingCore-9.3.so.1:
+
+/usr/include/nlohmann/detail/json_pointer.hpp:
+
+/lib/aarch64-linux-gnu/libm.so:
+
+/lib/aarch64-linux-gnu/libfreetype.so.6:
+
+/usr/include/aarch64-linux-gnu/bits/timex.h:
+
+/usr/include/aarch64-linux-gnu/bits/types/__mbstate_t.h:
+
+/lib/aarch64-linux-gnu/libabsl_kernel_timeout_internal.so.20240722:
+
+/usr/lib/llvm-19/lib/clang/19/include/__stddef_header_macro.h:
+
+/usr/include/aarch64-linux-gnu/gnu/stubs.h:
+
+/usr/include/aarch64-linux-gnu/bits/mathcalls.h:
+
+/usr/include/aarch64-linux-gnu/bits/floatn.h:
+
+/lib/aarch64-linux-gnu/libvtkfmt-9.3.so.1:
+
+/usr/include/c++/14/bits/localefwd.h:
+
+/usr/include/endian.h:
+
+/lib/aarch64-linux-gnu/libgeos_c.so.1:
+
+/usr/include/stdint.h:
+
+/usr/include/opencv4/opencv2/photo.hpp:
+
+/lib/aarch64-linux-gnu/libbz2.so.1.0:
+
+/usr/include/opencv4/opencv2/core/cvstd.hpp:
+
+/lib/aarch64-linux-gnu/libleptonica.so.6:
+
+/usr/include/aarch64-linux-gnu/c++/14/bits/gthr-default.h:
+
+/usr/include/c++/14/bits/uses_allocator_args.h:
+
+/usr/include/c++/14/backward/binders.h:
+
+/lib/aarch64-linux-gnu/libgeotiff.so.5:
+
+/usr/include/aarch64-linux-gnu/bits/mathcalls-narrow.h:
+
+/usr/include/aarch64-linux-gnu/bits/types/clock_t.h:
+
+/usr/lib/llvm-19/lib/clang/19/include/__stdarg___va_copy.h:
+
+/usr/lib/aarch64-linux-gnu/libopencv_face.so.4.10.0:
+
+/usr/include/opencv4/opencv2/core/neon_utils.hpp:
+
+/usr/include/c++/14/bits/locale_classes.h:
+
+/usr/include/c++/14/bits/stl_uninitialized.h:
+
+/usr/include/aarch64-linux-gnu/bits/types/time_t.h:
+
+/usr/include/aarch64-linux-gnu/sys/select.h:
+
+/usr/include/aarch64-linux-gnu/bits/stdlib-float.h:
+
+/usr/include/aarch64-linux-gnu/bits/mathcalls-helper-functions.h:
+
+/usr/include/linux/errno.h:
+
+/usr/include/c++/14/bits/functexcept.h:
+
+/usr/include/aarch64-linux-gnu/bits/types/error_t.h:
+
+/usr/lib/llvm-19/lib/clang/19/include/__stdarg_va_list.h:
+
+/usr/include/aarch64-linux-gnu/c++/14/bits/c++locale.h:
+
+/usr/include/nlohmann/detail/input/position_t.hpp:
+
+/usr/include/aarch64-linux-gnu/c++/14/bits/basic_file.h:
+
+/usr/include/tbb/tbb.h:
+
+/usr/include/opencv4/opencv2/core/mat.inl.hpp:
+
+/lib/aarch64-linux-gnu/libfyut.so.0:
+
+/usr/include/c++/14/bits/node_handle.h:
+
+/usr/include/c++/14/bits/gslice_array.h:
+
+/usr/include/c++/14/bits/codecvt.h:
+
+/usr/include/aarch64-linux-gnu/bits/types/sigset_t.h:
+
+/lib/aarch64-linux-gnu/libxml2.so.2:
+
+/usr/include/aarch64-linux-gnu/bits/types/struct_itimerspec.h:
 
 /usr/include/c++/14/fstream:
 
-/usr/lib/gcc/aarch64-linux-gnu/14/include/limits.h:
+/usr/include/c++/14/bits/alloc_traits.h:
 
-/usr/lib/gcc/aarch64-linux-gnu/14/include/stddef.h:
+/usr/include/aarch64-linux-gnu/bits/types/struct_timespec.h:
 
-/usr/include/c++/14/bits/string_view.tcc:
+/usr/include/aarch64-linux-gnu/bits/types/timer_t.h:
 
-/usr/lib/gcc/aarch64-linux-gnu/14/include/stdint.h:
+/usr/include/asm-generic/int-ll64.h:
 
-/usr/include/nlohmann/detail/macro_unscope.hpp:
+/usr/lib/aarch64-linux-gnu/libopencv_img_hash.so.4.10.0:
+
+/lib/aarch64-linux-gnu/libjbig.so.0:
+
+/usr/include/c++/14/ios:
+
+/lib/aarch64-linux-gnu/libvtkImagingCore-9.3.so.1:
+
+/usr/include/c++/14/cstdio:
+
+/usr/include/aarch64-linux-gnu/bits/iscanonical.h:
+
+/lib/aarch64-linux-gnu/libssh.so.4:
+
+/usr/include/aarch64-linux-gnu/bits/types/struct_tm.h:
+
+/lib/aarch64-linux-gnu/libusb-1.0.so.0:
+
+/usr/include/c++/14/bits/streambuf_iterator.h:
+
+/usr/lib/gcc/aarch64-linux-gnu/14/libstdc++.so:
+
+/usr/include/opencv4/opencv2/objdetect.hpp:
+
+/usr/include/aarch64-linux-gnu/bits/typesizes.h:
+
+/usr/include/opencv4/opencv2/dnn.hpp:
+
+/usr/include/opencv4/opencv2/core/hal/interface.h:
+
+/usr/include/opencv4/opencv2/core/ovx.hpp:
+
+/usr/include/c++/14/compare:
+
+/lib/aarch64-linux-gnu/libwebp.so.7:
+
+/usr/include/c++/14/ostream:
+
+/usr/include/opencv4/opencv2/stitching/detail/motion_estimators.hpp:
+
+/usr/include/aarch64-linux-gnu/bits/uio_lim.h:
+
+/usr/include/c++/14/climits:
+
+/lib/aarch64-linux-gnu/libabsl_spinlock_wait.so.20240722:
+
+/usr/include/aarch64-linux-gnu/bits/waitflags.h:
+
+/usr/include/aarch64-linux-gnu/bits/wchar.h:
+
+/lib/aarch64-linux-gnu/libvtkpugixml-9.3.so.1:
+
+/usr/include/nlohmann/detail/output/output_adapters.hpp:
+
+/lib/aarch64-linux-gnu/libkmlbase.so.1:
+
+/usr/include/opencv4/opencv2/imgproc.hpp:
+
+/usr/include/aarch64-linux-gnu/bits/types/FILE.h:
+
+/usr/include/aarch64-linux-gnu/bits/waitstatus.h:
+
+/usr/include/opencv4/opencv2/flann/defines.h:
+
+/usr/include/c++/14/bits/exception.h:
+
+/usr/include/string.h:
+
+/usr/include/c++/14/bits/fs_dir.h:
+
+/lib/aarch64-linux-gnu/libpq.so.5:
+
+/usr/include/c++/14/bits/stl_iterator.h:
+
+/usr/include/opencv4/opencv2/flann/timer.h:
+
+/lib/aarch64-linux-gnu/libswresample.so.5:
+
+/usr/include/c++/14/bits/hashtable_policy.h:
+
+/usr/include/asm-generic/errno-base.h:
+
+/usr/include/opencv4/opencv2/core/utility.hpp:
+
+/usr/include/aarch64-linux-gnu/gnu/stubs-lp64.h:
+
+/usr/include/aarch64-linux-gnu/bits/wordsize.h:
+
+/lib/aarch64-linux-gnu/crtn.o:
+
+/usr/include/c++/14/pstl/execution_defs.h:
+
+/lib/aarch64-linux-gnu/libxcb.so.1:
+
+/usr/include/c++/14/bits/basic_ios.h:
+
+/usr/include/c++/14/utility:
+
+/usr/include/opencv4/opencv2/flann/flann_base.hpp:
+
+/usr/include/math.h:
+
+/usr/include/aarch64-linux-gnu/bits/mathcalls-macros.h:
+
+/usr/include/aarch64-linux-gnu/sys/single_threaded.h:
+
+/usr/include/aarch64-linux-gnu/sys/types.h:
+
+/lib/aarch64-linux-gnu/libcharls.so.2:
+
+/usr/include/c++/14/bits/locale_facets_nonio.h:
 
 /usr/include/c++/14/bits/predefined_ops.h:
 
-/usr/lib/gcc/aarch64-linux-gnu/14/include/syslimits.h:
+/usr/include/c++/14/iterator:
+
+/lib/aarch64-linux-gnu/crti.o:
+
+/lib/aarch64-linux-gnu/libudfread.so.0:
+
+/usr/include/c++/14/bits/indirect_array.h:
+
+/usr/include/c++/14/bits/parse_numbers.h:
+
+/usr/include/asm-generic/errno.h:
+
+/usr/include/stdc-predef.h:
+
+/usr/lib/llvm-19/lib/clang/19/include/__stddef_ptrdiff_t.h:
+
+/lib/aarch64-linux-gnu/libsqlite3.so.0:
+
+/usr/include/asm-generic/posix_types.h:
+
+/lib/aarch64-linux-gnu/libzmq.so.5:
+
+/lib/aarch64-linux-gnu/libudev.so.1:
+
+/usr/include/c++/14/bits/fs_ops.h:
+
+/lib/aarch64-linux-gnu/libcurl-gnutls.so.4:
+
+/usr/include/aarch64-linux-gnu/bits/local_lim.h:
+
+/usr/include/limits.h:
+
+/usr/include/c++/14/bits/cxxabi_forced.h:
+
+/lib/aarch64-linux-gnu/libgdal.so.36:
+
+/lib/aarch64-linux-gnu/libfontconfig.so.1:
+
+/usr/include/nlohmann/detail/meta/type_traits.hpp:
+
+/usr/include/aarch64-linux-gnu/bits/types/cookie_io_functions_t.h:
+
+/usr/include/aarch64-linux-gnu/bits/types/struct_FILE.h:
+
+/usr/include/linux/limits.h:
+
+/usr/include/c++/14/backward/auto_ptr.h:
+
+/usr/include/aarch64-linux-gnu/bits/math-vector.h:
+
+/usr/include/aarch64-linux-gnu/c++/14/bits/gthr.h:
+
+/usr/include/c++/14/bits/atomic_lockfree_defines.h:
+
+/usr/include/c++/14/bits/locale_classes.tcc:
+
+/lib/aarch64-linux-gnu/libpangoft2-1.0.so.0:
+
+/lib/aarch64-linux-gnu/libldap.so.2:
+
+/usr/include/libintl.h:
+
+/usr/include/opencv4/opencv2/stitching/detail/exposure_compensate.hpp:
+
+/lib/aarch64-linux-gnu/libnspr4.so:
+
+/lib/aarch64-linux-gnu/libabsl_strings_internal.so.20240722:
+
+/usr/include/linux/posix_types.h:
+
+/usr/lib/aarch64-linux-gnu/libopencv_plot.so.4.10.0:
+
+/usr/include/linux/types.h:
+
+/lib/aarch64-linux-gnu/libgpgmepp.so.6:
+
+/usr/include/nlohmann/detail/value_t.hpp:
+
+/usr/include/opencv4/opencv2/core/base.hpp:
+
+/usr/include/opencv4/opencv2/core/bufferpool.hpp:
+
+/lib/aarch64-linux-gnu/libtwolame.so.0:
+
+/usr/include/c++/14/bits/valarray_array.tcc:
+
+/usr/include/opencv4/opencv2/objdetect/charuco_detector.hpp:
+
+/lib/aarch64-linux-gnu/libxcb-dri3.so.0:
+
+/usr/include/c++/14/bits/specfun.h:
+
+/usr/include/c++/14/bits/stl_relops.h:
+
+/usr/include/features-time64.h:
+
+/usr/include/opencv4/opencv2/dnn/layer.hpp:
+
+/usr/include/nlohmann/detail/conversions/to_chars.hpp:
+
+/usr/include/c++/14/bits/shared_ptr.h:
+
+/lib/aarch64-linux-gnu/libqhull_r.so.8.0:
+
+/usr/include/c++/14/bits/exception_defines.h:
+
+/usr/include/opencv4/opencv2/core/matx.inl.hpp:
+
+/usr/include/opencv4/opencv2/core/cv_cpu_dispatch.h:
+
+/usr/include/c++/14/bits/hash_bytes.h:
+
+/usr/lib/aarch64-linux-gnu/libopencv_viz.so.4.10.0:
+
+/usr/include/c++/14/bits/ostream_insert.h:
+
+/usr/lib/llvm-19/lib/clang/19/include/__stdarg___gnuc_va_list.h:
+
+/usr/include/opencv4/opencv2/stitching/detail/camera.hpp:
+
+/usr/include/c++/14/bits/char_traits.h:
+
+/usr/include/c++/14/list:
+
+/usr/include/opencv4/opencv2/core/mat.hpp:
+
+/usr/include/c++/14/bits/vector.tcc:
+
+/usr/include/opencv4/opencv2/highgui.hpp:
+
+/usr/include/c++/14/cctype:
+
+/usr/include/c++/14/cerrno:
+
+/lib/aarch64-linux-gnu/libmd4c.so.0:
+
+/usr/include/c++/14/cfloat:
+
+/usr/include/c++/14/complex:
+
+/usr/include/c++/14/concepts:
+
+/lib/aarch64-linux-gnu/libchromaprint.so.1:
+
+/usr/include/c++/14/cstddef:
+
+/usr/include/opencv4/opencv2/core/async.hpp:
+
+/usr/lib/aarch64-linux-gnu/libopencv_hfs.so.4.10.0:
+
+/usr/include/c++/14/cstdint:
+
+/lib/aarch64-linux-gnu/libgpg-error.so.0:
+
+/usr/include/aarch64-linux-gnu/c++/14/bits/time_members.h:
+
+/usr/include/opencv4/opencv2/stitching/detail/warpers_inl.hpp:
+
+/usr/include/c++/14/cstdlib:
+
+/lib/aarch64-linux-gnu/libproj.so.25:
+
+/usr/include/c++/14/cstring:
+
+/usr/include/aarch64-linux-gnu/bits/xopen_lim.h:
+
+/usr/include/c++/14/ctime:
+
+/usr/include/c++/14/ext/numeric_traits.h:
+
+/usr/include/opencv4/opencv2/objdetect/graphical_code_detector.hpp:
+
+/usr/include/asm-generic/bitsperlong.h:
+
+/usr/include/c++/14/cwctype:
+
+/usr/include/c++/14/bits/slice_array.h:
+
+/usr/include/c++/14/debug/debug.h:
+
+/usr/include/c++/14/tr1/hypergeometric.tcc:
+
+/usr/include/c++/14/ext/alloc_traits.h:
+
+/usr/include/nlohmann/detail/input/input_adapters.hpp:
+
+/lib/aarch64-linux-gnu/libicuuc.so.76:
+
+/usr/include/c++/14/ext/concurrence.h:
+
+/usr/include/c++/14/ext/string_conversions.h:
+
+/usr/include/c++/14/ext/type_traits.h:
+
+/usr/include/c++/14/iosfwd:
+
+/lib/aarch64-linux-gnu/libmfhdfalt.so.0:
+
+/usr/include/c++/14/istream:
+
+/usr/include/c++/14/mutex:
+
+/usr/include/opencv4/opencv2/flann/lsh_table.h:
+
+/usr/include/c++/14/pstl/glue_algorithm_defs.h:
+
+/usr/include/c++/14/pstl/glue_memory_defs.h:
+
+/usr/lib/llvm-19/lib/clang/19/include/__stddef_wchar_t.h:
+
+/usr/include/c++/14/ratio:
+
+/usr/include/c++/14/stdexcept:
+
+/usr/include/c++/14/string:
+
+/usr/include/c++/14/string_view:
+
+/lib/aarch64-linux-gnu/libgstpbutils-1.0.so.0:
+
+/usr/include/opencv4/opencv2/flann/config.h:
+
+/usr/include/c++/14/system_error:
+
+/usr/include/c++/14/tr1/exp_integral.tcc:
+
+/usr/include/c++/14/tr1/gamma.tcc:
+
+/usr/include/c++/14/tr1/modified_bessel_func.tcc:
+
+/lib/aarch64-linux-gnu/libX11-xcb.so.1:
+
+/usr/include/c++/14/tr1/riemann_zeta.tcc:
+
+/lib/aarch64-linux-gnu/libpoppler.so.147:
+
+/usr/include/c++/14/tuple:
+
+/lib/aarch64-linux-gnu/libtirpc.so.3:
+
+/lib/aarch64-linux-gnu/libcjson.so.1:
+
+/usr/include/nlohmann/detail/iterators/json_reverse_iterator.hpp:
+
+/usr/include/opencv4/opencv2/opencv.hpp:
+
+/usr/lib/aarch64-linux-gnu/libopencv_calib3d.so.4.10.0:
+
+/lib/aarch64-linux-gnu/libpsl.so.5:
+
+/usr/include/aarch64-linux-gnu/bits/pthread_stack_min-dynamic.h:
+
+/usr/include/nlohmann/byte_container_with_subtype.hpp:
+
+/lib/aarch64-linux-gnu/libacl.so.1:
+
+/usr/include/c++/14/typeinfo:
+
+/lib/aarch64-linux-gnu/libvtkFiltersGeneral-9.3.so.1:
+
+/lib/aarch64-linux-gnu/libc.so:
+
+/usr/include/c++/14/unordered_map:
+
+/usr/include/c++/14/vector:
+
+CMakeFiles/calibration_compute.dir/src/calibration/calibration.cpp.o:
+
+/lib/aarch64-linux-gnu/libvtkIOXML-9.3.so.1:
+
+/usr/lib/llvm-19/lib/clang/19/include/__stddef_null.h:
+
+/usr/lib/llvm-19/lib/clang/19/include/__stddef_offsetof.h:
+
+/usr/lib/llvm-19/lib/clang/19/include/__stdarg_va_arg.h:
+
+/usr/lib/llvm-19/lib/clang/19/include/__stddef_size_t.h:
+
+/usr/include/aarch64-linux-gnu/c++/14/bits/os_defines.h:
+
+/usr/lib/llvm-19/lib/clang/19/include/arm_bf16.h:
+
+/usr/include/c++/14/bits/charconv.h:
+
+/usr/lib/llvm-19/lib/clang/19/include/arm_vector_types.h:
+
+/usr/include/strings.h:
+
+/usr/include/aarch64-linux-gnu/bits/sched.h:
+
+/usr/lib/llvm-19/lib/clang/19/include/float.h:
+
+/usr/include/c++/14/ext/atomicity.h:
+
+/usr/lib/llvm-19/lib/clang/19/include/limits.h:
+
+/lib/aarch64-linux-gnu/libopenjp2.so.7:
+
+/usr/lib/llvm-19/lib/clang/19/include/sanitizer/tsan_interface.h:
+
+/usr/lib/llvm-19/lib/clang/19/include/stddef.h:
+
+/lib/aarch64-linux-gnu/libyuv.so.0:
+
+/usr/include/nlohmann/detail/hash.hpp:
 
 /home/arduino/Q/src/calibration/calibration_compute.cpp:
+
+/usr/lib/aarch64-linux-gnu/libopencv_phase_unwrapping.so.4.10.0:
 
 /usr/include/c++/14/bits/fstream.tcc:
 
 /home/arduino/Q/src/calibration/calibration_compute.hpp:
 
-/home/arduino/opencv5_build/opencv/modules/imgcodecs/include/opencv2/imgcodecs.hpp:
+/usr/include/nlohmann/adl_serializer.hpp:
 
-/home/arduino/opencv5_build/opencv/modules/imgproc/include/opencv2/imgproc.hpp:
-
-/usr/include/aarch64-linux-gnu/c++/14/bits/messages_members.h:
-
-/usr/include/c++/14/any:
-
-/usr/include/c++/14/bits/forward_list.h:
-
-/usr/include/c++/14/bits/fs_fwd.h:
-
-/usr/include/c++/14/bits/fs_path.h:
-
-/usr/include/c++/14/bits/shared_ptr.h:
-
-/usr/include/nlohmann/detail/conversions/to_chars.hpp:
-
-/usr/include/aarch64-linux-gnu/bits/types/time_t.h:
-
-/home/arduino/opencv5_build/opencv/modules/objdetect/include/opencv2/objdetect/aruco_board.hpp:
-
-/usr/include/c++/14/bits/gslice.h:
-
-/usr/include/c++/14/bits/locale_conv.h:
-
-/usr/include/c++/14/bits/quoted_string.h:
+/lib/aarch64-linux-gnu/libopenmpt.so.0:
 
 /usr/include/nlohmann/detail/conversions/from_json.hpp:
 
-/usr/include/c++/14/bits/stl_multimap.h:
-
-/usr/include/c++/14/bits/stl_numeric.h:
-
-/usr/include/c++/14/bits/valarray_after.h:
-
-/usr/include/c++/14/bits/valarray_array.h:
-
-/usr/include/c++/14/bits/valarray_array.tcc:
-
-/usr/include/c++/14/bits/valarray_before.h:
-
-/usr/include/c++/14/cassert:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_videoio.so.5.0.0:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_highgui.so.5.0.0:
-
-/usr/include/c++/14/codecvt:
-
-/usr/include/c++/14/stdlib.h:
-
-/home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/heap.h:
-
-/usr/include/c++/14/map:
-
-/usr/include/aarch64-linux-gnu/bits/stdio_lim.h:
-
-/usr/include/c++/14/numeric:
-
-/usr/include/c++/14/pstl/glue_numeric_defs.h:
-
-/usr/include/asm-generic/types.h:
-
-/usr/include/c++/14/version:
-
-/home/arduino/opencv5_build/opencv/modules/features/include/opencv2/features.hpp:
-
-/usr/include/nlohmann/adl_serializer.hpp:
+/usr/include/c++/14/bits/quoted_string.h:
 
 /usr/include/wchar.h:
 
 /usr/include/nlohmann/detail/exceptions.hpp:
 
-/usr/include/nlohmann/detail/hash.hpp:
+/lib/aarch64-linux-gnu/libabsl_synchronization.so.20240722:
 
 /usr/include/nlohmann/detail/input/binary_reader.hpp:
 
@@ -2493,13 +3406,13 @@ CMakeFiles/calibration_compute.dir/src/core/config.cpp.o:
 
 /usr/include/nlohmann/detail/iterators/iter_impl.hpp:
 
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_objdetect.so.5.0.0:
+/lib/aarch64-linux-gnu/libbsd.so.0:
+
+/usr/include/opencv4/opencv2/core/utils/logger.hpp:
 
 /usr/include/c++/14/bits/shared_ptr_base.h:
 
 /usr/include/nlohmann/detail/iterators/iteration_proxy.hpp:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_face.so.5.0.0:
 
 /usr/include/c++/14/bits/basic_string.h:
 
@@ -2507,13 +3420,15 @@ CMakeFiles/calibration_compute.dir/src/core/config.cpp.o:
 
 /usr/include/nlohmann/detail/json_ref.hpp:
 
+/usr/include/nlohmann/detail/macro_unscope.hpp:
+
 /usr/include/nlohmann/detail/meta/call_std/begin.hpp:
 
 /usr/include/nlohmann/detail/meta/cpp_future.hpp:
 
 /usr/include/nlohmann/detail/meta/detected.hpp:
 
-/home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/kmeans_index.h:
+/lib/aarch64-linux-gnu/libgdcmDICT.so.3.0:
 
 /usr/include/nlohmann/detail/meta/identity_tag.hpp:
 
@@ -2521,165 +3436,247 @@ CMakeFiles/calibration_compute.dir/src/core/config.cpp.o:
 
 /usr/include/nlohmann/detail/meta/std_fs.hpp:
 
+/usr/include/c++/14/type_traits:
+
+/usr/include/opencv4/opencv2/flann/hierarchical_clustering_index.h:
+
+/lib/aarch64-linux-gnu/libtheoradec.so.1:
+
 /usr/include/nlohmann/detail/meta/void_t.hpp:
 
 /usr/include/nlohmann/detail/output/serializer.hpp:
 
 /usr/include/nlohmann/detail/string_escape.hpp:
 
+/lib/aarch64-linux-gnu/libgstbase-1.0.so.0:
+
 /usr/include/c++/14/bits/refwrap.h:
 
 /usr/include/nlohmann/json.hpp:
 
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_dnn_superres.so.5.0.0:
-
 /lib/aarch64-linux-gnu/libmvec.so.1:
-
-/home/arduino/opencv5_build/opencv/modules/stitching/include/opencv2/stitching/detail/exposure_compensate.hpp:
 
 /usr/include/nlohmann/json_fwd.hpp:
 
+/usr/lib/aarch64-linux-gnu/libopencv_ml.so.4.10.0:
+
 /usr/include/nlohmann/ordered_map.hpp:
 
-/usr/include/aarch64-linux-gnu/bits/types/FILE.h:
-
-/usr/include/aarch64-linux-gnu/bits/waitstatus.h:
-
-/home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/cuda_types.hpp:
+/usr/include/opencv4/opencv2/core/cuda_types.hpp:
 
 /usr/include/errno.h:
 
 /usr/include/nlohmann/thirdparty/hedley/hedley_undef.hpp:
 
-/home/arduino/opencv5_build/opencv/modules/stitching/include/opencv2/stitching/detail/seam_finders.hpp:
+/usr/lib/llvm-19/lib/clang/19/include/__stdarg_va_copy.h:
 
-/home/arduino/opencv5_build/opencv/include/opencv2/opencv.hpp:
+/usr/include/opencv4/opencv2/imgcodecs.hpp:
 
-/home/arduino/opencv5_build/opencv/modules/calib/include/opencv2/calib.hpp:
+/usr/lib/aarch64-linux-gnu/libopencv_core.so.4.10.0:
 
-/home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/cuda.hpp:
+/lib/aarch64-linux-gnu/librist.so.4:
 
-/usr/include/asm-generic/errno.h:
+/usr/include/aarch64-linux-gnu/c++/14/bits/messages_members.h:
 
-/usr/include/c++/14/bits/parse_numbers.h:
+/usr/lib/aarch64-linux-gnu/libopencv_video.so.4.10.0:
 
-/home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/composite_index.h:
+/usr/include/opencv4/opencv2/dnn/dnn.hpp:
 
-/home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/cuda.inl.hpp:
+/usr/include/c++/14/any:
 
-/usr/include/aarch64-linux-gnu/bits/stdint-least.h:
+/usr/include/c++/14/bits/fs_fwd.h:
 
-/home/arduino/opencv5_build/opencv/modules/dnn/include/opencv2/dnn.hpp:
+/usr/include/c++/14/bits/gslice.h:
 
-/usr/include/aarch64-linux-gnu/bits/endian.h:
+/usr/include/c++/14/bits/locale_conv.h:
 
-/home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/params.h:
+/usr/include/c++/14/bits/stl_multimap.h:
 
-/home/arduino/opencv5_build/opencv/modules/dnn/include/opencv2/dnn/dnn.hpp:
+/usr/include/opencv4/opencv2/objdetect/detection_based_tracker.hpp:
 
-/usr/include/aarch64-linux-gnu/bits/setjmp.h:
+/usr/include/c++/14/bits/stl_numeric.h:
 
-/home/arduino/opencv5_build/opencv/modules/dnn/include/opencv2/dnn/layer.hpp:
+/lib/aarch64-linux-gnu/libkmlengine.so.1:
 
-/home/arduino/opencv5_build/opencv/modules/dnn/include/opencv2/dnn/utils/inference_engine.hpp:
+/usr/include/opencv4/opencv2/flann/linear_index.h:
 
-/home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann.hpp:
+/lib/aarch64-linux-gnu/libexpat.so.1:
 
-/home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/all_indices.h:
+/usr/include/c++/14/bits/stl_tree.h:
 
-/home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/allocator.h:
+/usr/include/aarch64-linux-gnu/bits/types/struct_timeval.h:
 
-/usr/include/aarch64-linux-gnu/bits/timesize.h:
+/usr/include/opencv4/opencv2/flann/result_set.h:
 
-/home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/any.h:
+/lib/aarch64-linux-gnu/librsvg-2.so.2:
+
+/usr/include/c++/14/bits/valarray_after.h:
+
+/usr/include/c++/14/bits/valarray_array.h:
+
+/lib/aarch64-linux-gnu/libvtkverdict-9.3.so.1:
+
+/usr/include/c++/14/bits/valarray_before.h:
+
+/lib/aarch64-linux-gnu/libvtkIOPLY-9.3.so.1:
+
+/usr/include/aarch64-linux-gnu/bits/time.h:
+
+/usr/include/aarch64-linux-gnu/bits/uintn-identity.h:
+
+/usr/include/c++/14/iostream:
+
+/lib/aarch64-linux-gnu/libGLEW.so.2.2:
+
+/usr/lib/aarch64-linux-gnu/libopencv_saliency.so.4.10.0:
+
+/usr/include/c++/14/cassert:
+
+/usr/include/c++/14/codecvt:
+
+/usr/include/c++/14/locale:
+
+/usr/include/opencv4/opencv2/flann/sampling.h:
+
+/usr/include/c++/14/map:
+
+/usr/include/opencv4/opencv2/calib3d.hpp:
+
+/lib/aarch64-linux-gnu/libpgm-5.3.so.0:
+
+/lib/aarch64-linux-gnu/libarchive.so.13:
+
+/lib/aarch64-linux-gnu/libabsl_base.so.20240722:
+
+/usr/include/aarch64-linux-gnu/bits/stdio_lim.h:
+
+/lib/aarch64-linux-gnu/libGL.so.1:
+
+/usr/include/c++/14/numeric:
+
+/usr/include/opencv4/opencv2/dnn/dnn.inl.hpp:
+
+/usr/include/c++/14/pstl/glue_numeric_defs.h:
+
+/usr/include/asm-generic/types.h:
+
+/usr/include/c++/14/version:
+
+/lib/aarch64-linux-gnu/libvtkkissfft-9.3.so.1:
 
 /lib/aarch64-linux-gnu/libtiff.so.6:
 
 /usr/include/nlohmann/detail/meta/is_sax.hpp:
 
-/home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/hierarchical_clustering_index.h:
+/usr/include/opencv4/opencv2/stitching/detail/blenders.hpp:
 
-/home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/dynamic_bitset.h:
+/usr/include/opencv4/opencv2/core/affine.hpp:
 
-/home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/general.h:
+/usr/lib/aarch64-linux-gnu/libopencv_bioinspired.so.4.10.0:
 
-/usr/include/c++/14/vector:
+/usr/include/aarch64-linux-gnu/bits/thread-shared-types.h:
 
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_hfs.so.5.0.0:
+/usr/include/opencv4/opencv2/core/cvdef.h:
 
-/home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/sampling.h:
+/usr/include/aarch64-linux-gnu/bits/endianness.h:
 
-/home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/ground_truth.h:
+/usr/include/opencv4/opencv2/core/utils/logger.defines.hpp:
 
-/usr/include/c++/14/sstream:
+/lib/aarch64-linux-gnu/libGLdispatch.so.0:
 
-/home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/index_testing.h:
+/lib/aarch64-linux-gnu/Scrt1.o:
 
-/home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/kdtree_index.h:
+/usr/include/aarch64-linux-gnu/bits/types/__fpos64_t.h:
 
-/home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/linear_index.h:
+/usr/include/opencv4/opencv2/objdetect/face.hpp:
 
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_wechat_qrcode.so.5.0.0:
+/usr/include/nlohmann/detail/iterators/primitive_iterator.hpp:
 
-/usr/include/c++/14/bits/stl_pair.h:
+/usr/include/opencv4/opencv2/core/utils/logtag.hpp:
 
-/home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/logger.h:
+/lib/aarch64-linux-gnu/libspatialite.so.8:
 
-/home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/lsh_table.h:
+/usr/include/opencv4/opencv2/dnn/version.hpp:
 
-/home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/matrix.h:
+/usr/lib/llvm-19/lib/clang/19/include/__stddef_nullptr_t.h:
 
-/usr/include/c++/14/ext/atomicity.h:
+/usr/include/opencv4/opencv2/dnn/utils/inference_engine.hpp:
 
-/home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/miniflann.hpp:
+/usr/include/c++/14/tr1/special_function_util.h:
 
-/home/arduino/opencv5_build/opencv/modules/flann/include/opencv2/flann/result_set.h:
+/usr/include/opencv4/opencv2/features2d.hpp:
 
-/home/arduino/opencv5_build/opencv/modules/highgui/include/opencv2/highgui.hpp:
+/usr/include/opencv4/opencv2/flann.hpp:
 
-/home/arduino/opencv5_build/opencv/modules/objdetect/include/opencv2/objdetect/charuco_detector.hpp:
+/usr/include/opencv4/opencv2/flann/all_indices.h:
 
-/usr/include/c++/14/bits/allocator.h:
+/usr/include/opencv4/opencv2/flann/allocator.h:
 
-/home/arduino/opencv5_build/opencv/modules/video/include/opencv2/video/tracking.hpp:
+/lib/aarch64-linux-gnu/libgstapp-1.0.so.0:
 
-/lib/aarch64-linux-gnu/libz.so.1:
+/lib/aarch64-linux-gnu/libcairo-gobject.so.2:
 
-/home/arduino/opencv5_build/opencv/modules/objdetect/include/opencv2/objdetect/graphical_code_detector.hpp:
+/usr/include/opencv4/opencv2/flann/composite_index.h:
 
-/home/arduino/opencv5_build/opencv/build/opencv2/opencv_modules.hpp:
+/home/arduino/Q/src/calibration/calibration.cpp:
 
-/home/arduino/opencv5_build/opencv/modules/objdetect/include/opencv2/objdetect/mcc_checker_detector.hpp:
+/usr/include/opencv4/opencv2/flann/dynamic_bitset.h:
 
-/home/arduino/opencv5_build/opencv/modules/photo/include/opencv2/photo.hpp:
+/usr/include/opencv4/opencv2/flann/ground_truth.h:
 
-/lib/aarch64-linux-gnu/libzstd.so.1:
+/usr/include/opencv4/opencv2/flann/heap.h:
 
-/home/arduino/opencv5_build/opencv/modules/photo/include/opencv2/photo/ccm.hpp:
+/usr/include/c++/14/ext/aligned_buffer.h:
 
-/usr/include/c++/14/bits/stl_tree.h:
+/usr/include/opencv4/opencv2/flann/index_testing.h:
 
-/home/arduino/opencv5_build/opencv/modules/stitching/include/opencv2/stitching/detail/blenders.hpp:
+/usr/include/opencv4/opencv2/flann/matrix.h:
 
-/home/arduino/opencv5_build/opencv/modules/stitching/include/opencv2/stitching/detail/camera.hpp:
+CMakeFiles/calibration_compute.dir/src/calibration/calibration_compute.cpp.o:
 
-/usr/lib/gcc/aarch64-linux-gnu/14/include/stdarg.h:
+/lib/aarch64-linux-gnu/libatomic.so.1:
 
-/home/arduino/opencv5_build/opencv/modules/stitching/include/opencv2/stitching/detail/motion_estimators.hpp:
+/usr/include/c++/14/bits/stl_map.h:
 
-/usr/include/aarch64-linux-gnu/bits/libm-simd-decl-stubs.h:
+/usr/include/opencv4/opencv2/flann/kdtree_index.h:
 
-/home/arduino/opencv5_build/opencv/modules/stitching/include/opencv2/stitching/detail/util.hpp:
+/usr/include/opencv4/opencv2/flann/kdtree_single_index.h:
 
-/home/arduino/opencv5_build/opencv/modules/stitching/include/opencv2/stitching/detail/warpers_inl.hpp:
+/lib/aarch64-linux-gnu/libavif.so.16:
 
-/home/arduino/opencv5_build/opencv/modules/stitching/include/opencv2/stitching/warpers.hpp:
+/usr/include/opencv4/opencv2/objdetect/aruco_detector.hpp:
 
-/home/arduino/opencv5_build/opencv/modules/video/include/opencv2/video.hpp:
+/usr/include/opencv4/opencv2/objdetect/aruco_dictionary.hpp:
 
-/home/arduino/opencv5_build/opencv/modules/video/include/opencv2/video/background_segm.hpp:
+/usr/include/opencv4/opencv2/flann/logger.h:
 
-/usr/include/c++/14/bits/list.tcc:
+/usr/include/aarch64-linux-gnu/asm/types.h:
+
+/usr/include/opencv4/opencv2/flann/lsh_index.h:
+
+/usr/include/opencv4/opencv2/stitching/detail/util.hpp:
+
+/usr/include/opencv4/opencv2/flann/nn_index.h:
+
+/lib/aarch64-linux-gnu/libgdcmMSFF.so.3.0:
+
+/usr/include/opencv4/opencv2/flann/params.h:
+
+/usr/include/aarch64-linux-gnu/bits/types/struct_sched_param.h:
+
+/usr/include/opencv4/opencv2/flann/autotuned_index.h:
+
+/usr/include/opencv4/opencv2/flann/random.h:
+
+/usr/include/aarch64-linux-gnu/sys/cdefs.h:
+
+/usr/include/c++/14/tr1/legendre_function.tcc:
+
+/usr/include/opencv4/opencv2/ml/ml.inl.hpp:
+
+/usr/include/c++/14/bits/stl_algobase.h:
+
+/usr/include/opencv4/opencv2/objdetect/aruco_board.hpp:
 
 /usr/include/c++/14/bits/mask_array.h:
 
@@ -2687,13 +3684,37 @@ CMakeFiles/calibration_compute.dir/src/core/config.cpp.o:
 
 /usr/include/c++/14/bits/stl_list.h:
 
+/lib/aarch64-linux-gnu/libswscale.so.8:
+
+/usr/include/opencv4/opencv2/stitching/detail/matchers.hpp:
+
+/lib/aarch64-linux-gnu/libngtcp2_crypto_gnutls.so.8:
+
+/home/arduino/Q/src/calibration/calibration_compute_main.cpp:
+
+/usr/include/opencv4/opencv2/stitching/detail/seam_finders.hpp:
+
+/usr/include/c++/14/bit:
+
+/usr/include/opencv4/opencv2/stitching/detail/util_inl.hpp:
+
+/lib/aarch64-linux-gnu/libcom_err.so.2:
+
+/usr/include/opencv4/opencv2/stitching/detail/warpers.hpp:
+
+/usr/include/opencv4/opencv2/video.hpp:
+
+/usr/include/c++/14/cwchar:
+
+/usr/include/opencv4/opencv2/video/background_segm.hpp:
+
+/usr/include/opencv4/opencv2/videoio.hpp:
+
 /usr/include/c++/14/bits/stl_multiset.h:
 
-/home/arduino/opencv5_build/opencv/modules/dnn/include/opencv2/dnn/dnn.inl.hpp:
+/usr/include/nlohmann/detail/macro_scope.hpp:
 
 /usr/include/c++/14/bits/version.h:
-
-/usr/include/nlohmann/detail/macro_scope.hpp:
 
 /usr/include/c++/14/bits/stl_queue.h:
 
@@ -2701,32 +3722,22 @@ CMakeFiles/calibration_compute.dir/src/core/config.cpp.o:
 
 /usr/include/c++/14/deque:
 
-/usr/include/locale.h:
-
-/usr/include/c++/14/queue:
-
-/home/arduino/opencv5_build/opencv/modules/core/include/opencv2/core/async.hpp:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_dpm.so.5.0.0:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_alphamat.so.5.0.0:
+/lib/aarch64-linux-gnu/libXfixes.so.3:
 
 /usr/include/c++/14/tr1/bessel_function.tcc:
 
 /usr/include/c++/14/math.h:
 
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_bgsegm.so.5.0.0:
+/usr/include/locale.h:
 
-/home/arduino/Q/src/calibration/calibration.hpp:
+/usr/include/opencv4/opencv2/core/fast_math.hpp:
 
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_datasets.so.5.0.0:
+/usr/include/c++/14/queue:
 
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_calib.so.5.0.0:
+/usr/lib/aarch64-linux-gnu/libopencv_surface_matching.so.4.10.0:
 
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_dnn.so.5.0.0:
+/lib/aarch64-linux-gnu/libpangocairo-1.0.so.0:
 
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_features.so.5.0.0:
+/usr/lib/llvm-19/lib/clang/19/include/__stdarg_header_macro.h:
 
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_fuzzy.so.5.0.0:
-
-/home/arduino/opencv5_build/opencv/build/lib/libopencv_imgcodecs.so.5.0.0:
+/lib/aarch64-linux-gnu/libGLX.so.0:

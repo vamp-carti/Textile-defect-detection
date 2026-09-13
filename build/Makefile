@@ -142,32 +142,6 @@ calibration_compute/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/calibration_compute.dir/build.make CMakeFiles/calibration_compute.dir/build
 .PHONY : calibration_compute/fast
 
-#=============================================================================
-# Target rules for targets named run
-
-# Build rule for target.
-run: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 run
-.PHONY : run
-
-# fast build rule for target.
-run/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/build
-.PHONY : run/fast
-
-#=============================================================================
-# Target rules for targets named run_async
-
-# Build rule for target.
-run_async: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 run_async
-.PHONY : run_async
-
-# fast build rule for target.
-run_async/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_async.dir/build.make CMakeFiles/run_async.dir/build
-.PHONY : run_async/fast
-
 src/benchmark/benchmark.o: src/benchmark/benchmark.cpp.o
 .PHONY : src/benchmark/benchmark.o
 
@@ -441,6 +415,54 @@ src/pipeline/data_sender.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/src/pipeline/data_sender.cpp.s
 .PHONY : src/pipeline/data_sender.cpp.s
 
+src/pipeline/io_worker.o: src/pipeline/io_worker.cpp.o
+.PHONY : src/pipeline/io_worker.o
+
+# target to build an object file
+src/pipeline/io_worker.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/src/pipeline/io_worker.cpp.o
+.PHONY : src/pipeline/io_worker.cpp.o
+
+src/pipeline/io_worker.i: src/pipeline/io_worker.cpp.i
+.PHONY : src/pipeline/io_worker.i
+
+# target to preprocess a source file
+src/pipeline/io_worker.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/src/pipeline/io_worker.cpp.i
+.PHONY : src/pipeline/io_worker.cpp.i
+
+src/pipeline/io_worker.s: src/pipeline/io_worker.cpp.s
+.PHONY : src/pipeline/io_worker.s
+
+# target to generate assembly for a file
+src/pipeline/io_worker.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/src/pipeline/io_worker.cpp.s
+.PHONY : src/pipeline/io_worker.cpp.s
+
+src/pipeline/led_controller.o: src/pipeline/led_controller.cpp.o
+.PHONY : src/pipeline/led_controller.o
+
+# target to build an object file
+src/pipeline/led_controller.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/src/pipeline/led_controller.cpp.o
+.PHONY : src/pipeline/led_controller.cpp.o
+
+src/pipeline/led_controller.i: src/pipeline/led_controller.cpp.i
+.PHONY : src/pipeline/led_controller.i
+
+# target to preprocess a source file
+src/pipeline/led_controller.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/src/pipeline/led_controller.cpp.i
+.PHONY : src/pipeline/led_controller.cpp.i
+
+src/pipeline/led_controller.s: src/pipeline/led_controller.cpp.s
+.PHONY : src/pipeline/led_controller.s
+
+# target to generate assembly for a file
+src/pipeline/led_controller.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/src/pipeline/led_controller.cpp.s
+.PHONY : src/pipeline/led_controller.cpp.s
+
 src/pipeline/producer.o: src/pipeline/producer.cpp.o
 .PHONY : src/pipeline/producer.o
 
@@ -465,6 +487,222 @@ src/pipeline/producer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/src/pipeline/producer.cpp.s
 .PHONY : src/pipeline/producer.cpp.s
 
+third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.o: third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.cpp.o
+.PHONY : third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.o
+
+# target to build an object file
+third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.cpp.o
+.PHONY : third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.cpp.o
+
+third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.i: third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.cpp.i
+.PHONY : third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.i
+
+# target to preprocess a source file
+third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.cpp.i
+.PHONY : third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.cpp.i
+
+third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.s: third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.cpp.s
+.PHONY : third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.s
+
+# target to generate assembly for a file
+third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.cpp.s
+.PHONY : third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.cpp.s
+
+third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.o: third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.cpp.o
+.PHONY : third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.o
+
+# target to build an object file
+third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.cpp.o
+.PHONY : third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.cpp.o
+
+third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.i: third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.cpp.i
+.PHONY : third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.i
+
+# target to preprocess a source file
+third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.cpp.i
+.PHONY : third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.cpp.i
+
+third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.s: third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.cpp.s
+.PHONY : third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.s
+
+# target to generate assembly for a file
+third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.cpp.s
+.PHONY : third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.cpp.s
+
+third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.o: third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.cpp.o
+.PHONY : third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.o
+
+# target to build an object file
+third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.cpp.o
+.PHONY : third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.cpp.o
+
+third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.i: third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.cpp.i
+.PHONY : third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.i
+
+# target to preprocess a source file
+third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.cpp.i
+.PHONY : third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.cpp.i
+
+third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.s: third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.cpp.s
+.PHONY : third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.s
+
+# target to generate assembly for a file
+third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.cpp.s
+.PHONY : third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.cpp.s
+
+third_party/edge_impulse/sdk/dsp/image/processing.o: third_party/edge_impulse/sdk/dsp/image/processing.cpp.o
+.PHONY : third_party/edge_impulse/sdk/dsp/image/processing.o
+
+# target to build an object file
+third_party/edge_impulse/sdk/dsp/image/processing.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/image/processing.cpp.o
+.PHONY : third_party/edge_impulse/sdk/dsp/image/processing.cpp.o
+
+third_party/edge_impulse/sdk/dsp/image/processing.i: third_party/edge_impulse/sdk/dsp/image/processing.cpp.i
+.PHONY : third_party/edge_impulse/sdk/dsp/image/processing.i
+
+# target to preprocess a source file
+third_party/edge_impulse/sdk/dsp/image/processing.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/image/processing.cpp.i
+.PHONY : third_party/edge_impulse/sdk/dsp/image/processing.cpp.i
+
+third_party/edge_impulse/sdk/dsp/image/processing.s: third_party/edge_impulse/sdk/dsp/image/processing.cpp.s
+.PHONY : third_party/edge_impulse/sdk/dsp/image/processing.s
+
+# target to generate assembly for a file
+third_party/edge_impulse/sdk/dsp/image/processing.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/image/processing.cpp.s
+.PHONY : third_party/edge_impulse/sdk/dsp/image/processing.cpp.s
+
+third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.o: third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.cpp.o
+.PHONY : third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.o
+
+# target to build an object file
+third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.cpp.o
+.PHONY : third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.cpp.o
+
+third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.i: third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.cpp.i
+.PHONY : third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.i
+
+# target to preprocess a source file
+third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.cpp.i
+.PHONY : third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.cpp.i
+
+third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.s: third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.cpp.s
+.PHONY : third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.s
+
+# target to generate assembly for a file
+third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.cpp.s
+.PHONY : third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.cpp.s
+
+third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.o: third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.cpp.o
+.PHONY : third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.o
+
+# target to build an object file
+third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.cpp.o
+.PHONY : third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.cpp.o
+
+third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.i: third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.cpp.i
+.PHONY : third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.i
+
+# target to preprocess a source file
+third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.cpp.i
+.PHONY : third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.cpp.i
+
+third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.s: third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.cpp.s
+.PHONY : third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.s
+
+# target to generate assembly for a file
+third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.cpp.s
+.PHONY : third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.cpp.s
+
+third_party/edge_impulse/sdk/dsp/memory.o: third_party/edge_impulse/sdk/dsp/memory.cpp.o
+.PHONY : third_party/edge_impulse/sdk/dsp/memory.o
+
+# target to build an object file
+third_party/edge_impulse/sdk/dsp/memory.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/memory.cpp.o
+.PHONY : third_party/edge_impulse/sdk/dsp/memory.cpp.o
+
+third_party/edge_impulse/sdk/dsp/memory.i: third_party/edge_impulse/sdk/dsp/memory.cpp.i
+.PHONY : third_party/edge_impulse/sdk/dsp/memory.i
+
+# target to preprocess a source file
+third_party/edge_impulse/sdk/dsp/memory.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/memory.cpp.i
+.PHONY : third_party/edge_impulse/sdk/dsp/memory.cpp.i
+
+third_party/edge_impulse/sdk/dsp/memory.s: third_party/edge_impulse/sdk/dsp/memory.cpp.s
+.PHONY : third_party/edge_impulse/sdk/dsp/memory.s
+
+# target to generate assembly for a file
+third_party/edge_impulse/sdk/dsp/memory.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/memory.cpp.s
+.PHONY : third_party/edge_impulse/sdk/dsp/memory.cpp.s
+
+third_party/edge_impulse/sdk/porting/posix/debug_log.o: third_party/edge_impulse/sdk/porting/posix/debug_log.cpp.o
+.PHONY : third_party/edge_impulse/sdk/porting/posix/debug_log.o
+
+# target to build an object file
+third_party/edge_impulse/sdk/porting/posix/debug_log.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/debug_log.cpp.o
+.PHONY : third_party/edge_impulse/sdk/porting/posix/debug_log.cpp.o
+
+third_party/edge_impulse/sdk/porting/posix/debug_log.i: third_party/edge_impulse/sdk/porting/posix/debug_log.cpp.i
+.PHONY : third_party/edge_impulse/sdk/porting/posix/debug_log.i
+
+# target to preprocess a source file
+third_party/edge_impulse/sdk/porting/posix/debug_log.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/debug_log.cpp.i
+.PHONY : third_party/edge_impulse/sdk/porting/posix/debug_log.cpp.i
+
+third_party/edge_impulse/sdk/porting/posix/debug_log.s: third_party/edge_impulse/sdk/porting/posix/debug_log.cpp.s
+.PHONY : third_party/edge_impulse/sdk/porting/posix/debug_log.s
+
+# target to generate assembly for a file
+third_party/edge_impulse/sdk/porting/posix/debug_log.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/debug_log.cpp.s
+.PHONY : third_party/edge_impulse/sdk/porting/posix/debug_log.cpp.s
+
+third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.o: third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.cpp.o
+.PHONY : third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.o
+
+# target to build an object file
+third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.cpp.o
+.PHONY : third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.cpp.o
+
+third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.i: third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.cpp.i
+.PHONY : third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.i
+
+# target to preprocess a source file
+third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.cpp.i
+.PHONY : third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.cpp.i
+
+third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.s: third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.cpp.s
+.PHONY : third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.s
+
+# target to generate assembly for a file
+third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.cpp.s
+.PHONY : third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -473,8 +711,6 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... run"
-	@echo "... run_async"
 	@echo "... calibration_compute"
 	@echo "... minimind"
 	@echo "... src/benchmark/benchmark.o"
@@ -510,9 +746,42 @@ help:
 	@echo "... src/pipeline/data_sender.o"
 	@echo "... src/pipeline/data_sender.i"
 	@echo "... src/pipeline/data_sender.s"
+	@echo "... src/pipeline/io_worker.o"
+	@echo "... src/pipeline/io_worker.i"
+	@echo "... src/pipeline/io_worker.s"
+	@echo "... src/pipeline/led_controller.o"
+	@echo "... src/pipeline/led_controller.i"
+	@echo "... src/pipeline/led_controller.s"
 	@echo "... src/pipeline/producer.o"
 	@echo "... src/pipeline/producer.i"
 	@echo "... src/pipeline/producer.s"
+	@echo "... third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.o"
+	@echo "... third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.i"
+	@echo "... third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.s"
+	@echo "... third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.o"
+	@echo "... third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.i"
+	@echo "... third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.s"
+	@echo "... third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.o"
+	@echo "... third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.i"
+	@echo "... third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.s"
+	@echo "... third_party/edge_impulse/sdk/dsp/image/processing.o"
+	@echo "... third_party/edge_impulse/sdk/dsp/image/processing.i"
+	@echo "... third_party/edge_impulse/sdk/dsp/image/processing.s"
+	@echo "... third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.o"
+	@echo "... third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.i"
+	@echo "... third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.s"
+	@echo "... third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.o"
+	@echo "... third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.i"
+	@echo "... third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.s"
+	@echo "... third_party/edge_impulse/sdk/dsp/memory.o"
+	@echo "... third_party/edge_impulse/sdk/dsp/memory.i"
+	@echo "... third_party/edge_impulse/sdk/dsp/memory.s"
+	@echo "... third_party/edge_impulse/sdk/porting/posix/debug_log.o"
+	@echo "... third_party/edge_impulse/sdk/porting/posix/debug_log.i"
+	@echo "... third_party/edge_impulse/sdk/porting/posix/debug_log.s"
+	@echo "... third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.o"
+	@echo "... third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.i"
+	@echo "... third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.s"
 .PHONY : help
 
 

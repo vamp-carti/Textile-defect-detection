@@ -61,19 +61,21 @@ public:
 private:
     BenchmarkTimer benchmark_;
 
-    static constexpr double SCALE_X = 2.0;
-    static constexpr double SCALE_Y = 2.0;
-
+    // Tuned P2 clustering bounds for grouping nearby mid-sized components.
     static constexpr double P2_MAX_DIST = 105.0;
     static constexpr int P2_MAX_SPAN = 175;
 
+    // Tuned priority cutoffs: P1 is large, P2 is mid-sized, and P3 is fallback.
     static constexpr int P1_AREA = 700;
 
     static constexpr double P3_MAX_DIST_1 = 105.0;
     static constexpr double P3_MAX_DIST_2 = 157.5;
 
+    // Half of the 224-pixel ROI; tuned to suppress near-duplicate boxes.
     static constexpr double NMS_DISTANCE = 112.0;
 
+    // ROI_SIZE matches the classifier input. The half-size stride gives 50%
+    // overlap when a large component must be tiled.
     static constexpr int ROI_SIZE = 224;
     static constexpr int TILE_STRIDE = 112;
 
@@ -85,6 +87,7 @@ private:
 
     void projectTo4K(
         const std::vector<DefectComponent>& components,
+        const cv::Mat& original_rgb,
         std::vector<ROIComponent>& output
     );
 

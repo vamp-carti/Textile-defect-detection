@@ -12,6 +12,13 @@
 
 namespace minimind {
 
+struct DefectImages {
+    cv::Mat     roi_display;     // owns data; ready for imwrite
+    std::string roi_path;
+    cv::Mat     full_display;    // owns data; empty if original_frame was empty
+    std::string full_path;
+};
+
 struct ROIInferenceResult {
     int frame_id;
     ROIBox box;
@@ -23,6 +30,7 @@ struct ROIInferenceResult {
     float confidence;
 
     bool defect;
+    double flag_time_ms = 0.0;
 };
 
 class ROIInference {
@@ -32,6 +40,10 @@ public:
         const std::string& opencl_backend_path,
         float defect_threshold = 0.14f
     );
+
+    // Run one dummy inference to warm up XNNPACK and other lazy-initialized paths
+    void warmup();
+    void setIoWorker(class IoWorker* w) { io_worker_ = w; } 
 
     BenchmarkTimer& getBenchmarkTimer();
 
@@ -49,6 +61,12 @@ public:
     std::vector<ROIInferenceResult> processBatch(
         const std::vector<ROIResult>& rois, const cv::Mat& original_frame
     );
+    
+DefectImages saveDefectFrame(const ROIResult& roi, const ROIInferenceResult& result,
+                             const cv::Mat& original_frame, const std::string& source);
+
+    // CPU inference for single ROI (Edge Impulse)
+    ROIInferenceResult inferCPU(const ROIResult& roi);
 
 private:
     static constexpr int INPUT_SIZE = 224;
@@ -60,6 +78,8 @@ private:
     static constexpr int NORMAL_IDX = 3;
     static constexpr int OIL_IDX = 4;
 
+    // Tuned GPU batch ceiling; larger batches increase memory without reducing
+    // the measured synchronization-dominated latency proportionally.
     static constexpr int MAX_BATCH_SIZE = 16;
     std::vector<ROIInferenceResult> processBatchInternal(const std::vector<ROIResult>& rois, const cv::Mat& original_frame, bool& frame_has_defect);
     static constexpr const char* CLASS_NAMES[NUM_CLASSES] = {
@@ -69,7 +89,21 @@ private:
         "normal",
         "oil"
     };
+
+    class IoWorker* io_worker_ = nullptr;
+
+    // Edge Impulse model data
+    const unsigned char* ei_model_data_;
+    unsigned int ei_model_data_len_;
     
+    // TFLite Micro tensor arena
+    std::unique_ptr<uint8_t[]> tensor_arena_;
+    size_t tensor_arena_size_;
+    
+    // Edge Impulse initialization
+    bool initializeEdgeImpulse();
+
+ 
     cv::Mat m_current_frame;
 
     void loadOpenCLBackend(const std::string& backend_path);
@@ -81,8 +115,6 @@ private:
     float computeDefectProbability(const std::vector<float>& probabilities) const;
 
     void ensureBatchCapacity(int batch_size);
-
-    void saveDefectFrame(const ROIResult& roi, const ROIInferenceResult& result, const cv::Mat& original_frame);
 
     BenchmarkTimer benchmark_;
 

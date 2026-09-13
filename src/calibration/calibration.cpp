@@ -11,6 +11,8 @@
 namespace minimind {
 
 bool loadCalibration(const std::string& path, CalibrationData& calib) {
+    // The JSON stores full-resolution measurements; derived fields below are
+    // rebuilt for the detector's configured downsampled working image.
     cv::FileStorage fs(path, cv::FileStorage::READ | cv::FileStorage::FORMAT_JSON);
     if (!fs.isOpened()) {
         std::cerr << "Failed to open calibration file: " << path << std::endl;
@@ -33,7 +35,9 @@ bool loadCalibration(const std::string& path, CalibrationData& calib) {
     fs["calib_int_std"] >> calib.calib_int_std;
     fs.release();
 
-    // Precompute derived parameters
+    // Precompute derived parameters once so the hot detection loop only uses
+    // ready-to-apply kernels, thresholds, and border sizes. Reloading these
+    // values rebuilds the detector state before processing resumes.
     int ds_factor = Config::getInstance().image.ds_factor;
 
     calib.lambd_ds = calib.lambd / ds_factor;

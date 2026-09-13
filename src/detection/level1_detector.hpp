@@ -25,6 +25,7 @@ class Level1Detector {
 public:
     explicit Level1Detector(const std::string& calibration_path, bool debug_mode = false);
     bool initialize();
+    bool reloadCalibration(const std::string& path);
     cv::Mat process(const cv::Mat& input, int frame_id);
 
     const StageLatency& getLastBenchmark() const;
@@ -37,6 +38,7 @@ private:
     bool debug_mode_;
     BenchmarkTimer timer_;
     std::vector<DefectComponent> last_components_;
+    bool buildRuntimeState_();
 
     // Precomputed kernels and DFT canvases
     cv::Mat kernel_real_;

@@ -1,0 +1,29 @@
+# Build artifacts
+build/
+
+# OpenCV 5 binaries — kept locally for the future experiment, not committed
+opencv_lib/
+
+# Runtime outputs
+output/
+output_cpp/
+*.log
+
+# Python
+__pycache__/
+*.pyc
+ui_env/
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+*.swp
+firmware/videoledbridge/frames/
+firmware/videoledbridge/.venv/
+firmware/videoledbridge/__pycache__/
+firmware/videoledbridge/frames/
+firmware/videoledbridge/__pycache__/
+firmware/videoledbridge/.venv/
+firmware/videoledbridge/.cache/
+firmware/videoledbridge/led_state

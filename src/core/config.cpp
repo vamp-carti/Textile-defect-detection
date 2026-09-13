@@ -222,6 +222,9 @@ bool Config::parseJsonConfig(const std::string& json_string) {
             if (dbg.contains("log_timing")) debug.log_timing = dbg["log_timing"];
             if (dbg.contains("draw_debug_boxes")) debug.draw_debug_boxes = dbg["draw_debug_boxes"];
             if (dbg.contains("save_intermediate")) debug.save_intermediate = dbg["save_intermediate"];
+            if (dbg.contains("verbose_roi")) debug.verbose_roi = dbg["verbose_roi"];
+            if (dbg.contains("verbose_tflite")) debug.verbose_tflite = dbg["verbose_tflite"];
+            if (dbg.contains("save_level1_maps")) debug.save_level1_maps = dbg["save_level1_maps"];
         }
         
         // Timing controls
@@ -270,7 +273,7 @@ void Config::resetToDefaults() {
     production = ProductionSettings();
     
     m_debug_mode = false;
-    m_timing_enabled = false;
+    m_timing_enabled = true;
 }
 
 bool Config::validate() const {

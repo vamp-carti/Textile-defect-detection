@@ -11,6 +11,7 @@
 #include "level1_detector.hpp"
 #include "roi_processor.hpp"
 #include "roi_inference.hpp"
+#include "core/defect_report.hpp"
 
 namespace minimind {
 
@@ -19,6 +20,8 @@ namespace minimind {
 // =====================================================================
 
 struct FrameData {
+    // Shared per-frame record. The producer fills detection fields, while the
+    // consumer completes inference and releases images when no longer needed.
     int frame_id = 0;
     std::string filename;
     
@@ -45,6 +48,7 @@ struct FrameData {
     double level1_time_ms = 0.0;
     double roi_time_ms = 0.0;
     double inference_time_ms = 0.0;
+    double producer_start_ms = 0.0;     // to compute true end-to-end latency up to the flag.
     
     // Release RGB memory early (called after ROI generation)
     void releaseRGB() {
@@ -69,7 +73,8 @@ public:
         , active_count_(0)
     {}
     
-    // Push frame data (producer side)
+    // Push frame data (producer side). The bound provides backpressure when
+    // inference is slower than image ingestion.
     bool push(std::shared_ptr<FrameData> data) {
         std::unique_lock<std::mutex> lock(mutex_);
         
@@ -88,7 +93,8 @@ public:
         return true;
     }
     
-    // Pop frame data (consumer side)
+    // Pop frame data (consumer side). A null result means shutdown is complete
+    // and no queued frames remain.
     std::shared_ptr<FrameData> pop() {
         std::unique_lock<std::mutex> lock(mutex_);
         
@@ -117,6 +123,7 @@ public:
         cv_.notify_all();
     }
     
+    // Wait until both queued and currently owned frames have completed.
     void waitForCompletion() {
         std::unique_lock<std::mutex> lock(mutex_);
         cv_.wait(lock, [this]() {
@@ -164,6 +171,9 @@ struct PipelineStats {
     std::atomic<float> total_level1_time{0.0};
     std::atomic<float> total_roi_time{0.0};
     std::atomic<float> total_inference_time{0.0};
+    std::atomic<float> total_load_time{0.0};
+    std::atomic<float> total_cpu_inference_time{0.0};
+    std::atomic<float> total_end_to_end_time{0.0};
     
     void reset() {
         frames_processed = 0;
@@ -174,6 +184,9 @@ struct PipelineStats {
         total_level1_time = 0.0;
         total_roi_time = 0.0;
         total_inference_time = 0.0;
+        total_load_time = 0.0;
+        total_cpu_inference_time = 0.0;
+        total_end_to_end_time = 0.0;
     }
     
     void printSummary() const {
@@ -192,9 +205,12 @@ struct PipelineStats {
         std::cout << "Total ROIs:              " << total_rois.load() << "\n";
         std::cout << "Total inferences:        " << total_inferences.load() << "\n";
         std::cout << "------------------------------------------------------------\n";
+        std::cout << "Avg Load time:           " << (total_load_time.load() / static_cast<float>(processed)) << " ms\n";
         std::cout << "Avg Level1 time:         " << (total_level1_time.load() / static_cast<float>(processed)) << " ms\n";
         std::cout << "Avg ROI time:            " << (total_roi_time.load() / static_cast<float>(processed)) << " ms\n";
-        std::cout << "Avg Inference time:      " << (total_inference_time.load() / static_cast<float>(processed)) << " ms\n";
+        std::cout << "Avg CPU inference time:  " << (total_cpu_inference_time.load() / static_cast<float>(processed)) << " ms\n";
+        std::cout << "Avg GPU inference time:  " << (total_inference_time.load() / static_cast<float>(processed)) << " ms\n";
+        std::cout << "Avg End-to-end time:     " << (total_end_to_end_time.load() / static_cast<float>(processed)) << " ms\n";
         std::cout << "============================================================\n";
     }
 };

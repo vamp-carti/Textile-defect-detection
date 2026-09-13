@@ -17,10 +17,11 @@ struct ConfigInternal;
  */
 class Config {
 public:
-    // Singleton access
+    // One process-wide configuration instance is shared by the pipeline,
+    // detector, inference, and UI reporting code.
     static Config& getInstance();
     
-    // Load configuration from file or environment
+    // File values are loaded first; environment values can then override them.
     bool loadFromFile(const std::string& path = "config.json");
     bool loadFromEnv();
     
@@ -67,6 +68,9 @@ public:
         bool log_timing = false;        // Log timing information
         bool draw_debug_boxes = false;  // Draw debug visualization
         bool save_intermediate = false; // Save intermediate results
+        bool verbose_roi = false;       // Verbose per-ROI listing (20+ lines/frame)
+        bool verbose_tflite = false;    // Verbose TFLite/Edge Impulse internals
+        bool save_level1_maps = false;  // Write Level1 intermediate PNGs
     } debug;
     
     struct TimingControls {
@@ -87,15 +91,16 @@ public:
 	bool save_defects = false;        // Save defect ROIs to disk
         std::string defect_output_dir = "defects";  //  Directory for defect images
 	std::string model_path = "mobilenetv4_conv_small_batch.mnn";      
-        std::string opencl_backend_path = "cpp_gpu_runtime/lib/libMNN_CL.so"; 
-        float defect_threshold = 0.0092f;                                
+        std::string opencl_backend_path = "third_party/mnn/lib/libMNN_CL.so"; 
+        // Validation sweep operating point chosen to favor recall on live data.
+        float defect_threshold = 0.005f;                                
         std::string calibration_path = "calibration_metrics.json";
     } production;
     
-    // Reset all parameters to default values
+    // Restore the in-memory defaults without changing any source/config files.
     void resetToDefaults();
     
-    // Validate current configuration
+    // Check ranges and combinations before the values reach image processing.
     bool validate() const;
     
 private:
@@ -106,7 +111,7 @@ private:
     
     // Internal state
     std::atomic<bool> m_debug_mode{false};
-    std::atomic<bool> m_timing_enabled{false};
+    std::atomic<bool> m_timing_enabled{true};
     
     // Helper to parse JSON config
     bool parseJsonConfig(const std::string& json_string);

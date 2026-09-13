@@ -11,8 +11,10 @@
 #include <signal.h>
 #include <fstream>
 #include <atomic>
-#include <cstdio>  // Added for std::remove
+#include <deque>
+#include <cstdio>
 #include <sstream>
+#include <iomanip>
 
 #include <opencv2/opencv.hpp>
 
@@ -24,25 +26,36 @@
 #include "core/pipeline_data.hpp"
 #include "pipeline/producer.hpp"
 #include "pipeline/consumer.hpp"
-
-struct DefectReport {
-    int frame_id;
-    int roi_id;
-    std::string predicted_class;
-    float confidence;
-    float defect_probability;
-    std::chrono::system_clock::time_point timestamp;
-};
+#include "pipeline/gpu_queue.hpp"
+#include "pipeline/frame_buffer.hpp"
+#include "core/defect_report.hpp"
+#include "pipeline/io_worker.hpp"
+#include "calibration/calibration_compute.hpp"
+#include "calibration/calibration.hpp"
+#include "pipeline/led_controller.hpp"
 
 namespace fs = std::filesystem;
 using namespace minimind;
 
-// Global flags for pipeline control
+// These atomics bridge the UI command loop, producer/consumer threads, and
+// signal handling without sharing a lock across the long-running workers.
 std::atomic<bool> g_pipeline_running{false};  
 std::atomic<bool> g_export_requested{false};
 std::atomic<bool> g_should_exit{false};
+std::atomic<bool> g_recalibrate_requested{false};
 std::vector<DefectReport> g_defect_reports;
 std::mutex g_defect_mutex;
+std::shared_ptr<minimind::LedController> g_led_controller;
+
+std::atomic<bool> g_overshoot_requested{false};
+std::atomic<bool> g_recalibration_in_progress{false};
+
+std::mutex        g_overshoot_mutex;
+std::string       g_overshoot_file;
+int               g_overshoot_frame_id = 0;
+
+std::mutex                               g_reprocess_mutex;
+std::deque<std::pair<std::string, bool>> g_reprocess_queue;
 
 // Global pointer for signal handler
 minimind::DataSender* g_data_sender = nullptr;
@@ -53,11 +66,14 @@ minimind::DataSender* g_data_sender = nullptr;
 
 struct SystemStats {
     float cpu_usage = 0.0f;
+    float cpu_temp = 0.0f;
     float gpu_temp = 0.0f;
     float memory_usage_mb = 0.0f;
 };
 
 SystemStats readSystemStats() {
+    // Linux exposes the board telemetry through procfs and thermal sysfs; on
+    // other platforms the zero-initialized values remain valid placeholders.
     SystemStats stats;
     
 #ifdef __linux__
@@ -82,12 +98,32 @@ SystemStats readSystemStats() {
         prev_total = total;
     }
     
-    // Temperature
-    std::ifstream temp_file("/sys/class/thermal/thermal_zone0/temp");
-    if (temp_file.is_open()) {
+    // GPU temperature (zone7 = gpu-thermal)
+    std::ifstream gpu_temp_file("/sys/class/thermal/thermal_zone7/temp");
+    if (gpu_temp_file.is_open()) {
         int temp_val;
-        temp_file >> temp_val;
+        gpu_temp_file >> temp_val;
         stats.gpu_temp = temp_val / 1000.0f;
+    }
+    
+    // CPU temperature (average of zone3 + zone4)
+    int cpu_temp_sum = 0;
+    int cpu_temp_count = 0;
+    const char* cpu_zones[] = {
+        "/sys/class/thermal/thermal_zone3/temp",
+        "/sys/class/thermal/thermal_zone4/temp"
+    };
+    for (const auto* path : cpu_zones) {
+        std::ifstream f(path);
+        if (f.is_open()) {
+            int t;
+            f >> t;
+            cpu_temp_sum += t;
+            cpu_temp_count++;
+        }
+    }
+    if (cpu_temp_count > 0) {
+        stats.cpu_temp = (cpu_temp_sum / cpu_temp_count) / 1000.0f;
     }
     
     // Memory
@@ -112,10 +148,14 @@ SystemStats readSystemStats() {
 // EXPORT CSV FUNCTION
 // =====================================================================
 void exportDefectReport() {
+    // Export takes a snapshot under the report mutex so inference can continue
+    // while the CSV is written to disk.
 
     std::string output_dir = Config::getInstance().production.defect_output_dir;
     if (output_dir.empty()) {
         output_dir = "output/";
+    } else if (output_dir.back() != '/') {
+        output_dir += "/";
     }
     
     // Create directory if it doesn't exist
@@ -196,6 +236,7 @@ void checkCommands(DataSender& data_sender) {
         if (command == "START") {
             std::cout << "\n[UI] Received START command - Starting pipeline" << std::endl;
             g_pipeline_running = true;
+            if (g_led_controller) g_led_controller->setState("NORMAL");
             
             // Update UI data
             minimind::UIData ui_data;
@@ -206,6 +247,7 @@ void checkCommands(DataSender& data_sender) {
         } else if (command == "STOP") {
             std::cout << "\n[UI] Received STOP command - Pausing pipeline" << std::endl;
             g_pipeline_running = false;
+            if (g_led_controller) g_led_controller->setState("IDLE");
             
             // Update UI data
             minimind::UIData ui_data;
@@ -216,14 +258,23 @@ void checkCommands(DataSender& data_sender) {
             std::cout << "\n[UI] Received EXPORT command" << std::endl;
             g_export_requested = true;
             
+        } else if (command == "RECALIBRATE") {
+            std::cout << "\n[UI] Received RECALIBRATE command" << std::endl;
+            g_recalibrate_requested = true;
+
         } else if (command == "QUIT") {
             std::cout << "\n[UI] Received QUIT command" << std::endl;
             g_pipeline_running = false;
             g_should_exit = true;
-	   
-	   minimind::UIData ui_data;
-           ui_data.status = "STOPPED";
-           data_sender.updateData(ui_data);
+            if (g_led_controller) g_led_controller->setState("IDLE");
+            
+            // Auto-save CSV on quit
+            std::cout << "[UI] Auto-saving CSV before quit" << std::endl;
+            exportDefectReport();
+            
+            minimind::UIData ui_data;
+            ui_data.status = "STOPPED";
+            data_sender.updateData(ui_data);
         }
     }
 }
@@ -334,12 +385,143 @@ void runSyncMode(
     std::cout << "============================================================\n";
 }
 
+// Pick the newest image in a folder by modification time.
+static std::string findNewestImage(const std::string& folder) {
+    namespace fs = std::filesystem;
+    std::string newest;
+    std::filesystem::file_time_type newest_time{};
+
+    if (!fs::exists(folder) || !fs::is_directory(folder)) {
+        return newest;
+    }
+
+    for (const auto& entry : fs::directory_iterator(folder)) {
+        if (!entry.is_regular_file()) continue;
+        auto ext = entry.path().extension().string();
+        if (ext != ".png" && ext != ".jpg" && ext != ".jpeg") continue;
+
+        auto t = fs::last_write_time(entry.path());
+        if (newest.empty() || t > newest_time) {
+            newest = entry.path().string();
+            newest_time = t;
+        }
+    }
+    return newest;
+}
+
+// Performs a full stop-the-world recalibration.
+// If source_file is empty, picks the newest image from input_path.
+// Returns true on success, false if the calibration source could not be
+// read, computeFromFrame threw, or the detector reload failed.
+static bool performRecalibration(
+    const std::string& source_file,
+    const std::string& input_path,
+    Level1Detector& detector,
+    UIData& ui_data,
+    minimind::DataSender& data_sender)
+{
+    g_recalibration_in_progress = true;
+
+    // 1. Choose source file
+    std::string source = source_file;
+    if (source.empty()) {
+        source = findNewestImage(input_path);
+    }
+    if (source.empty()) {
+        std::cout << "[Calibration] No source image found in "
+                  << input_path << std::endl;
+        ui_data.calibration_state = "failed";
+        data_sender.updateData(ui_data);
+        g_recalibration_in_progress = false;
+        return false;
+    }
+    std::cout << "[Calibration] Source frame: " << source << std::endl;
+
+    // 2. Load, compute
+    ui_data.calibration_state = "running";
+    ui_data.calibration_progress = 0.0f;
+    data_sender.updateData(ui_data);
+
+    cv::Mat gray = cv::imread(source, cv::IMREAD_GRAYSCALE);
+    if (gray.empty()) {
+        std::cout << "[Calibration] Failed to read " << source << std::endl;
+        ui_data.calibration_state = "failed";
+        data_sender.updateData(ui_data);
+        g_recalibration_in_progress = false;
+        return false;
+    }
+
+    CalibrationData calib;
+    try {
+        calib = CalibrationComputer::computeFromFrame(gray,
+            [&ui_data, &data_sender](int pct) {
+                ui_data.calibration_progress = (float)pct;
+                data_sender.updateData(ui_data);
+            });
+    } catch (const std::exception& e) {
+        std::cout << "[Calibration] computeFromFrame failed: "
+                  << e.what() << std::endl;
+        ui_data.calibration_state = "failed";
+        data_sender.updateData(ui_data);
+        g_recalibration_in_progress = false;
+        return false;
+    }
+
+    // 3. Save JSON
+    std::string calib_path = Config::getInstance().production.calibration_path;
+    if (calib_path.empty()) calib_path = "calibration_metrics.json";
+    CalibrationComputer::saveToJson(calib_path, calib);
+    std::cout << "[Calibration] Wrote " << calib_path << std::endl;
+
+    // 4. Save source frame with 256x256 box overlay
+    {
+        std::string out_dir = "output/calibration/";
+        std::string mkdir_cmd = "mkdir -p " + out_dir;
+        system(mkdir_cmd.c_str());
+
+        int patch_size = 256;
+        int cy = gray.rows / 2;
+        int cx = gray.cols / 2;
+        int y1 = std::max(0, cy - patch_size / 2);
+        int x1 = std::max(0, cx - patch_size / 2);
+        int y2 = std::min(gray.rows, y1 + patch_size);
+        int x2 = std::min(gray.cols, x1 + patch_size);
+
+        cv::Mat vis;
+        cv::cvtColor(gray, vis, cv::COLOR_GRAY2BGR);
+        cv::rectangle(vis, cv::Point(x1, y1), cv::Point(x2, y2),
+                      cv::Scalar(0, 0, 255), 2);
+
+        std::string vis_path = out_dir + "calibration_source.jpg";
+        cv::imwrite(vis_path, vis);
+        ui_data.calibration_source_path = vis_path;
+        std::cout << "[Calibration] Saved source visualization to "
+                  << vis_path << std::endl;
+    }
+
+    // 5. Reload detector
+    if (!detector.reloadCalibration(calib_path)) {
+        std::cout << "[Calibration] Detector reload failed" << std::endl;
+        ui_data.calibration_state = "failed";
+        data_sender.updateData(ui_data);
+        g_recalibration_in_progress = false;
+        return false;
+    }
+
+    ui_data.calibration_state = "done";
+    ui_data.calibration_progress = 100.0f;
+    data_sender.updateData(ui_data);
+
+    g_recalibration_in_progress = false;
+    return true;
+}
+
 // =====================================================================
 // ASYNC MODE (Producer-Consumer)
 // =====================================================================
 
 void runAsyncMode(
-    const std::vector<cv::String>& filenames,
+    const std::string& input_path,
     const std::string& output_path,
     Level1Detector& detector,
     ROIProcessor& roi_processor,
@@ -348,7 +530,6 @@ void runAsyncMode(
     minimind::DataSender& data_sender
 ) {
     (void)output_path;
-    (void)filenames;
     auto total_start = std::chrono::high_resolution_clock::now();
     
     // Reset global flags - pipeline starts paused
@@ -361,24 +542,44 @@ void runAsyncMode(
     ui_data.status = "WAITING FOR START";
     data_sender.updateData(ui_data);
 
-    auto queue = std::make_shared<PipelineQueue>(queue_size);
+    auto gpu_queue = std::make_shared<GPUQueue>(16);  // Fixed batch size of 16
+    auto frame_buffer = std::make_shared<FrameBuffer>(5);  // Keep last 5 frames
     PipelineStats stats;
 
+    auto io_worker = std::make_shared<IoWorker>();
+    roi_inference.setIoWorker(io_worker.get());
+
+    auto led_controller = std::make_shared<LedController>(
+        "/home/arduino/ArduinoApps/videoledbridge/led_state");
+    // This path is specific to the Arduino Uno Q App Lab deployment; the LED
+    // bridge is optional when frames are supplied directly to the input folder.
+    g_led_controller = led_controller;
+    led_controller->setState("IDLE");
+    
     // Create producer and consumer threads
     std::thread producer(
         producerThread,
-        queue,
-        std::cref(filenames),
+        gpu_queue,
+        frame_buffer,
+        io_worker,
+        led_controller,
+        std::cref(input_path),
         std::ref(detector),
         std::ref(roi_processor),
-        std::ref(stats)
+        std::ref(roi_inference),
+        std::ref(stats),
+        std::ref(ui_data)
     );
 
     std::thread consumer(
         consumerThread,
-        queue,
+        gpu_queue,
+        frame_buffer,
+        io_worker,
+        led_controller,
         std::ref(roi_inference),
-        std::ref(stats)
+        std::ref(stats),
+        std::ref(ui_data)
     );
     
     auto last_update = std::chrono::steady_clock::now();
@@ -390,14 +591,13 @@ void runAsyncMode(
         // Check for commands from Python UI
         checkCommands(data_sender);
         
-        // Check if pipeline should run or be paused
         if (!g_pipeline_running) {
-            // Pipeline is paused - just wait and update UI
             std::this_thread::sleep_for(std::chrono::milliseconds(100));
-            
-            // Update status to show paused
-            ui_data.status = "PAUSED";
-            data_sender.updateData(ui_data);
+
+            if (!g_recalibration_in_progress.load()) {
+                ui_data.status = "PAUSED";
+                data_sender.updateData(ui_data);
+            }
             
             // Check if threads are still alive
             if (!producer.joinable() && !consumer.joinable()) {
@@ -415,22 +615,21 @@ void runAsyncMode(
             // Read system stats
             SystemStats sys_stats = readSystemStats();
             ui_data.cpu_usage = sys_stats.cpu_usage;
+            ui_data.cpu_temp = sys_stats.cpu_temp;
             ui_data.gpu_temp = sys_stats.gpu_temp;
             ui_data.memory_usage_mb = sys_stats.memory_usage_mb;
             
             // Update pipeline stats
             ui_data.frames_processed = stats.frames_processed.load();
-            ui_data.queue_size = queue->size();
-            ui_data.active_count = queue->activeCount();
+            ui_data.queue_size = 0;
+            ui_data.active_count = 0;
             ui_data.total_components = stats.total_components.load();
             ui_data.total_rois = stats.total_rois.load();
             ui_data.total_inferences = stats.total_inferences.load();
             
             if (stats.frames_processed.load() > 0) {
-                float avg_time = stats.total_level1_time.load() + 
-                                stats.total_roi_time.load() + 
-                                stats.total_inference_time.load();
-                avg_time /= stats.frames_processed.load();
+                float avg_time = stats.total_end_to_end_time.load() / 
+                                 stats.frames_processed.load();
                 ui_data.avg_time_ms = avg_time;
                 ui_data.fps = 1000.0f / avg_time;
             }
@@ -448,6 +647,83 @@ void runAsyncMode(
             g_export_requested = false;
         }
         
+        // -------- Manual recalibration (UI button) --------
+        // Stop-the-world is required because reloadCalibration rebuilds
+        // kernels and preallocated detector buffers used by process().
+        if (g_recalibrate_requested) {
+            g_recalibrate_requested = false;
+
+            bool was_running = g_pipeline_running.load();
+            g_pipeline_running = false;
+            gpu_queue->drain();
+
+            ui_data.status = "RECALIBRATING";
+            data_sender.updateData(ui_data);
+
+            {
+                auto wait_start = std::chrono::steady_clock::now();
+                while (gpu_queue->size() > 0) {
+                    auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(
+                        std::chrono::steady_clock::now() - wait_start).count();
+                    if (elapsed > 5000) break;
+                    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+                }
+            }
+
+            performRecalibration(/*source=*/"", input_path, detector,
+                                 ui_data, data_sender);
+
+            if (was_running) g_pipeline_running = true;
+        }
+
+        // -------- Auto recalibration (ROI overshoot) --------
+        if (g_overshoot_requested) {
+            g_overshoot_requested = false;
+
+            std::string source_file;
+            int source_frame_id = 0;
+            {
+                std::lock_guard<std::mutex> lk(g_overshoot_mutex);
+                source_file = g_overshoot_file;
+                source_frame_id = g_overshoot_frame_id;
+            }
+
+            std::cout << "\n[Overshoot] Auto-recalibrating from frame "
+                      << source_frame_id << " (" << source_file << ")\n";
+
+            g_pipeline_running = false;
+            gpu_queue->drain();
+
+            ui_data.status = "RECALIBRATING";
+            data_sender.updateData(ui_data);
+
+            {
+                auto wait_start = std::chrono::steady_clock::now();
+                while (gpu_queue->size() > 0) {
+                    auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(
+                        std::chrono::steady_clock::now() - wait_start).count();
+                    if (elapsed > 5000) break;
+                    std::this_thread::sleep_for(std::chrono::milliseconds(50));
+                }
+            }
+
+            bool ok = performRecalibration(source_file, input_path, detector,
+                                           ui_data, data_sender);
+
+            if (ok) {
+                {
+                    std::lock_guard<std::mutex> lk(g_reprocess_mutex);
+                    g_reprocess_queue.push_back({source_file, true});
+                }
+                ui_data.status = "PAUSED";
+            } else {
+                ui_data.status = "CALIBRATION_FAILED";
+            }
+
+            ui_data.roi_overshoot = false;
+            data_sender.updateData(ui_data);
+        }
+
         // Check if producer and consumer are done
         if (!producer.joinable() && !consumer.joinable()) {
             should_continue = false;
@@ -457,12 +733,23 @@ void runAsyncMode(
     }
     
     // Clean up threads
+    gpu_queue->stop();
     if (producer.joinable()) {
         producer.join();
     }
     if (consumer.joinable()) {
         consumer.join();
     }
+    if (io_worker) {
+        io_worker->flush();
+    }
+
+    // animation stops when threads exit. 
+    if (g_led_controller) g_led_controller->setState("IDLE");
+
+    // Auto-save CSV after pipeline completes
+    std::cout << "[UI] Pipeline complete - auto-saving CSV" << std::endl;
+    exportDefectReport();
 
     ui_data.status = "COMPLETE";
     data_sender.updateData(ui_data);
@@ -601,21 +888,24 @@ int main(int argc, char** argv) {
     // ============================================================
     // COLLECT INPUT FILES
     // ============================================================
+    // In async mode, the producer watches `input_path` continuously and
+    // picks up files as they appear. No up-front glob, and empty folder is
+    // a valid startup state. In sync mode, we still need a static list.
 
     std::vector<cv::String> filenames;
-
-    if (fs::is_directory(input_path)) {
-        cv::glob(input_path + "/*.png", filenames);
-        if (filenames.empty()) {
-            cv::glob(input_path + "/*.jpg", filenames);
+    if (!async_mode) {
+        if (fs::is_directory(input_path)) {
+            cv::glob(input_path + "/*.png", filenames);
+            if (filenames.empty()) {
+                cv::glob(input_path + "/*.jpg", filenames);
+            }
+        } else {
+            filenames.push_back(input_path);
         }
-    } else {
-        filenames.push_back(input_path);
-    }
-
-    if (filenames.empty()) {
-        std::cerr << "No input images found.\n";
-        return 1;
+        if (filenames.empty()) {
+            std::cerr << "No input images found.\n";
+            return 1;
+        }
     }
 
     // ============================================================
@@ -624,7 +914,7 @@ int main(int argc, char** argv) {
 
     if (async_mode) {
         runAsyncMode(
-            filenames,
+            input_path,
             output_path,
             detector,
             roi_processor,
@@ -634,7 +924,7 @@ int main(int argc, char** argv) {
         );
     } else {
         runSyncMode(
-            filenames,
+            filenames, 
             output_path,
             detector,
             roi_processor,

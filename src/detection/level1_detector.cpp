@@ -1,6 +1,6 @@
 #include "level1_detector.hpp"
 #include "config.hpp"
-
+#include <iostream>
 #include <opencv2/opencv.hpp>
 #include <opencv2/imgproc.hpp>
 #include <opencv2/imgcodecs.hpp>
@@ -12,12 +12,39 @@ Level1Detector::Level1Detector(const std::string& calibration_path, bool debug_m
 
 bool Level1Detector::initialize() {
     cv::setNumThreads(4);
-   
+
     if (!loadCalibration(calibration_path_, calib_)) {
         return false;
     }
 
-    // 1. Gabor Kernels (CV_32F)
+    return buildRuntimeState_();
+}
+
+bool Level1Detector::reloadCalibration(const std::string& path) {
+    CalibrationData new_calib;
+    if (!loadCalibration(path, new_calib)) {
+        std::cerr << "[Level1Detector] Failed to reload calibration from " << path << std::endl;
+        return false;
+    }
+    calib_ = new_calib;
+    calibration_path_ = path;
+    if (!buildRuntimeState_()) {
+        std::cerr << "[Level1Detector] Rebuild of runtime state failed after reload" << std::endl;
+        return false;
+    }
+    if (debug_mode_) {
+        std::cout << "[Level1Detector] Calibration reloaded and kernels rebuilt from " << path << std::endl;
+    }
+    return true;
+}
+
+bool Level1Detector::buildRuntimeState_() {
+    // Build every reusable kernel and buffer after calibration load/reload.
+    // Keeping these allocations out of process() is important on the A53 CPU;
+    // recalibration therefore happens while the pipeline is stopped.
+    // 1. Gabor kernels measure oriented textile structure in the downsampled image.
+    // The downsample factor and target dimensions come from configuration and
+    // are the coordinate system used by Level 1 components.
     double psi_real = 0.0;
     double psi_imag = CV_PI / 2.0;
 
@@ -33,7 +60,7 @@ bool Level1Detector::initialize() {
     kernel_real_ = g_real - mean_real[0];
     kernel_imag_ = g_imag - mean_imag[0];
 
-    // 2. Morphology Kernels
+    // 2. Morphology kernels clean and connect candidate masks at each scale.
     close_kernel_ds_ = cv::getStructuringElement(cv::MORPH_RECT, 
         cv::Size(Config::getInstance().morphology.close_ksize_ds, 
                  Config::getInstance().morphology.close_ksize_ds));
@@ -61,7 +88,7 @@ bool Level1Detector::initialize() {
     oil_close_kernel_ds_ = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(7, 7));
     oil_open_kernel_ds_ = cv::getStructuringElement(cv::MORPH_ELLIPSE, cv::Size(3, 3));
 
-    // 3. DFT Setup
+    // 3. DFT setup: pad to OpenCV's efficient dimensions and cache kernel spectra.
     int pad_size_ds = calib_.ksize_ds;
     int raw_padded_h_ds = Config::getInstance().image.target_h + 2 * pad_size_ds;
     int raw_padded_w_ds = Config::getInstance().image.target_w + 2 * pad_size_ds;
@@ -362,17 +389,24 @@ cv::Mat Level1Detector::process(const cv::Mat& input, int frame_id) {
 
     timer_.stop("00_total");
 
-    if (debug_mode_) {
-        cv::imwrite("01_norm.png", norm_img_ds2_);
-        cv::imwrite("02_struct_energy.png", struct_energy_ds_);
-        cv::imwrite("03_struct_mask.png", struct_mask_ * 255);
-        cv::imwrite("04_intensity_mask.png", intensity_mask_ * 255);
-        cv::imwrite("05_combined_mask.png", combined_pixel_mask_);
-        cv::imwrite("06_struct_morph.png", morph_struct_);
-        cv::imwrite("07_oil_mask.png", solid_oil_mask_);
-        cv::imwrite("08_unified_mask.png", unified_mask_);
-        cv::imwrite("09_macro_mask.png", macro_mask_);
-        cv::imwrite("10_final_mask.png", final_mask_);
+    if (Config::getInstance().debug.save_level1_maps) {
+        static bool debug_dir_created = false;
+        if (!debug_dir_created) {
+            std::string cmd = "mkdir -p output/debug";
+            system(cmd.c_str());
+            debug_dir_created = true;
+        }
+
+        cv::imwrite("output/debug/01_norm.png", norm_img_ds2_);
+        cv::imwrite("output/debug/02_struct_energy.png", struct_energy_ds_);
+        cv::imwrite("output/debug/03_struct_mask.png", struct_mask_ * 255);
+        cv::imwrite("output/debug/04_intensity_mask.png", intensity_mask_ * 255);
+        cv::imwrite("output/debug/05_combined_mask.png", combined_pixel_mask_);
+        cv::imwrite("output/debug/06_struct_morph.png", morph_struct_);
+        cv::imwrite("output/debug/07_oil_mask.png", solid_oil_mask_);
+        cv::imwrite("output/debug/08_unified_mask.png", unified_mask_);
+        cv::imwrite("output/debug/09_macro_mask.png", macro_mask_);
+        cv::imwrite("output/debug/10_final_mask.png", final_mask_);
     }
 
     return final_mask_;

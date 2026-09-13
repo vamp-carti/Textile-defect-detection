@@ -76,155 +76,309 @@ CMakeFiles/minimind.dir/src/main.cpp.o: CMakeFiles/minimind.dir/flags.make
 CMakeFiles/minimind.dir/src/main.cpp.o: /home/arduino/Q/src/main.cpp
 CMakeFiles/minimind.dir/src/main.cpp.o: CMakeFiles/minimind.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arduino/Q/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/minimind.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minimind.dir/src/main.cpp.o -MF CMakeFiles/minimind.dir/src/main.cpp.o.d -o CMakeFiles/minimind.dir/src/main.cpp.o -c /home/arduino/Q/src/main.cpp
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minimind.dir/src/main.cpp.o -MF CMakeFiles/minimind.dir/src/main.cpp.o.d -o CMakeFiles/minimind.dir/src/main.cpp.o -c /home/arduino/Q/src/main.cpp
 
 CMakeFiles/minimind.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/minimind.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arduino/Q/src/main.cpp > CMakeFiles/minimind.dir/src/main.cpp.i
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arduino/Q/src/main.cpp > CMakeFiles/minimind.dir/src/main.cpp.i
 
 CMakeFiles/minimind.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/minimind.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arduino/Q/src/main.cpp -o CMakeFiles/minimind.dir/src/main.cpp.s
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arduino/Q/src/main.cpp -o CMakeFiles/minimind.dir/src/main.cpp.s
 
 CMakeFiles/minimind.dir/src/core/config.cpp.o: CMakeFiles/minimind.dir/flags.make
 CMakeFiles/minimind.dir/src/core/config.cpp.o: /home/arduino/Q/src/core/config.cpp
 CMakeFiles/minimind.dir/src/core/config.cpp.o: CMakeFiles/minimind.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arduino/Q/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/minimind.dir/src/core/config.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minimind.dir/src/core/config.cpp.o -MF CMakeFiles/minimind.dir/src/core/config.cpp.o.d -o CMakeFiles/minimind.dir/src/core/config.cpp.o -c /home/arduino/Q/src/core/config.cpp
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minimind.dir/src/core/config.cpp.o -MF CMakeFiles/minimind.dir/src/core/config.cpp.o.d -o CMakeFiles/minimind.dir/src/core/config.cpp.o -c /home/arduino/Q/src/core/config.cpp
 
 CMakeFiles/minimind.dir/src/core/config.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/minimind.dir/src/core/config.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arduino/Q/src/core/config.cpp > CMakeFiles/minimind.dir/src/core/config.cpp.i
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arduino/Q/src/core/config.cpp > CMakeFiles/minimind.dir/src/core/config.cpp.i
 
 CMakeFiles/minimind.dir/src/core/config.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/minimind.dir/src/core/config.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arduino/Q/src/core/config.cpp -o CMakeFiles/minimind.dir/src/core/config.cpp.s
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arduino/Q/src/core/config.cpp -o CMakeFiles/minimind.dir/src/core/config.cpp.s
 
 CMakeFiles/minimind.dir/src/calibration/calibration.cpp.o: CMakeFiles/minimind.dir/flags.make
 CMakeFiles/minimind.dir/src/calibration/calibration.cpp.o: /home/arduino/Q/src/calibration/calibration.cpp
 CMakeFiles/minimind.dir/src/calibration/calibration.cpp.o: CMakeFiles/minimind.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arduino/Q/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/minimind.dir/src/calibration/calibration.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minimind.dir/src/calibration/calibration.cpp.o -MF CMakeFiles/minimind.dir/src/calibration/calibration.cpp.o.d -o CMakeFiles/minimind.dir/src/calibration/calibration.cpp.o -c /home/arduino/Q/src/calibration/calibration.cpp
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minimind.dir/src/calibration/calibration.cpp.o -MF CMakeFiles/minimind.dir/src/calibration/calibration.cpp.o.d -o CMakeFiles/minimind.dir/src/calibration/calibration.cpp.o -c /home/arduino/Q/src/calibration/calibration.cpp
 
 CMakeFiles/minimind.dir/src/calibration/calibration.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/minimind.dir/src/calibration/calibration.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arduino/Q/src/calibration/calibration.cpp > CMakeFiles/minimind.dir/src/calibration/calibration.cpp.i
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arduino/Q/src/calibration/calibration.cpp > CMakeFiles/minimind.dir/src/calibration/calibration.cpp.i
 
 CMakeFiles/minimind.dir/src/calibration/calibration.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/minimind.dir/src/calibration/calibration.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arduino/Q/src/calibration/calibration.cpp -o CMakeFiles/minimind.dir/src/calibration/calibration.cpp.s
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arduino/Q/src/calibration/calibration.cpp -o CMakeFiles/minimind.dir/src/calibration/calibration.cpp.s
 
 CMakeFiles/minimind.dir/src/calibration/calibration_compute.cpp.o: CMakeFiles/minimind.dir/flags.make
 CMakeFiles/minimind.dir/src/calibration/calibration_compute.cpp.o: /home/arduino/Q/src/calibration/calibration_compute.cpp
 CMakeFiles/minimind.dir/src/calibration/calibration_compute.cpp.o: CMakeFiles/minimind.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arduino/Q/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/minimind.dir/src/calibration/calibration_compute.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minimind.dir/src/calibration/calibration_compute.cpp.o -MF CMakeFiles/minimind.dir/src/calibration/calibration_compute.cpp.o.d -o CMakeFiles/minimind.dir/src/calibration/calibration_compute.cpp.o -c /home/arduino/Q/src/calibration/calibration_compute.cpp
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minimind.dir/src/calibration/calibration_compute.cpp.o -MF CMakeFiles/minimind.dir/src/calibration/calibration_compute.cpp.o.d -o CMakeFiles/minimind.dir/src/calibration/calibration_compute.cpp.o -c /home/arduino/Q/src/calibration/calibration_compute.cpp
 
 CMakeFiles/minimind.dir/src/calibration/calibration_compute.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/minimind.dir/src/calibration/calibration_compute.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arduino/Q/src/calibration/calibration_compute.cpp > CMakeFiles/minimind.dir/src/calibration/calibration_compute.cpp.i
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arduino/Q/src/calibration/calibration_compute.cpp > CMakeFiles/minimind.dir/src/calibration/calibration_compute.cpp.i
 
 CMakeFiles/minimind.dir/src/calibration/calibration_compute.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/minimind.dir/src/calibration/calibration_compute.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arduino/Q/src/calibration/calibration_compute.cpp -o CMakeFiles/minimind.dir/src/calibration/calibration_compute.cpp.s
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arduino/Q/src/calibration/calibration_compute.cpp -o CMakeFiles/minimind.dir/src/calibration/calibration_compute.cpp.s
 
 CMakeFiles/minimind.dir/src/detection/level1_detector.cpp.o: CMakeFiles/minimind.dir/flags.make
 CMakeFiles/minimind.dir/src/detection/level1_detector.cpp.o: /home/arduino/Q/src/detection/level1_detector.cpp
 CMakeFiles/minimind.dir/src/detection/level1_detector.cpp.o: CMakeFiles/minimind.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arduino/Q/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/minimind.dir/src/detection/level1_detector.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minimind.dir/src/detection/level1_detector.cpp.o -MF CMakeFiles/minimind.dir/src/detection/level1_detector.cpp.o.d -o CMakeFiles/minimind.dir/src/detection/level1_detector.cpp.o -c /home/arduino/Q/src/detection/level1_detector.cpp
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minimind.dir/src/detection/level1_detector.cpp.o -MF CMakeFiles/minimind.dir/src/detection/level1_detector.cpp.o.d -o CMakeFiles/minimind.dir/src/detection/level1_detector.cpp.o -c /home/arduino/Q/src/detection/level1_detector.cpp
 
 CMakeFiles/minimind.dir/src/detection/level1_detector.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/minimind.dir/src/detection/level1_detector.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arduino/Q/src/detection/level1_detector.cpp > CMakeFiles/minimind.dir/src/detection/level1_detector.cpp.i
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arduino/Q/src/detection/level1_detector.cpp > CMakeFiles/minimind.dir/src/detection/level1_detector.cpp.i
 
 CMakeFiles/minimind.dir/src/detection/level1_detector.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/minimind.dir/src/detection/level1_detector.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arduino/Q/src/detection/level1_detector.cpp -o CMakeFiles/minimind.dir/src/detection/level1_detector.cpp.s
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arduino/Q/src/detection/level1_detector.cpp -o CMakeFiles/minimind.dir/src/detection/level1_detector.cpp.s
 
 CMakeFiles/minimind.dir/src/benchmark/benchmark.cpp.o: CMakeFiles/minimind.dir/flags.make
 CMakeFiles/minimind.dir/src/benchmark/benchmark.cpp.o: /home/arduino/Q/src/benchmark/benchmark.cpp
 CMakeFiles/minimind.dir/src/benchmark/benchmark.cpp.o: CMakeFiles/minimind.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arduino/Q/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/minimind.dir/src/benchmark/benchmark.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minimind.dir/src/benchmark/benchmark.cpp.o -MF CMakeFiles/minimind.dir/src/benchmark/benchmark.cpp.o.d -o CMakeFiles/minimind.dir/src/benchmark/benchmark.cpp.o -c /home/arduino/Q/src/benchmark/benchmark.cpp
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minimind.dir/src/benchmark/benchmark.cpp.o -MF CMakeFiles/minimind.dir/src/benchmark/benchmark.cpp.o.d -o CMakeFiles/minimind.dir/src/benchmark/benchmark.cpp.o -c /home/arduino/Q/src/benchmark/benchmark.cpp
 
 CMakeFiles/minimind.dir/src/benchmark/benchmark.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/minimind.dir/src/benchmark/benchmark.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arduino/Q/src/benchmark/benchmark.cpp > CMakeFiles/minimind.dir/src/benchmark/benchmark.cpp.i
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arduino/Q/src/benchmark/benchmark.cpp > CMakeFiles/minimind.dir/src/benchmark/benchmark.cpp.i
 
 CMakeFiles/minimind.dir/src/benchmark/benchmark.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/minimind.dir/src/benchmark/benchmark.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arduino/Q/src/benchmark/benchmark.cpp -o CMakeFiles/minimind.dir/src/benchmark/benchmark.cpp.s
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arduino/Q/src/benchmark/benchmark.cpp -o CMakeFiles/minimind.dir/src/benchmark/benchmark.cpp.s
 
 CMakeFiles/minimind.dir/src/detection/roi_processor.cpp.o: CMakeFiles/minimind.dir/flags.make
 CMakeFiles/minimind.dir/src/detection/roi_processor.cpp.o: /home/arduino/Q/src/detection/roi_processor.cpp
 CMakeFiles/minimind.dir/src/detection/roi_processor.cpp.o: CMakeFiles/minimind.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arduino/Q/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/minimind.dir/src/detection/roi_processor.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minimind.dir/src/detection/roi_processor.cpp.o -MF CMakeFiles/minimind.dir/src/detection/roi_processor.cpp.o.d -o CMakeFiles/minimind.dir/src/detection/roi_processor.cpp.o -c /home/arduino/Q/src/detection/roi_processor.cpp
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minimind.dir/src/detection/roi_processor.cpp.o -MF CMakeFiles/minimind.dir/src/detection/roi_processor.cpp.o.d -o CMakeFiles/minimind.dir/src/detection/roi_processor.cpp.o -c /home/arduino/Q/src/detection/roi_processor.cpp
 
 CMakeFiles/minimind.dir/src/detection/roi_processor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/minimind.dir/src/detection/roi_processor.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arduino/Q/src/detection/roi_processor.cpp > CMakeFiles/minimind.dir/src/detection/roi_processor.cpp.i
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arduino/Q/src/detection/roi_processor.cpp > CMakeFiles/minimind.dir/src/detection/roi_processor.cpp.i
 
 CMakeFiles/minimind.dir/src/detection/roi_processor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/minimind.dir/src/detection/roi_processor.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arduino/Q/src/detection/roi_processor.cpp -o CMakeFiles/minimind.dir/src/detection/roi_processor.cpp.s
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arduino/Q/src/detection/roi_processor.cpp -o CMakeFiles/minimind.dir/src/detection/roi_processor.cpp.s
 
 CMakeFiles/minimind.dir/src/detection/roi_inference.cpp.o: CMakeFiles/minimind.dir/flags.make
 CMakeFiles/minimind.dir/src/detection/roi_inference.cpp.o: /home/arduino/Q/src/detection/roi_inference.cpp
 CMakeFiles/minimind.dir/src/detection/roi_inference.cpp.o: CMakeFiles/minimind.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arduino/Q/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/minimind.dir/src/detection/roi_inference.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minimind.dir/src/detection/roi_inference.cpp.o -MF CMakeFiles/minimind.dir/src/detection/roi_inference.cpp.o.d -o CMakeFiles/minimind.dir/src/detection/roi_inference.cpp.o -c /home/arduino/Q/src/detection/roi_inference.cpp
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minimind.dir/src/detection/roi_inference.cpp.o -MF CMakeFiles/minimind.dir/src/detection/roi_inference.cpp.o.d -o CMakeFiles/minimind.dir/src/detection/roi_inference.cpp.o -c /home/arduino/Q/src/detection/roi_inference.cpp
 
 CMakeFiles/minimind.dir/src/detection/roi_inference.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/minimind.dir/src/detection/roi_inference.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arduino/Q/src/detection/roi_inference.cpp > CMakeFiles/minimind.dir/src/detection/roi_inference.cpp.i
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arduino/Q/src/detection/roi_inference.cpp > CMakeFiles/minimind.dir/src/detection/roi_inference.cpp.i
 
 CMakeFiles/minimind.dir/src/detection/roi_inference.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/minimind.dir/src/detection/roi_inference.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arduino/Q/src/detection/roi_inference.cpp -o CMakeFiles/minimind.dir/src/detection/roi_inference.cpp.s
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arduino/Q/src/detection/roi_inference.cpp -o CMakeFiles/minimind.dir/src/detection/roi_inference.cpp.s
 
 CMakeFiles/minimind.dir/src/pipeline/producer.cpp.o: CMakeFiles/minimind.dir/flags.make
 CMakeFiles/minimind.dir/src/pipeline/producer.cpp.o: /home/arduino/Q/src/pipeline/producer.cpp
 CMakeFiles/minimind.dir/src/pipeline/producer.cpp.o: CMakeFiles/minimind.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arduino/Q/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/minimind.dir/src/pipeline/producer.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minimind.dir/src/pipeline/producer.cpp.o -MF CMakeFiles/minimind.dir/src/pipeline/producer.cpp.o.d -o CMakeFiles/minimind.dir/src/pipeline/producer.cpp.o -c /home/arduino/Q/src/pipeline/producer.cpp
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minimind.dir/src/pipeline/producer.cpp.o -MF CMakeFiles/minimind.dir/src/pipeline/producer.cpp.o.d -o CMakeFiles/minimind.dir/src/pipeline/producer.cpp.o -c /home/arduino/Q/src/pipeline/producer.cpp
 
 CMakeFiles/minimind.dir/src/pipeline/producer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/minimind.dir/src/pipeline/producer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arduino/Q/src/pipeline/producer.cpp > CMakeFiles/minimind.dir/src/pipeline/producer.cpp.i
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arduino/Q/src/pipeline/producer.cpp > CMakeFiles/minimind.dir/src/pipeline/producer.cpp.i
 
 CMakeFiles/minimind.dir/src/pipeline/producer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/minimind.dir/src/pipeline/producer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arduino/Q/src/pipeline/producer.cpp -o CMakeFiles/minimind.dir/src/pipeline/producer.cpp.s
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arduino/Q/src/pipeline/producer.cpp -o CMakeFiles/minimind.dir/src/pipeline/producer.cpp.s
 
 CMakeFiles/minimind.dir/src/pipeline/data_sender.cpp.o: CMakeFiles/minimind.dir/flags.make
 CMakeFiles/minimind.dir/src/pipeline/data_sender.cpp.o: /home/arduino/Q/src/pipeline/data_sender.cpp
 CMakeFiles/minimind.dir/src/pipeline/data_sender.cpp.o: CMakeFiles/minimind.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arduino/Q/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/minimind.dir/src/pipeline/data_sender.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minimind.dir/src/pipeline/data_sender.cpp.o -MF CMakeFiles/minimind.dir/src/pipeline/data_sender.cpp.o.d -o CMakeFiles/minimind.dir/src/pipeline/data_sender.cpp.o -c /home/arduino/Q/src/pipeline/data_sender.cpp
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minimind.dir/src/pipeline/data_sender.cpp.o -MF CMakeFiles/minimind.dir/src/pipeline/data_sender.cpp.o.d -o CMakeFiles/minimind.dir/src/pipeline/data_sender.cpp.o -c /home/arduino/Q/src/pipeline/data_sender.cpp
 
 CMakeFiles/minimind.dir/src/pipeline/data_sender.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/minimind.dir/src/pipeline/data_sender.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arduino/Q/src/pipeline/data_sender.cpp > CMakeFiles/minimind.dir/src/pipeline/data_sender.cpp.i
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arduino/Q/src/pipeline/data_sender.cpp > CMakeFiles/minimind.dir/src/pipeline/data_sender.cpp.i
 
 CMakeFiles/minimind.dir/src/pipeline/data_sender.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/minimind.dir/src/pipeline/data_sender.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arduino/Q/src/pipeline/data_sender.cpp -o CMakeFiles/minimind.dir/src/pipeline/data_sender.cpp.s
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arduino/Q/src/pipeline/data_sender.cpp -o CMakeFiles/minimind.dir/src/pipeline/data_sender.cpp.s
 
 CMakeFiles/minimind.dir/src/pipeline/consumer.cpp.o: CMakeFiles/minimind.dir/flags.make
 CMakeFiles/minimind.dir/src/pipeline/consumer.cpp.o: /home/arduino/Q/src/pipeline/consumer.cpp
 CMakeFiles/minimind.dir/src/pipeline/consumer.cpp.o: CMakeFiles/minimind.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arduino/Q/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/minimind.dir/src/pipeline/consumer.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minimind.dir/src/pipeline/consumer.cpp.o -MF CMakeFiles/minimind.dir/src/pipeline/consumer.cpp.o.d -o CMakeFiles/minimind.dir/src/pipeline/consumer.cpp.o -c /home/arduino/Q/src/pipeline/consumer.cpp
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minimind.dir/src/pipeline/consumer.cpp.o -MF CMakeFiles/minimind.dir/src/pipeline/consumer.cpp.o.d -o CMakeFiles/minimind.dir/src/pipeline/consumer.cpp.o -c /home/arduino/Q/src/pipeline/consumer.cpp
 
 CMakeFiles/minimind.dir/src/pipeline/consumer.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/minimind.dir/src/pipeline/consumer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arduino/Q/src/pipeline/consumer.cpp > CMakeFiles/minimind.dir/src/pipeline/consumer.cpp.i
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arduino/Q/src/pipeline/consumer.cpp > CMakeFiles/minimind.dir/src/pipeline/consumer.cpp.i
 
 CMakeFiles/minimind.dir/src/pipeline/consumer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/minimind.dir/src/pipeline/consumer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arduino/Q/src/pipeline/consumer.cpp -o CMakeFiles/minimind.dir/src/pipeline/consumer.cpp.s
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arduino/Q/src/pipeline/consumer.cpp -o CMakeFiles/minimind.dir/src/pipeline/consumer.cpp.s
+
+CMakeFiles/minimind.dir/src/pipeline/io_worker.cpp.o: CMakeFiles/minimind.dir/flags.make
+CMakeFiles/minimind.dir/src/pipeline/io_worker.cpp.o: /home/arduino/Q/src/pipeline/io_worker.cpp
+CMakeFiles/minimind.dir/src/pipeline/io_worker.cpp.o: CMakeFiles/minimind.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arduino/Q/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/minimind.dir/src/pipeline/io_worker.cpp.o"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minimind.dir/src/pipeline/io_worker.cpp.o -MF CMakeFiles/minimind.dir/src/pipeline/io_worker.cpp.o.d -o CMakeFiles/minimind.dir/src/pipeline/io_worker.cpp.o -c /home/arduino/Q/src/pipeline/io_worker.cpp
+
+CMakeFiles/minimind.dir/src/pipeline/io_worker.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/minimind.dir/src/pipeline/io_worker.cpp.i"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arduino/Q/src/pipeline/io_worker.cpp > CMakeFiles/minimind.dir/src/pipeline/io_worker.cpp.i
+
+CMakeFiles/minimind.dir/src/pipeline/io_worker.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/minimind.dir/src/pipeline/io_worker.cpp.s"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arduino/Q/src/pipeline/io_worker.cpp -o CMakeFiles/minimind.dir/src/pipeline/io_worker.cpp.s
+
+CMakeFiles/minimind.dir/src/pipeline/led_controller.cpp.o: CMakeFiles/minimind.dir/flags.make
+CMakeFiles/minimind.dir/src/pipeline/led_controller.cpp.o: /home/arduino/Q/src/pipeline/led_controller.cpp
+CMakeFiles/minimind.dir/src/pipeline/led_controller.cpp.o: CMakeFiles/minimind.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arduino/Q/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/minimind.dir/src/pipeline/led_controller.cpp.o"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minimind.dir/src/pipeline/led_controller.cpp.o -MF CMakeFiles/minimind.dir/src/pipeline/led_controller.cpp.o.d -o CMakeFiles/minimind.dir/src/pipeline/led_controller.cpp.o -c /home/arduino/Q/src/pipeline/led_controller.cpp
+
+CMakeFiles/minimind.dir/src/pipeline/led_controller.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/minimind.dir/src/pipeline/led_controller.cpp.i"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arduino/Q/src/pipeline/led_controller.cpp > CMakeFiles/minimind.dir/src/pipeline/led_controller.cpp.i
+
+CMakeFiles/minimind.dir/src/pipeline/led_controller.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/minimind.dir/src/pipeline/led_controller.cpp.s"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arduino/Q/src/pipeline/led_controller.cpp -o CMakeFiles/minimind.dir/src/pipeline/led_controller.cpp.s
+
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.cpp.o: CMakeFiles/minimind.dir/flags.make
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.cpp.o: /home/arduino/Q/third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.cpp
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.cpp.o: CMakeFiles/minimind.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arduino/Q/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.cpp.o"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.cpp.o -MF CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.cpp.o.d -o CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.cpp.o -c /home/arduino/Q/third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.cpp
+
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.cpp.i"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arduino/Q/third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.cpp > CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.cpp.i
+
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.cpp.s"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arduino/Q/third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.cpp -o CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.cpp.s
+
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.cpp.o: CMakeFiles/minimind.dir/flags.make
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.cpp.o: /home/arduino/Q/third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.cpp
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.cpp.o: CMakeFiles/minimind.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arduino/Q/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.cpp.o"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.cpp.o -MF CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.cpp.o.d -o CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.cpp.o -c /home/arduino/Q/third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.cpp
+
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.cpp.i"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arduino/Q/third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.cpp > CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.cpp.i
+
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.cpp.s"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arduino/Q/third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.cpp -o CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.cpp.s
+
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/image/processing.cpp.o: CMakeFiles/minimind.dir/flags.make
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/image/processing.cpp.o: /home/arduino/Q/third_party/edge_impulse/sdk/dsp/image/processing.cpp
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/image/processing.cpp.o: CMakeFiles/minimind.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arduino/Q/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/image/processing.cpp.o"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/image/processing.cpp.o -MF CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/image/processing.cpp.o.d -o CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/image/processing.cpp.o -c /home/arduino/Q/third_party/edge_impulse/sdk/dsp/image/processing.cpp
+
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/image/processing.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/image/processing.cpp.i"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arduino/Q/third_party/edge_impulse/sdk/dsp/image/processing.cpp > CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/image/processing.cpp.i
+
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/image/processing.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/image/processing.cpp.s"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arduino/Q/third_party/edge_impulse/sdk/dsp/image/processing.cpp -o CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/image/processing.cpp.s
+
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.cpp.o: CMakeFiles/minimind.dir/flags.make
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.cpp.o: /home/arduino/Q/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.cpp
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.cpp.o: CMakeFiles/minimind.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arduino/Q/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.cpp.o"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.cpp.o -MF CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.cpp.o.d -o CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.cpp.o -c /home/arduino/Q/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.cpp
+
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.cpp.i"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arduino/Q/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.cpp > CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.cpp.i
+
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.cpp.s"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arduino/Q/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.cpp -o CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.cpp.s
+
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.cpp.o: CMakeFiles/minimind.dir/flags.make
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.cpp.o: /home/arduino/Q/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.cpp
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.cpp.o: CMakeFiles/minimind.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arduino/Q/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.cpp.o"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.cpp.o -MF CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.cpp.o.d -o CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.cpp.o -c /home/arduino/Q/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.cpp
+
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.cpp.i"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arduino/Q/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.cpp > CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.cpp.i
+
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.cpp.s"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arduino/Q/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.cpp -o CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.cpp.s
+
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/memory.cpp.o: CMakeFiles/minimind.dir/flags.make
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/memory.cpp.o: /home/arduino/Q/third_party/edge_impulse/sdk/dsp/memory.cpp
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/memory.cpp.o: CMakeFiles/minimind.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arduino/Q/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/memory.cpp.o"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/memory.cpp.o -MF CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/memory.cpp.o.d -o CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/memory.cpp.o -c /home/arduino/Q/third_party/edge_impulse/sdk/dsp/memory.cpp
+
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/memory.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/memory.cpp.i"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arduino/Q/third_party/edge_impulse/sdk/dsp/memory.cpp > CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/memory.cpp.i
+
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/memory.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/memory.cpp.s"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arduino/Q/third_party/edge_impulse/sdk/dsp/memory.cpp -o CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/memory.cpp.s
+
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/debug_log.cpp.o: CMakeFiles/minimind.dir/flags.make
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/debug_log.cpp.o: /home/arduino/Q/third_party/edge_impulse/sdk/porting/posix/debug_log.cpp
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/debug_log.cpp.o: CMakeFiles/minimind.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arduino/Q/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/debug_log.cpp.o"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/debug_log.cpp.o -MF CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/debug_log.cpp.o.d -o CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/debug_log.cpp.o -c /home/arduino/Q/third_party/edge_impulse/sdk/porting/posix/debug_log.cpp
+
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/debug_log.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/debug_log.cpp.i"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arduino/Q/third_party/edge_impulse/sdk/porting/posix/debug_log.cpp > CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/debug_log.cpp.i
+
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/debug_log.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/debug_log.cpp.s"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arduino/Q/third_party/edge_impulse/sdk/porting/posix/debug_log.cpp -o CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/debug_log.cpp.s
+
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.cpp.o: CMakeFiles/minimind.dir/flags.make
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.cpp.o: /home/arduino/Q/third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.cpp
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.cpp.o: CMakeFiles/minimind.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arduino/Q/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.cpp.o"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.cpp.o -MF CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.cpp.o.d -o CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.cpp.o -c /home/arduino/Q/third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.cpp
+
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.cpp.i"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arduino/Q/third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.cpp > CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.cpp.i
+
+CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.cpp.s"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arduino/Q/third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.cpp -o CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.cpp.s
+
+CMakeFiles/minimind.dir/third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.cpp.o: CMakeFiles/minimind.dir/flags.make
+CMakeFiles/minimind.dir/third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.cpp.o: /home/arduino/Q/third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.cpp
+CMakeFiles/minimind.dir/third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.cpp.o: CMakeFiles/minimind.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/arduino/Q/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/minimind.dir/third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.cpp.o"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minimind.dir/third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.cpp.o -MF CMakeFiles/minimind.dir/third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.cpp.o.d -o CMakeFiles/minimind.dir/third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.cpp.o -c /home/arduino/Q/third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.cpp
+
+CMakeFiles/minimind.dir/third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/minimind.dir/third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.cpp.i"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/arduino/Q/third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.cpp > CMakeFiles/minimind.dir/third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.cpp.i
+
+CMakeFiles/minimind.dir/third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/minimind.dir/third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.cpp.s"
+	clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/arduino/Q/third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.cpp -o CMakeFiles/minimind.dir/third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.cpp.s
 
 # Object files for target minimind
 minimind_OBJECTS = \
@@ -238,7 +392,18 @@ minimind_OBJECTS = \
 "CMakeFiles/minimind.dir/src/detection/roi_inference.cpp.o" \
 "CMakeFiles/minimind.dir/src/pipeline/producer.cpp.o" \
 "CMakeFiles/minimind.dir/src/pipeline/data_sender.cpp.o" \
-"CMakeFiles/minimind.dir/src/pipeline/consumer.cpp.o"
+"CMakeFiles/minimind.dir/src/pipeline/consumer.cpp.o" \
+"CMakeFiles/minimind.dir/src/pipeline/io_worker.cpp.o" \
+"CMakeFiles/minimind.dir/src/pipeline/led_controller.cpp.o" \
+"CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.cpp.o" \
+"CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.cpp.o" \
+"CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/image/processing.cpp.o" \
+"CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.cpp.o" \
+"CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.cpp.o" \
+"CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/memory.cpp.o" \
+"CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/debug_log.cpp.o" \
+"CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.cpp.o" \
+"CMakeFiles/minimind.dir/third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.cpp.o"
 
 # External object files for target minimind
 minimind_EXTERNAL_OBJECTS =
@@ -254,65 +419,148 @@ minimind: CMakeFiles/minimind.dir/src/detection/roi_inference.cpp.o
 minimind: CMakeFiles/minimind.dir/src/pipeline/producer.cpp.o
 minimind: CMakeFiles/minimind.dir/src/pipeline/data_sender.cpp.o
 minimind: CMakeFiles/minimind.dir/src/pipeline/consumer.cpp.o
+minimind: CMakeFiles/minimind.dir/src/pipeline/io_worker.cpp.o
+minimind: CMakeFiles/minimind.dir/src/pipeline/led_controller.cpp.o
+minimind: CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/classifier/ei_run_classifier_c.cpp.o
+minimind: CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/dct/fast-dct-fft.cpp.o
+minimind: CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/image/processing.cpp.o
+minimind: CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fft.cpp.o
+minimind: CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/kissfft/kiss_fftr.cpp.o
+minimind: CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/dsp/memory.cpp.o
+minimind: CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/debug_log.cpp.o
+minimind: CMakeFiles/minimind.dir/third_party/edge_impulse/sdk/porting/posix/ei_classifier_porting.cpp.o
+minimind: CMakeFiles/minimind.dir/third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.cpp.o
 minimind: CMakeFiles/minimind.dir/build.make
 minimind: CMakeFiles/minimind.dir/compiler_depend.ts
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_stitching.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_alphamat.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_bgsegm.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_bioinspired.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_ccalib.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_dnn_objdetect.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_dnn_superres.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_dpm.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_face.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_fuzzy.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_gapi.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_hfs.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_img_hash.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_intensity_transform.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_line_descriptor.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_quality.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_rapid.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_reg.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_rgbd.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_saliency.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_signal.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_structured_light.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_superres.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_surface_matching.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_videostab.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_wechat_qrcode.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_xfeatures2d.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_xobjdetect.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_xphoto.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_xstereo.so.5.0.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_stitching.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_alphamat.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_aruco.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_bgsegm.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_bioinspired.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_ccalib.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_cvv.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_dnn_objdetect.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_dnn_superres.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_dpm.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_face.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_freetype.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_fuzzy.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_hdf.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_hfs.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_img_hash.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_intensity_transform.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_line_descriptor.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_mcc.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_quality.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_rapid.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_reg.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_rgbd.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_saliency.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_shape.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_signal.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_stereo.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_structured_light.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_superres.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_surface_matching.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_tracking.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_videostab.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_viz.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_wechat_qrcode.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_xobjdetect.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_xphoto.so.4.10.0
 minimind: /usr/lib/aarch64-linux-gnu/libOpenCL.so
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_shape.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_ptcloud.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_calib.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_phase_unwrapping.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_optflow.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_ximgproc.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_objdetect.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_photo.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_stereo.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_tracking.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_highgui.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_video.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_videoio.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_datasets.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_imgcodecs.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_plot.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_text.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_features.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_dnn.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_imgproc.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_ml.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_geometry.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_flann.so.5.0.0
-minimind: /home/arduino/opencv5_build/opencv/build/lib/libopencv_core.so.5.0.0
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_strings.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_status.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_statusor.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_cord.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_cord_internal.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_cordz_functions.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_cordz_handle.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_cordz_info.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_cordz_sample_token.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_synchronization.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_graphcycles_internal.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_kernel_timeout_internal.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_stacktrace.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_symbolize.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_debugging_internal.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_demangle_internal.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_hash.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_city.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_low_level_hash.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_raw_hash_set.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_hashtablez_sampler.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_time.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_time_zone.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_civil_time.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_int128.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_throw_delegate.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_base.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_log_severity.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_raw_logging_internal.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_spinlock_wait.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_malloc_internal.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_bad_optional_access.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_bad_variant_access.a
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_highgui.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_datasets.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_plot.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_text.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_ml.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_phase_unwrapping.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_optflow.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_ximgproc.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_video.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_videoio.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_imgcodecs.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_objdetect.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_calib3d.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_dnn.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_features2d.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_flann.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_photo.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_imgproc.so.4.10.0
+minimind: /usr/lib/aarch64-linux-gnu/libopencv_core.so.4.10.0
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_status.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_cord.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_strerror.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_cordz_info.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_cord_internal.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_crc_cord_state.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_crc32c.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_str_format_internal.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_crc_internal.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_crc_cpu_detect.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_cordz_functions.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_cordz_handle.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_hash.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_city.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_low_level_hash.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_bad_variant_access.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_exponential_biased.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_synchronization.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_graphcycles_internal.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_kernel_timeout_internal.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_stacktrace.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_symbolize.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_debugging_internal.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_demangle_internal.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_time.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_strings.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_string_view.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_throw_delegate.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_strings_internal.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_time_zone.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_civil_time.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_int128.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_malloc_internal.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_base.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_spinlock_wait.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_bad_optional_access.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_raw_logging_internal.a
+minimind: /home/arduino/Q/third_party/absl/lib/libabsl_log_severity.a
 minimind: CMakeFiles/minimind.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/arduino/Q/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable minimind"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/arduino/Q/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Linking CXX executable minimind"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/minimind.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

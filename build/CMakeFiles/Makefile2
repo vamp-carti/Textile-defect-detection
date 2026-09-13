@@ -79,8 +79,6 @@ preinstall:
 # The main recursive "clean" target.
 clean: CMakeFiles/minimind.dir/clean
 clean: CMakeFiles/calibration_compute.dir/clean
-clean: CMakeFiles/run.dir/clean
-clean: CMakeFiles/run_async.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -90,12 +88,12 @@ clean: CMakeFiles/run_async.dir/clean
 CMakeFiles/minimind.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/arduino/Q/build/CMakeFiles --progress-num=6,7,8,9,10,11,12,13,14,15,16,17 "Built target minimind"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/arduino/Q/build/CMakeFiles --progress-num=6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28 "Built target minimind"
 .PHONY : CMakeFiles/minimind.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/minimind.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/arduino/Q/build/CMakeFiles 12
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/arduino/Q/build/CMakeFiles 23
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/minimind.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/arduino/Q/build/CMakeFiles 0
 .PHONY : CMakeFiles/minimind.dir/rule
@@ -107,7 +105,7 @@ minimind: CMakeFiles/minimind.dir/rule
 # codegen rule for target.
 CMakeFiles/minimind.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/minimind.dir/build.make CMakeFiles/minimind.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/arduino/Q/build/CMakeFiles --progress-num=6,7,8,9,10,11,12,13,14,15,16,17 "Finished codegen for target minimind"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/arduino/Q/build/CMakeFiles --progress-num=6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28 "Finished codegen for target minimind"
 .PHONY : CMakeFiles/minimind.dir/codegen
 
 # clean rule for target.
@@ -146,70 +144,6 @@ CMakeFiles/calibration_compute.dir/codegen:
 CMakeFiles/calibration_compute.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/calibration_compute.dir/build.make CMakeFiles/calibration_compute.dir/clean
 .PHONY : CMakeFiles/calibration_compute.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/run.dir
-
-# All Build rule for target.
-CMakeFiles/run.dir/all: CMakeFiles/minimind.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/arduino/Q/build/CMakeFiles --progress-num= "Built target run"
-.PHONY : CMakeFiles/run.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/run.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/arduino/Q/build/CMakeFiles 12
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/run.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/arduino/Q/build/CMakeFiles 0
-.PHONY : CMakeFiles/run.dir/rule
-
-# Convenience name for target.
-run: CMakeFiles/run.dir/rule
-.PHONY : run
-
-# codegen rule for target.
-CMakeFiles/run.dir/codegen: CMakeFiles/minimind.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/arduino/Q/build/CMakeFiles --progress-num= "Finished codegen for target run"
-.PHONY : CMakeFiles/run.dir/codegen
-
-# clean rule for target.
-CMakeFiles/run.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/run.dir/build.make CMakeFiles/run.dir/clean
-.PHONY : CMakeFiles/run.dir/clean
-
-#=============================================================================
-# Target rules for target CMakeFiles/run_async.dir
-
-# All Build rule for target.
-CMakeFiles/run_async.dir/all: CMakeFiles/minimind.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_async.dir/build.make CMakeFiles/run_async.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_async.dir/build.make CMakeFiles/run_async.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/arduino/Q/build/CMakeFiles --progress-num= "Built target run_async"
-.PHONY : CMakeFiles/run_async.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/run_async.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/arduino/Q/build/CMakeFiles 12
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/run_async.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/arduino/Q/build/CMakeFiles 0
-.PHONY : CMakeFiles/run_async.dir/rule
-
-# Convenience name for target.
-run_async: CMakeFiles/run_async.dir/rule
-.PHONY : run_async
-
-# codegen rule for target.
-CMakeFiles/run_async.dir/codegen: CMakeFiles/minimind.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_async.dir/build.make CMakeFiles/run_async.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/arduino/Q/build/CMakeFiles --progress-num= "Finished codegen for target run_async"
-.PHONY : CMakeFiles/run_async.dir/codegen
-
-# clean rule for target.
-CMakeFiles/run_async.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/run_async.dir/build.make CMakeFiles/run_async.dir/clean
-.PHONY : CMakeFiles/run_async.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

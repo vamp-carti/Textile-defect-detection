@@ -1,4 +1,5 @@
 #include <iostream>
+#include "pipeline/io_worker.hpp"
 #include "roi_inference.hpp"
 #include <iomanip>
 #include <unistd.h>
@@ -14,15 +15,11 @@
 #include <MNN/Tensor.hpp>
 #include <opencv2/imgproc.hpp>
 #include <opencv2/imgcodecs.hpp>
-
-struct DefectReport {
-    int frame_id;
-    int roi_id;
-    std::string predicted_class;
-    float confidence;
-    float defect_probability;
-    std::chrono::system_clock::time_point timestamp;
-}; 
+#include "third_party/edge_impulse/sdk/classifier/ei_run_classifier.h"
+#include "third_party/edge_impulse/model/tflite/tflite_learn_1101485_3.h"
+#include <string>
+#include "core/defect_report.hpp" 
+#include <chrono>
 
 extern std::vector<DefectReport> g_defect_reports;
 extern std::mutex g_defect_mutex;
@@ -36,6 +33,8 @@ ROIInference::ROIInference(
 )
     : defect_threshold_(defect_threshold)
 {
+    // The OpenCL backend is loaded explicitly because MNN discovers it through
+    // the shared object at runtime on the target board.
     // Save original stderr file descriptor
     int stderr_backup = -1;
     int null_fd = -1;
@@ -101,12 +100,16 @@ ROIInference::ROIInference(
                   << "  Defect threshold: " << defect_threshold_ << "\n";
     }
 
+    // Warm up the CPU inference path (XNNPACK delegate, caches, etc.)
+    warmup();
+
     // Restore stderr
     if (!Config::getInstance().isDebugMode()) {
         dup2(stderr_backup, STDERR_FILENO);
         close(null_fd);
         close(stderr_backup);
     }
+    
 }
 
 ROIInference::~ROIInference()
@@ -134,6 +137,8 @@ BenchmarkTimer& ROIInference::getBenchmarkTimer()
 
 void ROIInference::prepareInput(const cv::Mat& rgb, float* input)
 {
+    // The MNN model expects normalized, channel-first RGB tensors in 224x224
+    // form. The CPU Edge Impulse path has a separate packed-RGB contract.
     if (rgb.empty()) {
         throw std::runtime_error("ROI image is empty");
     }
@@ -163,6 +168,9 @@ void ROIInference::prepareInput(const cv::Mat& rgb, float* input)
 
 float ROIInference::computeDefectProbability(const std::vector<float>& probabilities) const
 {
+    // Class order is cuts=0, hole=1, lint=2, normal=3, oil=4 in both model
+    // exports. Only cuts, holes, and oil are production defects; lint and
+    // normal remain valid classes but must not contribute to this sum.
     return probabilities[CUTS_IDX] + probabilities[HOLE_IDX] + probabilities[OIL_IDX];
 }
 
@@ -202,8 +210,11 @@ void ROIInference::ensureBatchCapacity(int batch_size)
     }
 }
 
-void ROIInference::saveDefectFrame(const ROIResult& roi, const ROIInferenceResult& result, const cv::Mat& original_frame)
+DefectImages ROIInference::saveDefectFrame(const ROIResult& roi, const ROIInferenceResult& result,
+                                           const cv::Mat& original_frame, const std::string& source)
 {
+    DefectImages out;
+
     // ============================================================
     // 1. STORE DEFECT REPORT FOR CSV
     // ============================================================
@@ -214,25 +225,25 @@ void ROIInference::saveDefectFrame(const ROIResult& roi, const ROIInferenceResul
     report.confidence = result.confidence;
     report.defect_probability = result.defect_probability;
     report.timestamp = std::chrono::system_clock::now();
-    
-    // Push to global vector for CSV export
+
     {
         std::lock_guard<std::mutex> lock(g_defect_mutex);
         g_defect_reports.push_back(report);
-
     }
-    
+
     // ============================================================
     // 2. CHECK IF SAVING IS ENABLED
     // ============================================================
     if (!Config::getInstance().production.save_defects) {
-        std::cout << "[DEBUG] save_defects is FALSE, returning early" << std::endl;
-        return;
+        if (Config::getInstance().isDebugMode()) {
+            std::cout << "[DEBUG] save_defects is FALSE, not producing images" << std::endl;
+        }
+        return out;   // empty DefectImages
     }
-    
+
     // ============================================================
     // 3. SETUP OUTPUT DIRECTORIES
-    // ============================================================ 
+    // ============================================================
     std::string base_dir = "output/";
     std::string rois_dir = base_dir + "rois/";
     std::string frames_dir = base_dir + "frames/";
@@ -240,68 +251,60 @@ void ROIInference::saveDefectFrame(const ROIResult& roi, const ROIInferenceResul
     system(cmd.c_str());
 
     // ============================================================
-    // FORMAT FRAME NUMBER (ADD THIS)
+    // 4. FORMAT FRAME NUMBER
     // ============================================================
     std::stringstream ss_frame;
     ss_frame << std::setw(6) << std::setfill('0') << roi.frame_id;
     std::string frame_str = ss_frame.str();
 
     // ============================================================
-    // 4. SAVE ROI CROP (only for defects)
+    // 5. BUILD ROI CROP
     // ============================================================
-    std::stringstream ss_roi;
-    ss_roi << rois_dir << "frame_" << frame_str 
-           << "_roi_" << roi.box.number << ".jpg";
-    
-    cv::Mat roi_display;
-    cv::cvtColor(roi.image, roi_display, cv::COLOR_RGB2BGR);
-    
-    // Add label on ROI image
-    std::string label = result.predicted_label + " " + 
-                        std::to_string((int)(result.confidence * 100)) + "%";
-    cv::putText(roi_display, label, 
-                cv::Point(10, 30), 
-                cv::FONT_HERSHEY_SIMPLEX, 0.6, 
+    out.roi_path = rois_dir + "frame_" + frame_str + "_roi_" + std::to_string(roi.box.number) + ".jpg";
+
+    cv::cvtColor(roi.image, out.roi_display, cv::COLOR_RGB2BGR);
+
+    std::string label = result.predicted_label + " " +
+                        std::to_string((int)(result.confidence * 100)) + "%[" + source + "]";
+    cv::putText(out.roi_display, label,
+                cv::Point(10, 30),
+                cv::FONT_HERSHEY_SIMPLEX, 0.6,
                 cv::Scalar(0, 0, 255), 2);
-    
-    cv::imwrite(ss_roi.str(), roi_display);
-    
+
     // ============================================================
-    // 5. SAVE FULL FRAME WITH ROI BOX OVERLAY
+    // 6. BUILD FULL FRAME WITH ROI BOX OVERLAY
     // ============================================================
     if (!original_frame.empty()) {
-        std::stringstream ss_full;
-        ss_full << frames_dir << "frame_" << frame_str << "_full.jpg";
-        
-        cv::Mat full_display;
-        cv::cvtColor(original_frame, full_display, cv::COLOR_RGB2BGR);
-        
-        // Draw ROI box on full frame
-        cv::rectangle(full_display, 
+        out.full_path = frames_dir + "frame_" + frame_str + "_full.jpg";
+
+        cv::cvtColor(original_frame, out.full_display, cv::COLOR_RGB2BGR);
+
+        cv::rectangle(out.full_display,
                       cv::Rect(roi.box.x, roi.box.y, roi.box.width, roi.box.height),
                       cv::Scalar(0, 0, 255), 3);
-        
-        // Draw label
-        cv::putText(full_display, label, 
+
+        cv::putText(out.full_display, label,
                     cv::Point(roi.box.x, roi.box.y - 10),
-                    cv::FONT_HERSHEY_SIMPLEX, 0.8, 
+                    cv::FONT_HERSHEY_SIMPLEX, 0.8,
                     cv::Scalar(0, 0, 255), 2);
-        
-        
-        cv::imwrite(ss_full.str(), full_display);
-        std::cout << "[FRAME SAVED] " << ss_full.str() << std::endl;
     } else {
-        std::cout << "[DEBUG] original_frame is EMPTY, skipping full frame save" << std::endl;
-}
-    
+        if (Config::getInstance().isDebugMode()) {
+            std::cout << "[DEBUG] original_frame is EMPTY, skipping full frame build" << std::endl;
+        }
+    }
+
     // ============================================================
-    // 6. LOG OUTPUT
+    // 7. LOG (work has been produced, not yet written)
     // ============================================================
-    std::cout << "[DEFECT SAVED] Frame: " << roi.frame_id 
+    std::cout << "[DEFECT SCHEDULED] Frame: " << roi.frame_id
               << " | ROI: " << roi.box.number
               << " | Class: " << result.predicted_label
               << " | Confidence: " << std::fixed << std::setprecision(1) << (result.confidence * 100) << "%"
-              << " | Saved to: " << rois_dir << std::endl;
+              << " | ROI path: " << out.roi_path
+              << (out.full_path.empty() ? "" : " | Full path: " + out.full_path)
+              << std::endl;
+
+    return out;
 }
 
 ROIInferenceResult ROIInference::infer(const ROIResult& roi)
@@ -374,7 +377,13 @@ ROIInferenceResult ROIInference::infer(const ROIResult& roi)
 
     const float confidence = probabilities[predicted_class];
     const float defect_probability = computeDefectProbability(probabilities);
-    const bool defect = defect_probability >= defect_threshold_;
+    const bool predicted_is_non_defect =
+        (predicted_class == LINT_IDX) || (predicted_class == NORMAL_IDX);
+
+    // The low production threshold favors recall. A high-confidence lint or
+    // normal argmax is still treated as non-defect by the confidence guard.
+    const bool defect = (defect_probability >= defect_threshold_) &&
+                        (!predicted_is_non_defect || confidence < 0.80f);
 
     benchmark_.stop("08h_postprocess");
 
@@ -388,9 +397,11 @@ ROIInferenceResult ROIInference::infer(const ROIResult& roi)
         defect
     };
 
-    // Save if defect detected
     if (defect) {
-        saveDefectFrame(roi, result, m_current_frame);  // Need to store current frame
+        // Single-ROI path: no async worker available. Write synchronously.
+        DefectImages imgs = saveDefectFrame(roi, result, m_current_frame, "GPU");
+        if (!imgs.roi_display.empty())  cv::imwrite(imgs.roi_path,  imgs.roi_display);
+        if (!imgs.full_display.empty()) cv::imwrite(imgs.full_path, imgs.full_display);
     }
 
     return result;
@@ -481,16 +492,6 @@ std::vector<ROIInferenceResult> ROIInference::processBatchInternal(const std::ve
     }
     benchmark_.stop("08batch_get_input_tensor");
 
-    if (Config::getInstance().isDebugMode()) {
-        std::cout << "\n[DEBUG] BEFORE any operations:" << std::endl;
-        std::cout << "  Input tensor dimensions: " << input_tensor->dimensions() << std::endl;
-        std::cout << "  Input tensor shape: ";
-        for (int i = 0; i < input_tensor->dimensions(); ++i) {
-            std::cout << input_tensor->length(i) << " ";
-        }
-        std::cout << std::endl;
-    }
-
     benchmark_.start("08batch_ensure_capacity");
     ensureBatchCapacity(batch_size);
     benchmark_.stop("08batch_ensure_capacity");
@@ -512,29 +513,9 @@ std::vector<ROIInferenceResult> ROIInference::processBatchInternal(const std::ve
     interpreter_->resizeTensor(input_tensor, batch_shape);
     benchmark_.stop("08batch_resize_tensor");
 
-    if (Config::getInstance().isDebugMode()) {
-        std::cout << "\n[DEBUG] AFTER resizeTensor:" << std::endl;
-        std::cout << "  Input tensor dimensions: " << input_tensor->dimensions() << std::endl;
-        std::cout << "  Input tensor shape: ";
-        for (int i = 0; i < input_tensor->dimensions(); ++i) {
-            std::cout << input_tensor->length(i) << " ";
-        }
-        std::cout << std::endl;
-    }
-
     benchmark_.start("08batch_resize_session");
     interpreter_->resizeSession(session_);
     benchmark_.stop("08batch_resize_session");
-
-    if (Config::getInstance().isDebugMode()) {
-        std::cout << "\n[DEBUG] AFTER resizeSession:" << std::endl;
-        std::cout << "  Input tensor dimensions: " << input_tensor->dimensions() << std::endl;
-        std::cout << "  Input tensor shape: ";
-        for (int i = 0; i < input_tensor->dimensions(); ++i) {
-            std::cout << input_tensor->length(i) << " ";
-        }
-        std::cout << std::endl;
-    }
 
     benchmark_.start("08batch_get_input_after_resize");
     input_tensor = interpreter_->getSessionInput(session_, nullptr);
@@ -542,16 +523,6 @@ std::vector<ROIInferenceResult> ROIInference::processBatchInternal(const std::ve
         throw std::runtime_error("Failed to get input tensor after resize");
     }
     benchmark_.stop("08batch_get_input_after_resize");
-
-    if (Config::getInstance().isDebugMode()) {
-        std::cout << "\n[DEBUG] FINAL input tensor after resize:" << std::endl;
-        std::cout << "  Input tensor dimensions: " << input_tensor->dimensions() << std::endl;
-        std::cout << "  Input tensor shape: ";
-        for (int i = 0; i < input_tensor->dimensions(); ++i) {
-            std::cout << input_tensor->length(i) << " ";
-        }
-        std::cout << std::endl;
-    }
 
     benchmark_.start("08batch_copy_to_device");
     bool copy_success = input_tensor->copyFromHostTensor(batch_host_input_.get());
@@ -598,28 +569,10 @@ std::vector<ROIInferenceResult> ROIInference::processBatchInternal(const std::ve
     }
     benchmark_.stop("08batch_copy_to_host");
 
-    if (Config::getInstance().isDebugMode()) {
-        std::cout << "[DEBUG] AFTER copyToHostTensor()" << std::endl;
-        std::cout << "  Host output dimensions: " << batch_host_output_->dimensions() << std::endl;
-        std::cout << "  Host output shape: ";
-        for (int i = 0; i < batch_host_output_->dimensions(); ++i) {
-            std::cout << batch_host_output_->length(i) << " ";
-        }
-        std::cout << std::endl;
-    }
-
     benchmark_.start("08batch_postprocess");
     const float* logits = batch_host_output_->host<float>();
     if (!logits) {
         throw std::runtime_error("Failed to access output logits");
-    }
-
-    if (Config::getInstance().isDebugMode()) {
-        std::cout << "\n[DEBUG] First 5 logits: ";
-        for (int i = 0; i < 5 && i < batch_size * NUM_CLASSES; ++i) {
-            std::cout << logits[i] << " ";
-        }
-        std::cout << std::endl;
     }
 
 
@@ -655,7 +608,11 @@ std::vector<ROIInferenceResult> ROIInference::processBatchInternal(const std::ve
 
         const float confidence = probabilities[predicted_class];
         const float defect_probability = computeDefectProbability(probabilities);
-        const bool defect = defect_probability >= defect_threshold_;
+	const bool predicted_is_non_defect =
+	    (predicted_class == LINT_IDX) || (predicted_class == NORMAL_IDX);
+
+	const bool defect = (defect_probability >= defect_threshold_) &&
+	                    (!predicted_is_non_defect || confidence < 0.80f);
 
         ROIInferenceResult result = {
             roi.frame_id,
@@ -670,13 +627,40 @@ std::vector<ROIInferenceResult> ROIInference::processBatchInternal(const std::ve
         results.push_back(result);
 
         if (defect) {
-            std::cout << "\033[32;0H" << std::flush;
-            std::cout << "[DEFECT DETECTED] Frame: " << roi.frame_id 
+            result.flag_time_ms = std::chrono::duration<double, std::milli>(
+                std::chrono::high_resolution_clock::now().time_since_epoch()
+            ).count();
+
+            std::cout << "[DEFECT DETECTED] Frame: " << roi.frame_id
                       << " | ROI: " << roi.box.number
+                      << " | Batch idx: " << i
                       << " | Class: " << CLASS_NAMES[predicted_class]
-                      << " | Confidence: " << std::fixed << std::setprecision(1) << (confidence * 100) << "%" << std::endl;
+                      << " | Confidence: " << std::fixed << std::setprecision(1) << (confidence * 100) << "%"
+                      << " | DefectProb: " << std::fixed << std::setprecision(6) << defect_probability
+                      << " (thr " << defect_threshold_ << ")" << std::endl;
+
+            std::cout << "  Logits:";
+            for (int j = 0; j < NUM_CLASSES; ++j) {
+                std::cout << " " << std::fixed << std::setprecision(3) << roi_logits[j];
+            }
+            std::cout << "  [cuts hole lint normal oil]" << std::endl;
+
+            std::cout << "  Probs :";
+            for (int j = 0; j < NUM_CLASSES; ++j) {
+                std::cout << " " << std::fixed << std::setprecision(6) << probabilities[j];
+            }
+            std::cout << std::endl;
+
             frame_has_defect = true;
-            saveDefectFrame(roi, result, m_current_frame);
+            // Batched GPU path: enqueue to async worker if available, else write inline.
+            DefectImages imgs = saveDefectFrame(roi, result, m_current_frame, "GPU");
+            if (io_worker_) {
+                if (!imgs.roi_display.empty())  io_worker_->enqueue_write(std::move(imgs.roi_display),  imgs.roi_path);
+                if (!imgs.full_display.empty()) io_worker_->enqueue_write(std::move(imgs.full_display), imgs.full_path);
+            } else {
+                if (!imgs.roi_display.empty())  cv::imwrite(imgs.roi_path,  imgs.roi_display);
+                if (!imgs.full_display.empty()) cv::imwrite(imgs.full_path, imgs.full_display);
+            }
         }         
     }
 
@@ -693,6 +677,187 @@ std::vector<ROIInferenceResult> ROIInference::processBatchInternal(const std::ve
     }
 
     return results;
+}
+
+ROIInferenceResult ROIInference::inferCPU(const ROIResult& roi) {
+    // TIMER_START_BEGIN
+    auto t_pack_0 = std::chrono::high_resolution_clock::now();
+    // TIMER_START_END
+
+    // Safety check
+    if (roi.image.empty() || roi.image.rows != 224 || roi.image.cols != 224) {
+        throw std::runtime_error("Invalid ROI image for CPU inference");
+    }
+    
+    // Prepare input for Edge Impulse - Packed RGB (1 float per pixel)
+    std::vector<float> raw_features;
+    raw_features.reserve(224 * 224);  // 50,176 features
+    
+    // roi.image is already RGB (from ROIResult)
+    for (int y = 0; y < 224; y++) {
+        for (int x = 0; x < 224; x++) {
+            cv::Vec3b pixel = roi.image.at<cv::Vec3b>(y, x);
+            // Pack RGB into a single float: (R << 16) | (G << 8) | B
+            uint32_t rgb_packed = (static_cast<uint32_t>(pixel[0]) << 16) | 
+                                  (static_cast<uint32_t>(pixel[1]) << 8) | 
+                                  static_cast<uint32_t>(pixel[2]);
+            raw_features.push_back(static_cast<float>(rgb_packed));
+        }
+    }
+
+    // TIMER_PACK_END
+    auto t_pack_1 = std::chrono::high_resolution_clock::now();
+    // TIMER_PACK_END
+    
+    // Verify size matches expected
+    if (raw_features.size() != EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE) {
+        std::cerr << "CPU inference: raw_features size " << raw_features.size() 
+                  << " != " << EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE << std::endl;
+        throw std::runtime_error("Invalid raw_features size for CPU inference");
+    }
+    
+    // Run Edge Impulse classifier
+    signal_t signal;
+    numpy::signal_from_buffer(raw_features.data(), raw_features.size(), &signal);
+
+    // TIMER_SETUP_END
+    auto t_setup_1 = std::chrono::high_resolution_clock::now();
+    // TIMER_SETUP_END
+    
+    ei_impulse_result_t ei_result;
+    EI_IMPULSE_ERROR res = run_classifier(&signal, &ei_result, false);
+    if (res != EI_IMPULSE_OK) {
+        throw std::runtime_error("Edge Impulse inference failed");
+    }
+
+    // TIMER_CLASSIFY_END
+    auto t_classify_1 = std::chrono::high_resolution_clock::now();
+    // TIMER_CLASSIFY_END
+    
+    // Get raw logits from Edge Impulse
+    std::vector<float> logits(NUM_CLASSES);
+    for (int i = 0; i < NUM_CLASSES && i < EI_CLASSIFIER_LABEL_COUNT; i++) {
+        logits[i] = ei_result.classification[i].value;
+    }
+    
+    // Apply softmax to convert logits to probabilities
+    float max_logit = logits[0];
+    for (int i = 1; i < NUM_CLASSES; i++) {
+        max_logit = std::max(max_logit, logits[i]);
+    }
+    
+    std::vector<float> probabilities(NUM_CLASSES);
+    float sum = 0.0f;
+    for (int i = 0; i < NUM_CLASSES; i++) {
+        probabilities[i] = std::exp(logits[i] - max_logit);
+        sum += probabilities[i];
+    }
+    for (float& p : probabilities) {
+        p /= sum;
+    }
+    
+    const int predicted_class = static_cast<int>(
+        std::max_element(probabilities.begin(), probabilities.end()) - probabilities.begin()
+    );
+    const float confidence = probabilities[predicted_class];
+
+    const float defect_probability = computeDefectProbability(probabilities);
+    const bool predicted_is_non_defect =
+	(predicted_class == LINT_IDX) || (predicted_class == NORMAL_IDX);
+
+    const bool defect = (defect_probability >= defect_threshold_) &&
+	                (!predicted_is_non_defect || confidence < 0.80f);
+
+    // ============================================================
+    // DEBUG: dump logits and probabilities for this ROI //////////////////////////////////////////////////////////////////////////////////////////////////////
+    // ============================================================
+
+    if (Config::getInstance().isDebugMode()) {
+        static int roi_dump_counter = 0;
+        std::string dump_dir = "output/debug/roi_crops/";
+        static bool dir_created = false;
+        if (!dir_created) { system(("mkdir -p " + dump_dir).c_str()); dir_created = true; }
+
+        std::stringstream ss;
+        ss << dump_dir << "frame_" << std::setw(4) << std::setfill('0') << roi.frame_id
+           << "_roi_" << roi.box.number << "_" << roi_dump_counter++ << ".png";
+        cv::Mat bgr_dump;
+        cv::cvtColor(roi.image, bgr_dump, cv::COLOR_RGB2BGR);
+        cv::imwrite(ss.str(), bgr_dump);
+
+        std::cout << "[inferCPU] Dumped ROI crop: " << ss.str()
+                  << " (roi.box: x=" << roi.box.x << " y=" << roi.box.y
+                  << " w=" << roi.box.width << " h=" << roi.box.height << ")"
+                  << std::endl;
+    }
+
+    if (Config::getInstance().isDebugMode()) {
+        std::cout << "[inferCPU] Frame " << roi.frame_id
+                  << " ROI " << roi.box.number
+                  << " | Logits:";
+        for (int i = 0; i < NUM_CLASSES; ++i) {
+            std::cout << " " << std::fixed << std::setprecision(3) << logits[i];
+        }
+        std::cout << "  [cuts hole lint normal oil]" << std::endl;
+
+        std::cout << "[inferCPU] Frame " << roi.frame_id
+                  << " ROI " << roi.box.number
+                  << " | Probs :";
+        for (int i = 0; i < NUM_CLASSES; ++i) {
+            std::cout << " " << std::fixed << std::setprecision(6) << probabilities[i];
+        }
+        std::cout << std::endl;
+
+        std::cout << "[inferCPU] Frame " << roi.frame_id
+                  << " ROI " << roi.box.number
+                  << " | predicted=" << CLASS_NAMES[predicted_class]
+                  << " confidence=" << std::fixed << std::setprecision(4) << confidence
+                  << " defect_prob=" << std::fixed << std::setprecision(6) << defect_probability
+                  << " threshold=" << defect_threshold_
+                  << " defect=" << (defect ? "true" : "false")
+                  << std::endl;
+    }
+
+    // ============================================================
+    // DEBUG: dump logits and probabilities for this ROI //////////////////////////////////////////////////////////////////////////////////////////////////////
+    // ============================================================
+
+    ROIInferenceResult result = {
+        roi.frame_id,
+        roi.box,
+        predicted_class,
+        CLASS_NAMES[predicted_class],
+        defect_probability,
+        probabilities[predicted_class],
+        defect
+    };
+    
+    return result;
+}
+
+void ROIInference::warmup() {
+    std::cout << "[ROIInference] Warming up CPU inference..." << std::endl;
+
+    // Build a dummy 224x224 RGB image (gray)
+    cv::Mat dummy(224, 224, CV_8UC3, cv::Scalar(128, 128, 128));
+
+    ROIResult dummy_roi;
+    dummy_roi.frame_id = -1;
+    dummy_roi.image = dummy;
+
+    auto t0 = std::chrono::high_resolution_clock::now();
+
+    try {
+        inferCPU(dummy_roi);
+    } catch (const std::exception& e) {
+        std::cerr << "[ROIInference] Warmup failed: " << e.what() << std::endl;
+        return;
+    }
+
+    auto t1 = std::chrono::high_resolution_clock::now();
+    double ms = std::chrono::duration<double, std::milli>(t1 - t0).count();
+
+    std::cout << "[ROIInference] Warmup complete: " << ms << " ms" << std::endl;
 }
 
 } // namespace minimind

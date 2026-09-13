@@ -1,5 +1,8 @@
 #include "roi_processor.hpp"
-
+#include "core/config.hpp"
+#include <sstream>
+#include <iomanip>
+#include <opencv2/imgcodecs.hpp>
 #include <opencv2/imgproc.hpp>
 #include <algorithm>
 #include <cmath>
@@ -23,10 +26,23 @@ double centroidDistance(
 
 void ROIProcessor::projectTo4K(
     const std::vector<DefectComponent>& components,
+    const cv::Mat& original_rgb,
     std::vector<ROIComponent>& output
 ) {
+    // Level 1 works in a configured coordinate system; ROI classification must
+    // return to the source frame so crops and overlays line up with the camera.
     output.clear();
     output.reserve(components.size());
+
+    // DefectComponent coordinates are in Level1's working space,
+    // which is target_w x target_h (from config). original_rgb is the
+    // frame at its native resolution. The scale is the ratio of the two,
+    // computed per frame — it must not be hardcoded.
+    const int target_w = Config::getInstance().image.target_w;
+    const int target_h = Config::getInstance().image.target_h;
+
+    const double scale_x = static_cast<double>(original_rgb.cols) / target_w;
+    const double scale_y = static_cast<double>(original_rgb.rows) / target_h;
 
     for (const auto& c : components) {
         ROIComponent r;
@@ -34,16 +50,16 @@ void ROIProcessor::projectTo4K(
         r.frame_id = c.frame_id;
         r.id = c.id;
 
-        r.x = static_cast<int>(std::round(c.x * SCALE_X));
-        r.y = static_cast<int>(std::round(c.y * SCALE_Y));
+        r.x = static_cast<int>(std::round(c.x * scale_x));
+        r.y = static_cast<int>(std::round(c.y * scale_y));
 
-        r.width = static_cast<int>(std::round(c.width * SCALE_X));
-        r.height = static_cast<int>(std::round(c.height * SCALE_Y));
+        r.width = static_cast<int>(std::round(c.width * scale_x));
+        r.height = static_cast<int>(std::round(c.height * scale_y));
 
-        r.area = static_cast<int>(std::round(c.area * SCALE_X * SCALE_Y));
+        r.area = static_cast<int>(std::round(c.area * scale_x * scale_y));
 
-        r.centroid_x = c.centroid_x * SCALE_X;
-        r.centroid_y = c.centroid_y * SCALE_Y;
+        r.centroid_x = c.centroid_x * scale_x;
+        r.centroid_y = c.centroid_y * scale_y;
 
         r.covered = false;
 
@@ -81,6 +97,8 @@ std::vector<std::vector<int>> ROIProcessor::bfsSpatialClustering(
     const std::vector<ROIComponent>& components,
     const std::vector<int>& indices
 ) {
+    // P2 candidates close in centroid and overall span are treated as one
+    // meaningful region rather than producing many redundant crops.
     std::vector<std::vector<int>> clusters;
 
     const int n = static_cast<int>(indices.size());
@@ -161,6 +179,9 @@ void ROIProcessor::generateROIs(
     std::vector<ROIComponent>& components,
     std::vector<ROIBox>& output
 ) {
+    // Priority order is intentional: large isolated defects first, then dense
+    // mid-sized clusters, then remaining components as fallback coverage. The
+    // area and distance constants below are tuned heuristics, not model limits.
     output.clear();
 
     if (components.empty())
@@ -592,7 +613,7 @@ std::vector<ROIResult> ROIProcessor::process(
         return {};
 
     benchmark_.start("09_roi_projection");    
-    projectTo4K(components, projected_components_);
+    projectTo4K(components, original_rgb, projected_components_);
     benchmark_.stop("09_roi_projection");
 
     benchmark_.start("10_roi_generation");
@@ -608,13 +629,67 @@ std::vector<ROIResult> ROIProcessor::process(
     benchmark_.stop("12_roi_extraction");
 
     if (Config::getInstance().isDebugMode()) {
-        std::cout << "\n[ROI DEBUG] Generated " << results_.size() << " ROIs:\n";
-        for (const auto& roi : results_) {
-            std::cout << "  ROI " << roi.box.number 
-                      << " | Priority: " << roi.box.priority
-                      << " | Area: " << (roi.box.width * roi.box.height)
-                      << " | Position: (" << roi.box.x << ", " << roi.box.y << ")\n";
+        if (Config::getInstance().debug.verbose_roi) {
+            std::cout << "\n[ROI DEBUG] Generated " << results_.size() << " ROIs:\n";
+            for (const auto& roi : results_) {
+                std::cout << "  ROI " << roi.box.number 
+                          << " | Priority: " << roi.box.priority
+                          << " | Area: " << (roi.box.width * roi.box.height)
+                          << " | Position: (" << roi.box.x << ", " << roi.box.y << ")\n";
+            }
+        } else {
+            std::cout << "  [ROI] Generated " << results_.size() << " ROIs\n";
         }
+
+        // ============================================================
+        // DEBUG: draw all ROI boxes + crop rects on the original frame
+        // Remove this whole block when done debugging.
+        // ============================================================
+        {
+            cv::Mat overlay;
+            cv::cvtColor(original_rgb, overlay, cv::COLOR_RGB2BGR);
+
+            for (const auto& roi : results_) {
+                cv::Rect box_rect(
+                    roi.box.x, roi.box.y,
+                    roi.box.width, roi.box.height
+                );
+                cv::rectangle(overlay, box_rect, cv::Scalar(0, 255, 0), 3);
+
+                cv::Rect crop_rect(
+                    roi.crop_x, roi.crop_y,
+                    roi.crop_width, roi.crop_height
+                );
+                cv::rectangle(overlay, crop_rect, cv::Scalar(0, 0, 255), 1);
+
+                std::string label =
+                    "#" + std::to_string(roi.box.number) +
+                    " " + roi.box.priority;
+                cv::putText(
+                    overlay, label,
+                    cv::Point(roi.box.x, std::max(15, roi.box.y - 5)),
+                    cv::FONT_HERSHEY_SIMPLEX, 0.7,
+                    cv::Scalar(0, 255, 0), 2
+                );
+            }
+
+            static bool overlay_dir_created = false;
+            if (!overlay_dir_created) {
+                system("mkdir -p output/debug");
+                overlay_dir_created = true;
+            }
+
+            std::stringstream ss;
+            ss << "output/debug/rois_overlay_frame_"
+               << std::setw(6) << std::setfill('0')
+               << components.front().frame_id
+               << ".png";
+            cv::imwrite(ss.str(), overlay);
+            std::cout << "  [ROI] Overlay written: " << ss.str() << std::endl;
+        }
+        // ============================================================
+        // END DEBUG overlay
+        // ============================================================
     }
 
     return results_;

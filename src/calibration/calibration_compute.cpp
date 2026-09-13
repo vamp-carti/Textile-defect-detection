@@ -16,6 +16,10 @@ namespace minimind {
 namespace {
 
 cv::Mat extractCentralPatch(const cv::Mat& img, int patch_size = 256) {
+    // The operator is expected to center the fabric in the frame, so this patch
+    // is used as the representative background for calibration. A defect in
+    // the patch contaminates the derived statistics; there is no guard here.
+    // Rejecting smaller frames avoids silently producing invalid statistics.
     int h = img.rows;
     int w = img.cols;
     
@@ -34,6 +38,8 @@ cv::Mat extractCentralPatch(const cv::Mat& img, int patch_size = 256) {
 void computeFFTParams(const cv::Mat& patch, double& fx, double& fy, 
                       double& theta, double& lambd, int& ksize, 
                       double& sigma, double& gamma) {
+    // Use the strongest non-DC spectral peak to estimate the fabric direction
+    // and wavelength for the Gabor filters used by Level 1.
     int P_SIZE = patch.rows;
     int w = patch.cols;
     int h = patch.rows;
@@ -79,6 +85,8 @@ void computeFFTParams(const cv::Mat& patch, double& fx, double& fy,
 
 void computeVarianceStats(const cv::Mat& patch, int V_WIN, 
                           double& var_mean, double& var_std, double& var_limit) {
+    // The variance envelope captures local texture variation in a clean region;
+    // its mean and spread become the runtime rejection threshold.
     cv::Mat patch_f;
     patch.convertTo(patch_f, CV_32F);
     
@@ -198,7 +206,10 @@ std::vector<std::pair<double, double>> extractSpectralPeaks(const cv::Mat& patch
 
 } // anonymous namespace
 
-CalibrationData CalibrationComputer::computeFromFrame(const cv::Mat& grayscale_frame) {
+CalibrationData CalibrationComputer::computeFromFrame(
+    const cv::Mat& grayscale_frame,
+    std::function<void(int)> progress_cb)
+{
     if (grayscale_frame.empty()) {
         throw std::runtime_error("Input frame is empty");
     }
@@ -207,25 +218,37 @@ CalibrationData CalibrationComputer::computeFromFrame(const cv::Mat& grayscale_f
         throw std::runtime_error("Input must be grayscale (1 channel)");
     }
     
+    if (progress_cb) progress_cb(5);
+
     int P_SIZE = 256;
     cv::Mat patch = extractCentralPatch(grayscale_frame, P_SIZE);
-    
+
+    if (progress_cb) progress_cb(25);
+
     double fx, fy, theta, lambd, sigma;
     int ksize;
     double gamma = 1.0;
     computeFFTParams(patch, fx, fy, theta, lambd, ksize, sigma, gamma);
-    
+
+    if (progress_cb) progress_cb(45);
+
     int V_WIN = 15;
     double var_mean, var_std, var_limit;
     computeVarianceStats(patch, V_WIN, var_mean, var_std, var_limit);
     double K_SIGMA = 4.0;
-    
+
+    if (progress_cb) progress_cb(65);
+
     double struct_mean, struct_std, int_mean, int_std;
     computeStructuralStats(patch, ksize, sigma, theta, lambd, gamma,
                            struct_mean, struct_std, int_mean, int_std);
-    
+
+    if (progress_cb) progress_cb(85);
+
     std::vector<std::pair<double, double>> peak_coords = extractSpectralPeaks(patch, 12, 8);
-    
+
+    if (progress_cb) progress_cb(95);
+
     CalibrationData calib;
     
     calib.fx = fx;
@@ -272,7 +295,8 @@ CalibrationData CalibrationComputer::computeFromFrame(const cv::Mat& grayscale_f
     calib.v_win_ds = std::max(3, computed_v_win);
     
     calib.border_crop = std::max(4, calib.ksize_ds / 2);
-    
+
+    if (progress_cb) progress_cb(100);    
     return calib;
 }
 

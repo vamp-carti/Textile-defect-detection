@@ -21,10 +21,13 @@
         "log_detections": false,
         "log_timing": false,
         "draw_debug_boxes": false,
-        "save_intermediate": false
+        "save_intermediate": false,
+        "verbose_roi": false,
+        "verbose_tflite": false,
+        "save_level1_maps": false
     },
     "timing": {
-        "enabled": false,
+        "enabled": true,
         "measure_inference": false,
         "measure_preprocessing": false,
         "measure_postprocessing": false
@@ -36,10 +39,10 @@
         "warmup_iterations": 10,
         "log_file": "minimind.log",
         "save_defects": true,
-        "defect_output_dir": "output",
+        "defect_output_dir": "output/",
 	"model_path": "models/mobilenetv4_conv_small_batch.mnn",
-        "opencl_backend_path": "cpp_gpu_runtime/lib/libMNN_CL.so",
-        "defect_threshold": 0.0092,
+        "opencl_backend_path": "third_party/mnn/lib/libMNN_CL.so",
+        "defect_threshold": 0.005,
         "calibration_path": "calibration_metrics.json"
     }
 }

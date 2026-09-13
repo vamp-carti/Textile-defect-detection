@@ -1,5 +1,5 @@
 #include "data_sender.hpp"
-
+#include <cmath>
 #include <iostream>
 #include <cstring>
 #include <unistd.h>
@@ -9,6 +9,13 @@
 #include <fcntl.h>
 
 namespace minimind {
+
+namespace {
+std::string safeFloat(float v) {
+    if (!std::isfinite(v)) return "0";
+    return std::to_string(v);
+}
+} // anonymous namespace
 
 DataSender::DataSender(int port) 
     : m_port(port), m_running(false) {}
@@ -36,6 +43,8 @@ void DataSender::updateData(const UIData& data) {
 }
 
 void DataSender::serverLoop() {
+    // The UI polls a lightweight TCP stream; select() gives stop() a bounded
+    // wake-up time without requiring a second control socket.
     int server_fd, client_fd;
     struct sockaddr_in address;
     int opt = 1;
@@ -117,22 +126,9 @@ void DataSender::serverLoop() {
 void DataSender::handleClient(int client_fd) {
     std::cout << "[DataSender] Client connected" << std::endl;
     
-    // Send initial data
-    sendData(client_fd);
-    
-    char buffer[1024];
     while (m_running) {
-        int bytes_read = read(client_fd, buffer, sizeof(buffer) - 1);
-        if (bytes_read <= 0) {
-            break;
-        }
-        buffer[bytes_read] = '\0';
-        
-        // Check for "GET_DATA" command
-        std::string cmd(buffer);
-        if (cmd.find("GET_DATA") != std::string::npos) {
-            sendData(client_fd);
-        }
+        sendData(client_fd);  // ← Send data continuously
+        usleep(100000);       // ← 100ms delay between sends
     }
     
     close(client_fd);
@@ -140,34 +136,77 @@ void DataSender::handleClient(int client_fd) {
 }
 
 void DataSender::sendData(int client_fd) {
+    // Build one coherent snapshot while holding the mutex, then send it as a
+    // newline-delimited JSON document consumed by ui/ui.py.
     std::lock_guard<std::mutex> lock(m_data_mutex);
     
-    // Build JSON string
     std::string json = "{";
+    
+    // === Status ===
+    json += "\"status\":\"" + m_current_data.status + "\",";
     json += "\"gpu_status\":\"" + m_current_data.gpu_status + "\",";
-    json += "\"cpu_usage\":" + std::to_string(m_current_data.cpu_usage) + ",";
-    json += "\"gpu_temp\":" + std::to_string(m_current_data.gpu_temp) + ",";
-    json += "\"memory_usage_mb\":" + std::to_string(m_current_data.memory_usage_mb) + ",";
+    
+    // === Pipeline stats ===
     json += "\"frames_processed\":" + std::to_string(m_current_data.frames_processed) + ",";
-    json += "\"fps\":" + std::to_string(m_current_data.fps) + ",";
-    json += "\"avg_time_ms\":" + std::to_string(m_current_data.avg_time_ms) + ",";
+    json += "\"queue_size\":" + std::to_string(m_current_data.queue_size) + ",";
+    json += "\"active_count\":" + std::to_string(m_current_data.active_count) + ",";
     json += "\"total_components\":" + std::to_string(m_current_data.total_components) + ",";
     json += "\"total_rois\":" + std::to_string(m_current_data.total_rois) + ",";
     json += "\"total_inferences\":" + std::to_string(m_current_data.total_inferences) + ",";
-    json += "\"queue_size\":" + std::to_string(m_current_data.queue_size) + ",";
-    json += "\"active_count\":" + std::to_string(m_current_data.active_count) + ",";
-    json += "\"status\":\"" + m_current_data.status + "\",";
-    json += "\"has_defect\":" + std::string(m_current_data.has_defect ? "true" : "false");
+    json += "\"fps\":" + safeFloat(m_current_data.fps) + ",";
+    json += "\"avg_time_ms\":" + safeFloat(m_current_data.avg_time_ms) + ",";
     
+    // === System stats ===
+    json += "\"cpu_usage\":" + safeFloat(m_current_data.cpu_usage) + ",";
+    json += "\"cpu_temp\":" + safeFloat(m_current_data.cpu_temp) + ",";
+    json += "\"gpu_temp\":" + safeFloat(m_current_data.gpu_temp) + ",";
+    json += "\"memory_usage_mb\":" + safeFloat(m_current_data.memory_usage_mb) + ",";
+    
+    // === ROI overshoot ===
+    json += "\"roi_overshoot\":" + std::string(m_current_data.roi_overshoot ? "true" : "false") + ",";
+    json += "\"roi_overshoot_frame_id\":" + std::to_string(m_current_data.roi_overshoot_frame_id) + ",";
+
+    // === Calibration state ===
+    json += "\"calibration_state\":\"" + m_current_data.calibration_state + "\",";
+    json += "\"calibration_progress\":" + safeFloat(m_current_data.calibration_progress) + ",";
+    json += "\"calibration_source_path\":\"" + m_current_data.calibration_source_path + "\",";
+    
+    // === Defect frame ===
+    json += "\"has_defect_frame\":" + std::string(m_current_data.has_defect_frame ? "true" : "false") + ",";
+    if (m_current_data.has_defect_frame) {
+        json += "\"defect_frame_id\":" + std::to_string(m_current_data.defect_frame_id) + ",";
+        json += "\"defect_image_width\":" + std::to_string(m_current_data.defect_image_width) + ",";
+        json += "\"defect_image_height\":" + std::to_string(m_current_data.defect_image_height) + ",";
+        json += "\"defect_image_base64\":\"" + m_current_data.defect_image_base64 + "\",";
+    }
+    
+    // === Single defect (backward compatibility) ===
+    json += "\"has_defect\":" + std::string(m_current_data.has_defect ? "true" : "false");
     if (m_current_data.has_defect) {
         json += ",\"last_defect\":{";
         json += "\"frame_id\":" + std::to_string(m_current_data.last_defect.frame_id) + ",";
         json += "\"roi_id\":" + std::to_string(m_current_data.last_defect.roi_id) + ",";
         json += "\"predicted_class\":\"" + m_current_data.last_defect.predicted_class + "\",";
-        json += "\"confidence\":" + std::to_string(m_current_data.last_defect.confidence) + ",";
-        json += "\"defect_probability\":" + std::to_string(m_current_data.last_defect.defect_probability);
+        json += "\"confidence\":" + safeFloat(m_current_data.last_defect.confidence) + ",";
+        json += "\"defect_probability\":" + safeFloat(m_current_data.last_defect.defect_probability);
         json += "}";
     }
+    
+    // === Recent defects ===
+    json += ",\"total_defects\":" + std::to_string(m_current_data.total_defects);
+    json += ",\"recent_defects\":[";
+    for (size_t i = 0; i < m_current_data.recent_defects.size(); i++) {
+        const auto& d = m_current_data.recent_defects[i];
+        if (i > 0) json += ",";
+        json += "{";
+        json += "\"frame_id\":" + std::to_string(d.frame_id) + ",";
+        json += "\"roi_id\":" + std::to_string(d.roi_id) + ",";
+        json += "\"predicted_class\":\"" + d.predicted_class + "\",";
+        json += "\"confidence\":" + safeFloat(d.confidence) + ",";
+        json += "\"defect_probability\":" + safeFloat(d.defect_probability);
+        json += "}";
+    }
+    json += "]";
     
     json += "}\n";
     

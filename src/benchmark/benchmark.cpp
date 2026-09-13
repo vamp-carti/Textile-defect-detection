@@ -6,6 +6,7 @@
 namespace minimind {
 
 void BenchmarkTimer::start(const std::string& stage_name) {
+    // Timing can be disabled globally so production runs avoid clock overhead.
     if (!Config::getInstance().isPerformanceTimingEnabled()) {
         return;
     }
@@ -32,6 +33,7 @@ void BenchmarkTimer::reset() {
 }
 
 void BenchmarkTimer::report() const {
+    // Stage names are reported in map order; callers use a 00_ prefix for totals.
     if (!Config::getInstance().isPerformanceTimingEnabled()) {
         return;
     }

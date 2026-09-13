@@ -1,6 +1,4 @@
 /home/arduino/Q/build/CMakeFiles/minimind.dir
 /home/arduino/Q/build/CMakeFiles/calibration_compute.dir
-/home/arduino/Q/build/CMakeFiles/run.dir
-/home/arduino/Q/build/CMakeFiles/run_async.dir
 /home/arduino/Q/build/CMakeFiles/edit_cache.dir
 /home/arduino/Q/build/CMakeFiles/rebuild_cache.dir

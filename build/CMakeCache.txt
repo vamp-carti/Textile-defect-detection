@@ -213,8 +213,8 @@ OpenCL_INCLUDE_DIR:PATH=/usr/include
 //Path to a library.
 OpenCL_LIBRARY:FILEPATH=/usr/lib/aarch64-linux-gnu/libOpenCL.so
 
-//No help, variable specified on the command line.
-OpenCV_DIR:UNINITIALIZED=/home/arduino/opencv5_build/opencv/build
+//The directory containing a CMake configuration file for OpenCV.
+OpenCV_DIR:PATH=/usr/lib/aarch64-linux-gnu/cmake/opencv4
 
 //Value Computed by CMake
 minimind_BINARY_DIR:STATIC=/home/arduino/Q/build
@@ -295,6 +295,8 @@ CMAKE_GENERATOR_INSTANCE:INTERNAL=
 CMAKE_GENERATOR_PLATFORM:INTERNAL=
 //Name of generator toolset.
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
+//Test CMAKE_HAVE_LIBC_PTHREAD
+CMAKE_HAVE_LIBC_PTHREAD:INTERNAL=1
 //Source directory with the top level CMakeLists.txt file for this
 // project
 CMAKE_HOME_DIRECTORY:INTERNAL=/home/arduino/Q
@@ -365,7 +367,9 @@ CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding OpenCL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenCL:INTERNAL=[/usr/lib/aarch64-linux-gnu/libOpenCL.so][/usr/include][v3.0()]
 //Details about finding OpenCV
-FIND_PACKAGE_MESSAGE_DETAILS_OpenCV:INTERNAL=[/home/arduino/opencv5_build/opencv/build][v5.0.0()]
+FIND_PACKAGE_MESSAGE_DETAILS_OpenCV:INTERNAL=[/usr][v4.10.0()]
+//Details about finding Threads
+FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //Have symbol CL_VERSION_3_0
 OPENCL_VERSION_3_0:INTERNAL=1
 //ADVANCED property for variable: OpenCL_INCLUDE_DIR

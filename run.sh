@@ -1,36 +1,49 @@
 #!/bin/bash
-# ============================================================
-# Minimind - Single Command Launcher
-# ============================================================
+# Textile defect detection — launcher.
+# Starts the minimind pipeline and the UI.
 
-cd "$(dirname "$0")" || exit
+set -e
 
-# Force debug OFF
-export MINIMIND_DEBUG=0
+cd "$(dirname "$0")" || exit 1
 
-# Set GPU environment
+# MNN / OpenCL runtime paths
+export LD_LIBRARY_PATH="$PWD/third_party/mnn/lib:$LD_LIBRARY_PATH"
 export RUSTICL_ENABLE=msm
-export LD_LIBRARY_PATH="$PWD/cpp_gpu_runtime/lib:$PWD/opencv_lib:$LD_LIBRARY_PATH"
 
-# Check if binary exists
-if [ ! -f build/minimind ]; then
-    echo "❌ Binary not found. Run make first."
+INPUT="${INPUT:-$HOME/ArduinoApps/videoledbridge/frames}"
+OUTPUT="${OUTPUT:-output}"
+CALIB="${CALIB:-calibration_metrics.json}"
+
+if [ ! -x build/minimind ]; then
+    echo "[run.sh] build/minimind not found. Build first:"
+    echo "  cmake -S . -B build && cmake --build build -j"
     exit 1
 fi
 
-echo "🚀 Starting minimind..."
-echo "   Press 'S' in the UI to start detection"
-echo "   Press 'E' to export CSV"
-echo "   Press 'Q' to quit"
+echo "[run.sh] input  = $INPUT"
+echo "[run.sh] output = $OUTPUT"
+echo "[run.sh] calib  = $CALIB"
 
-# Launch C++ pipeline in background
-./build/minimind --input input/ --output output/ --async &
+cleanup() {
+    echo ""
+    echo "[run.sh] shutting down..."
+    [ -n "$MINIMIND_PID" ] && kill "$MINIMIND_PID" 2>/dev/null
+    [ -n "$UI_PID" ] && kill "$UI_PID" 2>/dev/null
+    wait 2>/dev/null
+}
+trap cleanup INT TERM EXIT
 
-# Wait a moment for DataSender to start
-sleep 2
+# Launch minimind
+./build/minimind \
+    --input "$INPUT" \
+    --output "$OUTPUT" \
+    --calibration "$CALIB" \
+    --async &
+MINIMIND_PID=$!
 
-# Launch Python UI
-python3 ui_client.py
+# Launch UI
+python3 ui/ui.py &
+UI_PID=$!
 
-# Clean up on exit
-pkill minimind 2>/dev/null
+# Block until either exits
+wait -n 2>/dev/null || wait
