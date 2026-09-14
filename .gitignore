@@ -1,6 +1,3 @@
-# Build artifacts
-build/
-
 # OpenCV 5 binaries — kept locally for the future experiment, not committed
 opencv_lib/
 
