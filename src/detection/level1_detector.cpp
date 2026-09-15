@@ -331,8 +331,8 @@ cv::Mat Level1Detector::process(const cv::Mat& input, int frame_id) {
     timer_.stop("05_struct_morph");
 
     timer_.start("06_variance_stream");
-    cv::boxFilter(img_ds2_, mean_i_, CV_32F, cv::Size(calib_.v_win_ds, calib_.v_win_ds));
-    cv::sqrBoxFilter(img_ds2_, mean_i2_, CV_32F, cv::Size(calib_.v_win_ds, calib_.v_win_ds));
+    cv::boxFilter(img_ds2_, mean_i_, CV_32F, cv::Size(calib_.V_WIN, calib_.V_WIN));
+    cv::sqrBoxFilter(img_ds2_, mean_i2_, CV_32F, cv::Size(calib_.V_WIN, calib_.V_WIN));
     local_variance_ = mean_i2_ - (mean_i_ .mul(mean_i_));
 
     raw_oil_mask_ = local_variance_ > calib_.var_limit;
