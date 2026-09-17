@@ -297,6 +297,15 @@ INPUT=/path/to/images ./run.sh
 ```
 **[Download Test Dataset](https://drive.google.com/drive/folders/1L9pBKGh2iGd0G2FZ86SrW4pFs2tRkcmX?usp=drive_link)**
 
+> [!NOTE]
+> The pipeline watches for **new** files in the input folder. Files that already exist when `minimind` starts are ignored — the ingestion watermark is set to the process start time.
+> To process a pre-existing folder of test images, `touch` each file after `minimind` is running:
+
+ ```bash
+ touch ~/path/to/images/*.jpg
+ ```
+
+
 If you're on a different machine, forward the port for UI:
 
 ```bash
