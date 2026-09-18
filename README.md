@@ -210,11 +210,11 @@ End-to-end throughput in steady state is **~2 FPS** on the QRB2210. Layer 1, IO,
 
 ### Stability testing
 
-The complete pipeline was continuously tested on 500 frames containing both defect and normal samples.
+The complete pipeline was continuously tested on 1000 frames containing both defect and normal samples.
 
 **Results:**
 
-- 500 frames processed
+- 1000 frames processed
 - No detected memory leaks
 - Producer queue capped at 30 frames
 - Continuous operation without restarting the pipeline
